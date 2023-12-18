@@ -6,6 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: #242424;
 }
 
 :root {
@@ -36,4 +37,9 @@ main {
   max-width: 1366px;
   margin: 0 auto;
   width: calc(100% - clamp(32px, calc(160vw/10.24), 160px));
+}
+
+a{
+  text-decoration: unset;
+  color: #242424;
 }

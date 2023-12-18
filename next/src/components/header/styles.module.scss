@@ -1,6 +1,41 @@
 .wrapper {
+  max-width: 1366px;
+  margin: 16px auto 0 auto;
+  width: calc(100% - clamp(32px, calc(80vw/10.24), 80px));
+
+  @media (max-width: 480px) {
+    width: calc(100% - clamp(32px, calc(20vw/10.24), 20px));
+  }
+
   .annotation {
     border-radius: 16px;
     background: var(--yellow-500, #F9BC41);
+    padding: 15px clamp(8px, calc(24vw/7.68), 36px);
+    display: flex;
+    gap: 16px;
+    justify-content: space-around;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    .part {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 32px;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      a,
+      p {
+        color: var(--neutral-900, #202123);
+        font-size: 16px;
+        line-height: 160%;
+        letter-spacing: 0.24px;
+      }
+    }
   }
 }
