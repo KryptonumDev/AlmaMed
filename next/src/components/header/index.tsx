@@ -2,13 +2,11 @@ import React from "react"
 import styles from './styles.module.scss'
 import Link from "next/link"
 
-const { wrapper, annotation, part } = styles
-
 export default function Header() {
   return (
-    <header className={wrapper}>
-      <div className={annotation}>
-        <div className={part}>
+    <header className={styles.wrapper}>
+      <div className={styles.annotation}>
+        <div className={styles.part}>
           <p>
             Bielsk Podlaski | Boćki
           </p>
@@ -16,7 +14,7 @@ export default function Header() {
             Godziny pracy: Pon – Pt: 8.00 – 18.00
           </p>
         </div>
-        <div className={part}>
+        <div className={styles.part}>
           <Link href='/kontakt'>
             <Calendar />
             Umów się do lekarza

@@ -1,0 +1,26 @@
+.primary {
+  border-radius: 12px;
+  background: var(--navy-600, #1F2E60);
+  padding: 12px 30px 14px 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neutral-100, #fff);
+  width: fit-content;
+}
+
+.secondary{
+  border-radius: 12px;
+  border: 1px solid var(--navy-800, #101730);
+  padding: 12px 30px 14px 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+
+  svg{
+    path{
+      fill: var(--navy-800, #101730);
+    }
+  }
+}

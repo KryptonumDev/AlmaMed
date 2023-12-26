@@ -1,0 +1,24 @@
+.wrapper {
+  border-radius: 32px;
+  box-shadow: 2px 2px 4px 0px rgba(39, 58, 120, 0.15);
+  min-height: 224px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  &.blue {
+    border: 2px solid var(--light-blue-500, #0376BE);
+    background: var(--light-blue-100, #F8FCFF);
+  }
+
+  &.green {
+    border: 2px solid var(--green-500, #03BE86);
+    background: var(--green-100, #F8FFFD);
+  }
+
+  &.yellow {
+    border: 2px solid var(--yellow-500, #F9BC41);
+    background: var(--yellow-100, #FFFDF8);
+  }
+}

@@ -1,0 +1,17 @@
+.wrapper {
+  display: grid;
+  gap: 8px;
+  position: relative;
+
+  .label {
+    padding-left: 4px;
+    color: var(--neutral-800, #404346);
+  }
+
+  input {
+    border-radius: 12px;
+    border: 1px solid var(--light-blue-500, #0376BE);
+    background: var(--light-blue-100, #F8FCFF);
+    padding: 12px 16px;
+  }
+}
