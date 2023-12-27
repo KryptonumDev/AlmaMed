@@ -3,12 +3,18 @@
   grid-template-columns: 1fr 1fr;
   gap: 32px;
 
+  @media(max-width: 864px) {
+    grid-template-columns: 1fr;
+    max-width: 610px;
+    margin: 0 auto;
+  }
+
   .left {
     border-radius: 32px;
     border: 1px solid var(--light-blue-600, #025E98);
     background: var(--light-blue-100, #F8FCFF);
     box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
-    padding: 32px;
+    padding: 32px clamp(12px, calc(32vw/7.68), 32px);
 
     display: flex;
     flex-direction: column;
@@ -25,7 +31,7 @@
     border-radius: 32px;
     background: var(--neutral-100, #FFF);
     box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
-    padding: 32px;
+    padding: 32px clamp(12px, calc(32vw/7.68), 32px);
 
     h2{
       margin-bottom: 24px;
@@ -42,4 +48,12 @@
 .form{
   max-width: 400px;
   margin-top: 32px;
+
+  button{
+    margin-top: 32px;
+  }
+
+  input{
+    margin-bottom: 16px;
+  }
 }

@@ -1,0 +1,24 @@
+.wrapper {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 32px 1fr;
+
+  .input {
+    display: none;
+  }
+
+  .checkMark {
+    border-radius: 12px;
+    border: 1px solid var(--navy-600, #1F2E60);
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+
+  input:checked ~ .checkMark {
+    background: var(--navy-600, #1F2E60);
+    border: 1px solid var(--navy-600, #1F2E60);
+  }
+
+}

@@ -3,4 +3,5 @@ export interface Props {
   url?: string;
   onClick?: () => void;
   type: 'primary' | 'secondary';
+  arrow?: boolean;
 }

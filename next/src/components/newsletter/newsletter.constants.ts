@@ -6,5 +6,6 @@ export interface Props {
 }
 
 export type Inputs = {
-  email: string
+  email: string;
+  agreement: boolean;
 }

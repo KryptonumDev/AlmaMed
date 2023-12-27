@@ -10,6 +10,19 @@
   list-style: none;
 }
 
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--navy-600, currentColor);
+  outline-offset: 8px;
+}
+
+p+p{
+  margin-top: 16px;
+}
+
 p,
 li,
 span,

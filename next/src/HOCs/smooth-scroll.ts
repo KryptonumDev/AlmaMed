@@ -1,8 +1,13 @@
-'use client'
+'use client';
+import React from 'react';
 import { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
 
-const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const SmoothScroll = ({ children }: Props) => {
   useEffect(() => {
     const lenis = new Lenis();
     function raf(time: any) {
@@ -10,7 +15,7 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-  }, [])
+  }, []);
   return children;
 };
 

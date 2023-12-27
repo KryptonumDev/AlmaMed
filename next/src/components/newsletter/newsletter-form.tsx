@@ -4,18 +4,18 @@ import styles from './newsletter.module.scss';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Inputs } from "./newsletter.constants";
 import Input from "../ui/input";
-
+import Button from "../ui/button";
+import CheckBox from "../ui/check-box";
 
 export default function Form() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>()
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = () => {
+    // console.log(data)
   }
 
   return (
@@ -25,6 +25,12 @@ export default function Form() {
         label="Twój adres e-mail"
         errors={errors}
       />
+      <CheckBox
+        register={register("agreement", { required: true })}
+        label="Akceptuję politykę prywatności"
+        errors={errors}
+      />
+      <Button arrow={true} title="Zapisuje się" type="primary" />
     </form>
   )
 }
