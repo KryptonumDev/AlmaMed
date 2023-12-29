@@ -35,13 +35,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
   ],
-  fieldsets: [
-    {
-      name: 'social',
-      title: 'Social links',
-      options: {collapsible: true, collapsed: true},
-    },
-  ],
   preview: {
     select: {
       title: 'name',

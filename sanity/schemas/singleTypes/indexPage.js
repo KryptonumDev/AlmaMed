@@ -29,23 +29,8 @@ export default {
       group: 'hero',
       of: [
         {
-          type: 'object',
-          name: 'list_element',
+          type: 'icon_list_element',
           title: 'Element listy',
-          fields: [
-            {
-              name: 'icon',
-              type: 'image',
-              title: 'Ikona',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'text',
-              type: 'string',
-              title: 'Tekst',
-              validation: (Rule) => Rule.required(),
-            },
-          ],
         },
       ],
     },
@@ -97,50 +82,13 @@ export default {
       group: 'tiles',
       of: [
         {
-          type: 'object',
-          name: 'list_element',
-          title: 'Element listy',
-          fields: [
-            {
-              name: 'icon',
-              type: 'image',
-              title: 'Ikona',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'text',
-              type: 'string',
-              title: 'Tekst',
-              validation: (Rule) => Rule.required(),
-            },
-            // {
-            //   name: 'link',
-            //   type: 'reference',
-            //   title: 'Link',
-            //   // to: [{type: 'service'}],
-            // }
-            {
-              name: 'link',
-              type: 'string',
-              title: 'Link',
-            },
-            {
-              name: 'color',
-              type: 'string',
-              title: 'Color',
-              options: {
-                list: [
-                  {title: 'Zielony', value: 'green'},
-                  {title: 'Niebieski', value: 'blue'},
-                  {title: 'Żółty', value: 'yellow'},
-                ],
-                layout: 'radio',
-                direction: 'horizontal',
-              },
-              initialValue: 'green',
-              validation: (Rule) => Rule.required(),
-            },
-          ],
+          type: 'reference',
+          to: {
+            type: 'services',
+          },
+          options: {
+            disableNew: true,
+          },
         },
       ],
     },
@@ -233,23 +181,9 @@ export default {
       group: 'advantages',
       of: [
         {
-          type: 'object',
-          name: 'list_element',
+          type: 'advantages',
+          name: 'advantages',
           title: 'Element listy',
-          fields: [
-            {
-              name: 'title',
-              type: 'string',
-              title: 'Tytuł wyróżnika',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'text',
-              type: 'markdown',
-              title: 'Text wyróżnika',
-              validation: (Rule) => Rule.required(),
-            },
-          ],
         },
       ],
     },
