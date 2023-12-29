@@ -288,8 +288,8 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'cta_cta',
-      type: 'cta',
+      name: 'cta_bigCta',
+      type: 'bigCta',
       title: 'CTA',
       fieldset: 'cta',
       group: 'cta',
