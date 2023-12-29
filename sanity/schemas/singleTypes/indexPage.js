@@ -1,0 +1,478 @@
+export default {
+  name: 'IndexPage',
+  title: 'Homepage',
+  type: 'document',
+  icon: () => '⭐️',
+  fields: [
+    // hero
+    {
+      name: 'hero_Heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'hero',
+      group: 'hero',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'hero_Paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'hero',
+      group: 'hero',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'hero_icons_list',
+      type: 'array',
+      title: 'Lista ikon',
+      fieldset: 'hero',
+      group: 'hero',
+      of: [
+        {
+          type: 'object',
+          name: 'list_element',
+          title: 'Element listy',
+          fields: [
+            {
+              name: 'icon',
+              type: 'image',
+              title: 'Ikona',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'text',
+              type: 'string',
+              title: 'Tekst',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'hero_Cta',
+      type: 'array',
+      title: 'Przyciski pod listą',
+      fieldset: 'hero',
+      group: 'hero',
+      of: [
+        {
+          name: 'cta',
+          type: 'cta',
+          title: 'CTA',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    },
+    {
+      name: 'hero_background',
+      type: 'image',
+      title: 'Obrazek w tle',
+      fieldset: 'hero',
+      group: 'hero',
+      validation: (Rule) => Rule.required(),
+    },
+    // tiles
+    {
+      name: 'tiles_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'tiles',
+      group: 'tiles',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'tiles_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'tiles',
+      group: 'tiles',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'tiles_list',
+      type: 'array',
+      title: 'Lista usług',
+      fieldset: 'tiles',
+      group: 'tiles',
+      of: [
+        {
+          type: 'object',
+          name: 'list_element',
+          title: 'Element listy',
+          fields: [
+            {
+              name: 'icon',
+              type: 'image',
+              title: 'Ikona',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'text',
+              type: 'string',
+              title: 'Tekst',
+              validation: (Rule) => Rule.required(),
+            },
+            // {
+            //   name: 'link',
+            //   type: 'reference',
+            //   title: 'Link',
+            //   // to: [{type: 'service'}],
+            // }
+            {
+              name: 'link',
+              type: 'string',
+              title: 'Link',
+            },
+            {
+              name: 'color',
+              type: 'string',
+              title: 'Color',
+              options: {
+                list: [
+                  {title: 'Zielony', value: 'green'},
+                  {title: 'Niebieski', value: 'blue'},
+                  {title: 'Żółty', value: 'yellow'},
+                ],
+                layout: 'radio',
+                direction: 'horizontal',
+              },
+              initialValue: 'green',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+        },
+      ],
+    },
+    // metrics
+    {
+      name: 'patients',
+      type: 'string',
+      title: 'Ilość pacjentów',
+      fieldset: 'metrics',
+      group: 'metrics',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'averageRating',
+      type: 'string',
+      title: 'Średnia ocena',
+      fieldset: 'metrics',
+      group: 'metrics',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'percentTakenCalls',
+      type: 'string',
+      title: 'Procent odebranych telefonów',
+      fieldset: 'metrics',
+      group: 'metrics',
+      validation: (Rule) => Rule.required(),
+    },
+    // localizations
+    {
+      name: 'localizations_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'localizations',
+      group: 'localizations',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'localizations',
+      type: 'array',
+      title: 'Placówki',
+      fieldset: 'localizations',
+      group: 'localizations',
+      of: [
+        {
+          type: 'reference',
+          title: 'Placówka',
+          to: [{type: 'localizations'}],
+        },
+      ],
+    },
+    {
+      name: 'localizations_Cta_text',
+      type: 'markdown',
+      title: 'Tekst obok przycisku',
+      fieldset: 'localizations',
+      group: 'localizations',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'localizations_Cta_link',
+      type: 'bigCta',
+      title: 'CTA',
+      fieldset: 'localizations',
+      group: 'localizations',
+      validation: (Rule) => Rule.required(),
+    },
+    // advantages
+    {
+      name: 'advantages_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'advantages',
+      group: 'advantages',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'advantages_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'advantages',
+      group: 'advantages',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'advantages_list',
+      type: 'array',
+      title: 'Lista wyróżników',
+      fieldset: 'advantages',
+      group: 'advantages',
+      of: [
+        {
+          type: 'object',
+          name: 'list_element',
+          title: 'Element listy',
+          fields: [
+            {
+              name: 'title',
+              type: 'string',
+              title: 'Tytuł wyróżnika',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'text',
+              type: 'markdown',
+              title: 'Text wyróżnika',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+        },
+      ],
+    },
+    // newsletter
+    {
+      name: 'newsletter_left_icon',
+      type: 'image',
+      title: 'Ikona lewej kolumny',
+      fieldset: 'newsletter',
+      group: 'newsletter',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'newsletter_left_content',
+      type: 'markdown',
+      title: 'Treść lewej kolumny',
+      fieldset: 'newsletter',
+      group: 'newsletter',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'newsletter_left_cta',
+      type: 'cta',
+      title: 'CTA lewej kolumny',
+      fieldset: 'newsletter',
+      group: 'newsletter',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'newsletter_right_heading',
+      type: 'markdown',
+      title: 'Nagłówek prawej kolumny',
+      fieldset: 'newsletter',
+      group: 'newsletter',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'newsletter_right_paragraph',
+      type: 'markdown',
+      title: 'Paragraf prawej kolumny',
+      fieldset: 'newsletter',
+      group: 'newsletter',
+      validation: (Rule) => Rule.required(),
+    },
+    // Formularz..?
+    // prevention
+    {
+      name: 'prevention_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'prevention',
+      group: 'prevention',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'prevention_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'prevention',
+      group: 'prevention',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'prevention_cta',
+      type: 'cta',
+      title: 'CTA',
+      fieldset: 'prevention',
+      group: 'prevention',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'prevention_metrics_title',
+      type: 'string',
+      title: 'Tytuł wykresu',
+      fieldset: 'prevention',
+      group: 'prevention',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'prevention_metrics_number',
+      type: 'number',
+      title: 'Wartość wykresu',
+      fieldset: 'prevention',
+      group: 'prevention',
+      validation: (Rule) => Rule.required().min(0).max(100),
+    },
+    // cta
+    {
+      name: 'cta_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'cta',
+      group: 'cta',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'cta_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'cta',
+      group: 'cta',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'cta_cta',
+      type: 'cta',
+      title: 'CTA',
+      fieldset: 'cta',
+      group: 'cta',
+      validation: (Rule) => Rule.required(),
+    },
+    // blog
+    {
+      name: 'blog_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'blog',
+      group: 'blog',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'blog_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'blog',
+      group: 'blog',
+      validation: (Rule) => Rule.required(),
+    },
+    // seo
+    {
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO',
+      group: 'seo',
+    },
+  ],
+  fieldsets: [
+    {
+      name: 'hero',
+      title: 'Sekcja powitalna',
+      options: {collapsible: true},
+    },
+    {
+      name: 'tiles',
+      title: 'Usługi',
+      options: {collapsible: true},
+    },
+    {
+      name: 'metrics',
+      title: 'Wyniki',
+      options: {collapsible: true},
+    },
+    {
+      name: 'localizations',
+      title: 'Placówki',
+      options: {collapsible: true},
+    },
+    {
+      name: 'advantages',
+      title: 'Wyróżniki',
+      options: {collapsible: true},
+    },
+    {
+      name: 'newsletter',
+      title: 'Newsletter',
+      options: {collapsible: true},
+    },
+    {
+      title: 'Profilaktyka',
+      name: 'prevention',
+      options: {collapsible: true},
+    },
+    {
+      name: 'cta',
+      title: 'Wezwanie do działania',
+      options: {collapsible: true},
+    },
+    {
+      name: 'blog',
+      title: 'Blog',
+      options: {collapsible: true},
+    },
+  ],
+  groups: [
+    {
+      title: 'Sekcja powitalna',
+      name: 'hero',
+    },
+    {
+      title: 'Usługi',
+      name: 'tiles',
+    },
+    {
+      title: 'Wyniki',
+      name: 'metrics',
+    },
+    {
+      title: 'Placówki',
+      name: 'localizations',
+    },
+    {
+      title: 'Wyróżniki',
+      name: 'advantages',
+    },
+    {
+      title: 'Newsletter',
+      name: 'newsletter',
+    },
+    {
+      title: 'Profilaktyka',
+      name: 'prevention',
+    },
+    {
+      title: 'Wezwanie do działania',
+      name: 'cta',
+    },
+    {
+      title: 'Blog',
+      name: 'blog',
+    },
+    {
+      title: 'SEO',
+      name: 'seo',
+    },
+  ],
+}
