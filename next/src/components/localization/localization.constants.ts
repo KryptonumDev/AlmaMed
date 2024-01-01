@@ -1,11 +1,15 @@
 export interface Props {
   title: string;
   cards: Array<{
-    title: string;
+    name: string;
     address: string;
     phone: string;
     email: string;
+    map: string;
   }>;
   ctaTitle: string;
-  ctaLink: object;
+  ctaLink: {
+    href: string;
+    text: string;
+  };
 }

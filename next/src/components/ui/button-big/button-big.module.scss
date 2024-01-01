@@ -8,6 +8,7 @@
   min-width: clamp(163px, calc(163vw/7.68), 278px);
   min-height: 184px;
   height: 100%;
+  padding: 16px;
 
   &.primary{
     border-radius: 32px;

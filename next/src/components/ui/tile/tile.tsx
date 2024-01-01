@@ -1,12 +1,13 @@
-import React from "react";
-import styles from "./styles.module.scss";
-import { Props } from "./tile.constants";
-// import Image from "../image";
+import React from 'react';
+import styles from './tile.module.scss';
+import { Props } from './tile.constants';
+import Image from '../image';
 
-export default function Tile({ color }: Props) {
+export default function Tile({ color, title, icon, className }: Props) {
   return (
-    <div className={`${styles.wrapper} ${styles[color]}`}>
-      {/* <Image src={icon} alt={title} /> */}
+    <div className={`${styles.wrapper} ${styles[color]} ${className}`}>
+      <Image data={icon} />
+      <p>{title}</p>
     </div>
-  )
+  );
 }

@@ -1,0 +1,109 @@
+.wrapper {
+  &.big {
+    .innerCircle {
+      width: 130px !important;
+      height: 130px !important;
+
+      span {
+        font-size: 40px !important;
+      }
+    }
+    .outerCircle {
+      padding: 17px !important;
+      &::before {
+        border: 5px solid var(--yellow-500) !important;
+        --radius: 80px !important;
+      }
+    }
+  }
+}
+
+.innerCircle {
+  width: 130px;
+  height: 130px;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+
+  span {
+    color: var(--navy-500, #273a78);
+    font-size: clamp(24px, 4.1666666667vw, 48px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 48px */
+    letter-spacing: -0.8px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 110px;
+    height: 110px;
+  }
+
+  @media (max-width: 864px) {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.outerCircle {
+  background-color: var(--neutral-100);
+  padding: 17px;
+  border-radius: 50%;
+  position: relative;
+
+  background: conic-gradient(var(--yellow-500) calc(var(--percent) * 3.6deg), var(--neutral-100) 0deg);
+
+  @media (max-width: 720px) {
+    padding: 14px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background: var(--neutral-100);
+    border-radius: 50%;
+    z-index: 0;
+
+    @media (max-width: 720px) {
+      inset: 4px;
+    }
+  }
+
+  &::before {
+    --radius: 80px;
+
+    @media (max-width: 1024px) {
+      --radius: 70px;
+    }
+
+    @media (max-width: 864px) {
+      --radius: 60px;
+    }
+
+    @media (max-width: 720px) {
+      --radius: 56px;
+    }
+
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: var(--neutral-100);
+    border: 5px solid var(--yellow-500);
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: content-box;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    left: calc(50% + var(--radius) * cos(calc(calc(var(--percent) - 25) * 3.6deg)));
+    top: calc(50% + var(--radius) * sin(calc(calc(var(--percent) - 25) * 3.6deg)));
+
+    @media (max-width: 720px) {
+      border: 4px solid var(--yellow-500);
+    }
+  }
+}

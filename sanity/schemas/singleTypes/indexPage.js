@@ -80,6 +80,7 @@ export default {
       title: 'Lista usług',
       fieldset: 'tiles',
       group: 'tiles',
+      validation: (Rule) => Rule.required().max(8),
       of: [
         {
           type: 'reference',

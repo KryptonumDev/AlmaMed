@@ -1,8 +1,26 @@
 export interface Props {
-  ctaText: string;
-  ctaLink: string;
+  content: string;
   title: string;
-  description: string;
+  text: string;
+  link: {
+    href: string;
+    text: string;
+    theme: 'primary' | 'secondary';
+  };
+  icon: {
+    asset: {
+      url: string;
+      altText: string;
+      metadata: {
+        lqip: string;
+        dimensions: {
+          aspectRatio: number;
+          height: number;
+          width: number;
+        };
+      };
+    };
+  };
 }
 
 export type Inputs = {

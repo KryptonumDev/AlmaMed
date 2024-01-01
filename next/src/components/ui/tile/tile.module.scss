@@ -3,9 +3,21 @@
   box-shadow: 2px 2px 4px 0px rgba(39, 58, 120, 0.15);
   min-height: 224px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
+  padding: 24px;
+  text-align: center;
+
+  img{
+    width: 60px;
+    height: 60px;
+  }
+
+  p{
+    max-width: 300px;
+  }
 
   &.blue {
     border: 2px solid var(--light-blue-500, #0376BE);

@@ -2,18 +2,22 @@ import React from 'react';
 import styles from './cta.module.scss';
 import { Props } from './cta.constants';
 import ButtonBig from '../ui/button-big';
+import Markdown from '../ui/markdown';
 
-export default function Cta({ title, text }: Props) {
+export default function Cta({ title, text, link }: Props) {
   return (
     <section className={styles.wrapper}>
       <div className={styles.content}>
-        <h2 className='h3'>{title}</h2>
-        <p>{text}</p>
+        <Markdown.h2
+          className='h3'
+          children={title}
+        />
+        <Markdown.p children={text} />
       </div>
       <ButtonBig
         ctaLink={{
-          url: '#',
-          title: 'Skontaktuj się z nami',
+          url: link.href,
+          title: link.text,
         }}
         type='primary'
       />

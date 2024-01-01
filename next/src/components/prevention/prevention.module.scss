@@ -1,0 +1,33 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+
+  @media (max-width: 864px) {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    display: grid;
+    gap: 32px;
+  }
+
+  .metrics {
+
+    padding: 32px;
+    border-radius: 32px;
+    background: var(--neutral-100, #fff);
+    box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 36px;
+
+    p{
+      max-width: 380px;
+    }
+  }
+}

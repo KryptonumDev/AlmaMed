@@ -1,30 +1,37 @@
-import React from "react";
+import React from 'react';
 import styles from './newsletter.module.scss';
-import Button from "../ui/button";
-import Form from "./newsletter-form";
+import Button from '../ui/button';
+import Form from './newsletter-form';
+import { Props } from './newsletter.constants';
+import Image from '../ui/image';
+import Markdown from '../ui/markdown';
 
-export default function Newsletter() {
+export default function Newsletter({ content, title, text, icon, link }: Props) {
   return (
     <section className={styles.wrapper}>
       <div className={styles.left}>
-        PHONE
+        <Image data={icon} />
         <div>
-          <p className="h4">Masz pytanie lub potrzebujesz pomocy? Skontaktuj się z nami – nasi specjaliści pomogą Ci najszybciej, jak to możliwe.</p>
-          <Button arrow={true} title="Skontaktuj się z nami" url="#" type="primary" />
+          <Markdown.p
+            className='h4'
+            children={content}
+          />
+          <Button
+            arrow={true}
+            title={link.text}
+            url={link.href}
+            type={link.theme}
+          />
         </div>
       </div>
       <div className={styles.right}>
-        <h2 className="h3">Bądź na bieżąco ze zdrowiem – Newsletter</h2>
-        <div>
-          <p>
-            Chcesz być na bieżąco z aktualnościami z centrum medycznego Alma Med?
-          </p>
-          <p>
-            Zapisz się do naszego newslettera, aby nie przegapić informacji o zdrowiu!
-          </p>
-        </div>
+        <Markdown.h2
+          className='h3'
+          children={title}
+        />
+        <Markdown.p children={text} />
         <Form />
       </div>
     </section>
-  )
+  );
 }
