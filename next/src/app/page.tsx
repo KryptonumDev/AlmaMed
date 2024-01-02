@@ -1,13 +1,13 @@
-import Advantages from '../components/advantages';
+import Advantages from '../components/_global/advantages';
 // import BlogSlider from '../components/blog-slider';
-import Cta from '../components/cta';
+import Cta from '../components/_global/cta';
 // import Hero from '../components/hero';
-import Tiles from '../components/tiles';
-import Localization from '../components/localization';
-import Newsletter from '../components/newsletter';
-import Scoring from '../components/scoring';
+import Tiles from '../components/_homepage/tiles';
+import Localization from '../components/_global/localization';
+import Newsletter from '../components/_global/newsletter';
+import Scoring from '../components/_global/scoring';
 import { sanityFetch } from '../utils/sanity-client';
-import Prevention from '../components/prevention';
+import Prevention from '../components/_homepage/prevention';
 
 export default async function Index() {
   const home = await sanityFetch<any>({

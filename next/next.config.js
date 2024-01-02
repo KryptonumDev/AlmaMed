@@ -7,7 +7,6 @@ const nextConfig = {
   //   includePaths: [path.join(__dirname, 'styles')],
   // },
   images: {
-    domains: ['cdn.sanity.io'],
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
