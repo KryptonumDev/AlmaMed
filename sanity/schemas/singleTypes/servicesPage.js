@@ -1,6 +1,6 @@
 export default {
   name: 'servicesPage',
-  title: 'Usługi',
+  title: 'Usługi archiwum',
   type: 'document',
   icon: () => '⭐️',
   fields: [
@@ -292,18 +292,10 @@ export default {
     },
     {
       name: 'faq_Cta',
-      type: 'array',
-      title: 'Przyciski pod paragrafem',
+      type: 'bigCta',
+      title: 'Przycisk pod paragrafem',
       fieldset: 'faq',
       group: 'faq',
-      of: [
-        {
-          name: 'cta',
-          type: 'cta',
-          title: 'CTA',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
     },
     // seo
     {
