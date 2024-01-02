@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       name: 'title',
-      type: 'string',
+      type: 'markdown',
       title: 'Rodzaj usług',
       validation: (Rule) => Rule.required(),
     },
@@ -19,7 +19,7 @@ export default {
       name: 'list',
       type: 'array',
       title: 'Lista usług',
-      validation: (Rule) => Rule.required().max(8),
+      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'reference',

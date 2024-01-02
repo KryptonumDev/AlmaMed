@@ -116,7 +116,7 @@ export default {
       title: 'Etapy opieky koordynowanej',
       fieldset: 'mentoring',
       group: 'mentoring',
-      validation: (Rule) => Rule.required().max(8),
+      validation: (Rule) => Rule.required(),
       of: [
         {
           name: 'mentoring_list_element',
@@ -133,7 +133,7 @@ export default {
       title: 'Lista rodzajów usług',
       fieldset: 'services_types',
       group: 'services_types',
-      validation: (Rule) => Rule.required().max(8),
+      validation: (Rule) => Rule.required(),
       of: [
         {
           name: 'services_types',
@@ -191,7 +191,7 @@ export default {
       title: 'Obrazek metod płatności',
       fieldset: 'payment_methods',
       group: 'payment_methods',
-      validation: (Rule) => Rule.required().max(8),
+      validation: (Rule) => Rule.required(),
     },
     // registration
     {
