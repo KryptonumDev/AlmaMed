@@ -367,6 +367,11 @@ export default {
       title: 'Blog',
       options: {collapsible: true},
     },
+    {
+      name: 'seo',
+      title: 'SEO',
+      options: {collapsible: true},
+    },
   ],
   groups: [
     {

@@ -33,6 +33,12 @@ export default {
       initialValue: 'green',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'have_page',
+      type: 'boolean',
+      title: 'Czy ma podstronę?',
+      initialValue: false,
+    }
   ],
   // fieldsets: [
   //   {
