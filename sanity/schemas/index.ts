@@ -21,6 +21,7 @@ import listElement from './components/listElement'
 import mentoringListElement from './components/mentoring'
 import servicesTypes from './components/servicesTypes'
 import faq from './components/faq'
+import treatment from './components/treatment'
 import {
   titleAndDescription,
   titleAndImage,
@@ -41,7 +42,8 @@ export const components = [
   titleDescriptionAndImage,
   mentoringListElement,
   servicesTypes,
-  faq
+  faq,
+  treatment
 ]
 
 export const schemaTypes = [
