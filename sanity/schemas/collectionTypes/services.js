@@ -174,63 +174,6 @@ export default {
       validation: (Rule) => Rule.required(),
       hidden: ({document}) => !document.have_page,
     },
-    // registration
-    {
-      name: 'registration_heading',
-      type: 'markdown',
-      title: 'Nagłówek',
-      fieldset: 'registration',
-      validation: (Rule) => Rule.required(),
-      hidden: ({document}) => !document.have_page,
-    },
-    {
-      name: 'registration_paragraph',
-      type: 'markdown',
-      title: 'Paragraf pod nagłówkiem',
-      fieldset: 'registration',
-      validation: (Rule) => Rule.required(),
-      hidden: ({document}) => !document.have_page,
-    },
-    {
-      name: 'registration_video',
-      type: 'string',
-      title: 'Link do video oEmbed',
-      fieldset: 'registration',
-      validation: (Rule) => Rule.required(),
-      hidden: ({document}) => !document.have_page,
-    },
-    {
-      name: 'registration_steps',
-      type: 'array',
-      title: 'Kroki rejestracji',
-      fieldset: 'registration',
-      validation: (Rule) => Rule.required(),
-      hidden: ({document}) => !document.have_page,
-      of: [
-        {
-          type: 'markdown',
-          title: 'Element listy',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
-    },
-    // blog
-    {
-      name: 'blog_heading',
-      type: 'markdown',
-      title: 'Nagłówek',
-      fieldset: 'blog',
-      validation: (Rule) => Rule.required(),
-      hidden: ({document}) => !document.have_page,
-    },
-    {
-      name: 'blog_paragraph',
-      type: 'markdown',
-      title: 'Paragraf pod nagłówkiem',
-      fieldset: 'blog',
-      validation: (Rule) => Rule.required(),
-      hidden: ({document}) => !document.have_page, 
-    },
     //seo
     {
       name: 'seo',

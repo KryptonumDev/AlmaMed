@@ -193,46 +193,6 @@ export default {
       group: 'payment_methods',
       validation: (Rule) => Rule.required(),
     },
-    // registration
-    {
-      name: 'registration_heading',
-      type: 'markdown',
-      title: 'Nagłówek',
-      fieldset: 'registration',
-      group: 'registration',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'registration_paragraph',
-      type: 'markdown',
-      title: 'Paragraf pod nagłówkiem',
-      fieldset: 'registration',
-      group: 'registration',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'registration_video',
-      type: 'string',
-      title: 'Link do video oEmbed',
-      fieldset: 'registration',
-      group: 'registration',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'registration_steps',
-      type: 'array',
-      title: 'Kroki rejestracji',
-      fieldset: 'registration',
-      group: 'registration',
-      validation: (Rule) => Rule.required(),
-      of: [
-        {
-          type: 'markdown',
-          title: 'Element listy',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
-    },
     // freebie
     {
       name: 'freebie_heading',
@@ -337,11 +297,6 @@ export default {
       options: {collapsible: true},
     },
     {
-      name: 'registration',
-      title: 'Rejestracja',
-      options: {collapsible: true},
-    },
-    {
       name: 'freebie',
       title: 'Darmowy e-book',
       options: {collapsible: true},
@@ -381,10 +336,6 @@ export default {
     {
       title: 'Metody płatności',
       name: 'payment_methods',
-    },
-    {
-      title: 'Rejestracja',
-      name: 'registration',
     },
     {
       title: 'Darmowy e-book',

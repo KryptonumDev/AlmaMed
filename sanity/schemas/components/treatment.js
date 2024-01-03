@@ -43,7 +43,6 @@ export default {
       name: 'list',
       type: 'array',
       title: 'Lista pod zdjęciem',
-      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'markdown',

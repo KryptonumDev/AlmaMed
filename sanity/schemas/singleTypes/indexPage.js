@@ -296,23 +296,6 @@ export default {
       group: 'cta',
       validation: (Rule) => Rule.required(),
     },
-    // blog
-    {
-      name: 'blog_heading',
-      type: 'markdown',
-      title: 'Nagłówek',
-      fieldset: 'blog',
-      group: 'blog',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'blog_paragraph',
-      type: 'markdown',
-      title: 'Paragraf pod nagłówkiem',
-      fieldset: 'blog',
-      group: 'blog',
-      validation: (Rule) => Rule.required(),
-    },
     // seo
     {
       name: 'seo',
@@ -363,11 +346,6 @@ export default {
       options: {collapsible: true},
     },
     {
-      name: 'blog',
-      title: 'Blog',
-      options: {collapsible: true},
-    },
-    {
       name: 'seo',
       title: 'SEO',
       options: {collapsible: true},
@@ -405,10 +383,6 @@ export default {
     {
       title: 'Wezwanie do działania',
       name: 'cta',
-    },
-    {
-      title: 'Blog',
-      name: 'blog',
     },
     {
       title: 'SEO',

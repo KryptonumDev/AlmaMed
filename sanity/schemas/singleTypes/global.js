@@ -38,6 +38,57 @@ export default {
       title: 'Indexing by SEO robots',
       description: 'If enabled SEO robots (such as Google) will be able to index the site in search engines.'
     },
+    // registration
+    {
+      name: 'registration_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'registration',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'registration_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'registration',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'registration_video',
+      type: 'string',
+      title: 'Link do video oEmbed',
+      fieldset: 'registration',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'registration_steps',
+      type: 'array',
+      title: 'Kroki rejestracji',
+      fieldset: 'registration',
+      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: 'markdown',
+          title: 'Element listy',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    },
+    // blog
+    {
+      name: 'blog_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'blog',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'blog_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'blog',
+      validation: (Rule) => Rule.required(),
+    },
   ],
   fieldsets: [
     {
@@ -45,6 +96,16 @@ export default {
       title: 'Social links',
       options: { collapsible: true, collapsed: true }
     },
+    {
+      name: 'registration',
+      title: 'Registration',
+      options: { collapsible: true, collapsed: true }
+    },
+    {
+      name: 'blog',
+      title: 'Blog',
+      options: { collapsible: true, collapsed: true }
+    }
   ]
 }
 
