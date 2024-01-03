@@ -3,6 +3,13 @@ import styles from './video.module.scss';
 import { Props } from './video.constants';
 import Markdown from '../../ui/markdown';
 
+      //video
+      // registration_heading,
+      // registration_paragraph,
+      // registration_video,
+      // registration_steps[],
+
+
 export default function Video({ title, text, video, steps }: Props) {
   return (
     <section className={styles.wrapper}>

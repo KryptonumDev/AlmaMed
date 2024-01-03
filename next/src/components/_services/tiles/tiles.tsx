@@ -25,6 +25,8 @@ export default function Tiles({ title, text, tiles }: Props) {
             title={tile.name}
             color={tile.color}
             icon={tile.icon}
+            havePage={tile.have_page}
+            slug={tile.slug}
           />
         ))}
       </div>

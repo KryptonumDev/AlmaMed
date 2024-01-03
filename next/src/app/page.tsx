@@ -10,7 +10,7 @@ import { sanityFetch } from '../utils/sanity-client';
 import Prevention from '../components/_homepage/prevention';
 
 export default async function Index() {
-  const home = await sanityFetch<any>({
+  const page = await sanityFetch<any>({
     query: `
     *[_id == "IndexPage"]{
       // Hero
@@ -58,6 +58,8 @@ export default async function Index() {
       tiles_list[]->{
         name,
         color,
+        slug,
+        have_page,
         icon{
           asset->{
             url,
@@ -145,55 +147,55 @@ export default async function Index() {
   return (
     <>
       {/* <Hero
-        title={home.hero_Heading}
-        text={home.hero_Paragraph}
-        list={home.hero_icons_list}
-        cta={home.hero_Cta}
-        image={home.hero_background}
+        title={page.hero_Heading}
+        text={page.hero_Paragraph}
+        list={page.hero_icons_list}
+        cta={page.hero_Cta}
+        image={page.hero_background}
       /> */}
       <Tiles
-        title={home.tiles_heading}
-        text={home.tiles_paragraph}
-        tiles={home.tiles_list}
+        title={page.tiles_heading}
+        text={page.tiles_paragraph}
+        tiles={page.tiles_list}
       />
       <Scoring
-        patients={Number(home.patients)}
-        averageRating={home.averageRating}
-        percentTakenCalls={Number(home.percentTakenCalls)}
+        patients={Number(page.patients)}
+        averageRating={page.averageRating}
+        percentTakenCalls={Number(page.percentTakenCalls)}
       />
       <Localization
-        title={home.localizations_heading}
-        cards={home.localizations}
-        ctaTitle={home.localizations_Cta_text}
-        ctaLink={home.localizations_Cta_link}
+        title={page.localizations_heading}
+        cards={page.localizations}
+        ctaTitle={page.localizations_Cta_text}
+        ctaLink={page.localizations_Cta_link}
       />
       <Advantages
-        title={home.advantages_heading}
-        text={home.advantages_paragraph}
-        advantages={home.advantages_list}
+        title={page.advantages_heading}
+        text={page.advantages_paragraph}
+        advantages={page.advantages_list}
       />
-      <Newsletter 
-        icon={home.newsletter_left_icon}
-        content={home.newsletter_left_content}
-        link={home.newsletter_left_cta}
-        title={home.newsletter_right_heading}
-        text={home.newsletter_right_paragraph}
+      <Newsletter
+        icon={page.newsletter_left_icon}
+        content={page.newsletter_left_content}
+        link={page.newsletter_left_cta}
+        title={page.newsletter_right_heading}
+        text={page.newsletter_right_paragraph}
       />
       <Prevention
-        title={home.prevention_heading}
-        text={home.prevention_paragraph}
-        cta={home.prevention_cta}
-        metricsTitle={home.prevention_metrics_title}
-        metricsNumber={home.prevention_metrics_number}
+        title={page.prevention_heading}
+        text={page.prevention_paragraph}
+        cta={page.prevention_cta}
+        metricsTitle={page.prevention_metrics_title}
+        metricsNumber={page.prevention_metrics_number}
       />
       <Cta
-        title={home.cta_heading}
-        text={home.cta_paragraph}
-        link={home.cta_bigCta}
+        title={page.cta_heading}
+        text={page.cta_paragraph}
+        link={page.cta_bigCta}
       />
       {/* <BlogSlider
-        title={home.blog_heading}
-        text={home.blog_paragraph}
+        title={page.blog_heading}
+        text={page.blog_paragraph}
         posts={[]}
       /> */}
     </>

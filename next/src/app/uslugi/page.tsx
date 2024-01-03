@@ -9,7 +9,7 @@ import Freebie from '@/components/components/_services/freebie';
 import Faq from '@/components/components/_global/faq';
 
 export default async function Index() {
-  const home = await sanityFetch<any>({
+  const page = await sanityFetch<any>({
     query: `
     *[_id == "servicesPage"]{
       // Hero
@@ -57,6 +57,8 @@ export default async function Index() {
       tiles_list[]->{
         name,
         color,
+        slug,
+        have_page,
         icon{
           asset->{
             url,
@@ -99,6 +101,8 @@ export default async function Index() {
         list[]-> {
           color, 
           name,
+          slug,
+          have_page,
           icon{
             asset->{
               url,
@@ -132,11 +136,6 @@ export default async function Index() {
           }
         }
       },
-      //video
-      registration_heading,
-      registration_paragraph,
-      registration_video,
-      registration_steps[],
       // cta
       cta_heading,
       cta_paragraph,
@@ -179,23 +178,23 @@ export default async function Index() {
   return (
     <>
       {/* <Hero
-        title={home.hero_Heading}
-        text={home.hero_Paragraph}
-        list={home.hero_icons_list}
-        cta={home.hero_Cta}
-        image={home.hero_background}
+        title={page.hero_Heading}
+        text={page.hero_Paragraph}
+        list={page.hero_icons_list}
+        cta={page.hero_Cta}
+        image={page.hero_background}
       /> */}
       <Tiles
-        title={home.tiles_heading}
-        text={home.tiles_paragraph}
-        tiles={home.tiles_list}
+        title={page.tiles_heading}
+        text={page.tiles_paragraph}
+        tiles={page.tiles_list}
       />
       <Mentoring
-        title={home.mentoring_heading}
-        text={home.mentoring_paragraph}
-        list={home.mentoring_list}
+        title={page.mentoring_heading}
+        text={page.mentoring_paragraph}
+        list={page.mentoring_list}
       />
-      {home.services_types.map((el: any, i: number) => (
+      {page.services_types.map((el: any, i: number) => (
         <Tiles
           key={el.title + i}
           title={el.title}
@@ -204,31 +203,31 @@ export default async function Index() {
         />
       ))}
       <Cta
-        title={home.cta_heading}
-        text={home.cta_paragraph}
-        link={home.cta_bigCta}
+        title={page.cta_heading}
+        text={page.cta_paragraph}
+        link={page.cta_bigCta}
       />
       <PaymentMethods
-        title={home.payment_methods_heading}
-        text={home.payment_methods_paragraph}
-        image={home.payment_methods_image}
+        title={page.payment_methods_heading}
+        text={page.payment_methods_paragraph}
+        image={page.payment_methods_image}
       />
-      <Video
-        title={home.registration_heading}
-        text={home.registration_paragraph}
-        video={home.registration_video}
-        steps={home.registration_steps}
-      />
+      {/* <Video
+        title={page.registration_heading}
+        text={page.registration_paragraph}
+        video={page.registration_video}
+        steps={page.registration_steps}
+      /> */}
       <Freebie
-        title={home.freebie_heading}
-        text={home.freebie_paragraph}
-        image={home.freebie_image}
+        title={page.freebie_heading}
+        text={page.freebie_paragraph}
+        image={page.freebie_image}
       />
       <Faq
-        title={home.faq_heading}
-        text={home.faq_paragraph}
-        cta={home.faq_Cta}
-        list={home.faq_list}
+        title={page.faq_heading}
+        text={page.faq_paragraph}
+        cta={page.faq_Cta}
+        list={page.faq_list}
       />
     </>
   );

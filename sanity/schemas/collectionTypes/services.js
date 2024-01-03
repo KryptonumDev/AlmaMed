@@ -10,7 +10,16 @@ export default {
       title: 'Nazwa usługi',
       validation: (Rule) => Rule.required(),
     },
-
+    {
+      type: 'slug',
+      name: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'name',
+      },
+      validation: (Rule) => Rule.required(),
+      hidden: ({document}) => !document.have_page,
+    },
     {
       name: 'icon',
       type: 'image',

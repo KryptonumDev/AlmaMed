@@ -4,6 +4,10 @@ export interface Props {
   tiles: Array<{
     name: string;
     color: 'yellow' | 'blue' | 'green';
+    have_page: boolean;
+    slug?: {
+      current?: string;
+    };
     icon: {
       asset: {
         url: string;

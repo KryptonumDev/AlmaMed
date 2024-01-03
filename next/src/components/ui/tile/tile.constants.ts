@@ -2,6 +2,10 @@ export interface Props {
   title: string;
   color: 'blue' | 'green' | 'yellow';
   className?: string;
+  havePage: boolean;
+  slug?: {
+    current?: string;
+  };
   icon: {
     asset: {
       url: string;
