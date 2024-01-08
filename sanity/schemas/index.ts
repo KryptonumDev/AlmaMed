@@ -11,8 +11,10 @@ import localizations from './collectionTypes/localizations'
 import services from './collectionTypes/services'
 import posts from './collectionTypes/posts'
 import categories from './collectionTypes/blogCategory'
+import doctors from './collectionTypes/doctors'
+import comments from './collectionTypes/comments'
 
-export const collectionTypes = [localizations, services, posts, categories]
+export const collectionTypes = [localizations, services, posts, categories, doctors, comments]
 
 // Components
 import cta from './components/cta'
