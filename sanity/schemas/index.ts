@@ -1,10 +1,10 @@
 // Single Types
 import global, {global_Seo} from './singleTypes/global'
 import IndexPage from './singleTypes/IndexPage'
-import NotFoundPage from './singleTypes/NotFoundPage'
 import servicesPage from './singleTypes/servicesPage'
+import PrivacyPolicy from './singleTypes/privacyPolicy'
 
-export const singleTypes = [IndexPage, NotFoundPage, servicesPage]
+export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy]
 
 // Collection Types
 import localizations from './collectionTypes/localizations'
