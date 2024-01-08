@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import SmoothScroll from '../HOCs/smooth-scroll'
 import '../assets/global.scss'
-import Header from '../components/_global/header'
-// import Footer from '../components/footer'
+// import Header from '../components/_global/header'
+import Footer from '../components/_global/footer'
 
 
 const satoshi = localFont({
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </SmoothScroll>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   )

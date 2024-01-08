@@ -1,0 +1,50 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 685px;
+  position: relative;
+
+  h1{
+    color: #0F215F;
+    font-size: 161px;
+    font-weight: 700;
+    line-height: 105%;
+    letter-spacing: 2.415px;
+  }
+
+  p{
+    &:nth-child(2){
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    &:nth-child(3){
+      font-weight: 700;
+      margin-bottom: 32px;
+      margin-top: 0;
+    }
+  }
+
+  .red{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  .green{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .yellow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
