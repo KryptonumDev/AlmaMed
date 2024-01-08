@@ -4,7 +4,7 @@ import SmoothScroll from '../HOCs/smooth-scroll'
 import '../assets/global.scss'
 import Header from '../components/_global/header'
 // import Footer from '../components/footer'
-import React from 'react'
+
 
 const satoshi = localFont({
   src: [

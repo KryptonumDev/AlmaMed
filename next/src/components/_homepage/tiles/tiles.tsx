@@ -1,4 +1,4 @@
-import React from 'react';
+'use client'
 import styles from './tiles.module.scss';
 import { Props } from './tiles.constants';
 import Markdown from '../../ui/markdown';
@@ -6,6 +6,7 @@ import Tile from '../../ui/tile';
 import ButtonBig from '../../ui/button-big';
 
 export default function Tiles({ title, text, tiles }: Props) {
+  debugger
   return (
     <section className={styles.wrapper}>
       <Markdown.h2
@@ -18,7 +19,7 @@ export default function Tiles({ title, text, tiles }: Props) {
       />
 
       <div className={styles.grid}>
-        {tiles.map((tile, i) => (
+        {tiles?.map((tile, i) => (
           <Tile
             key={tile.name + i}
             className={styles.item}

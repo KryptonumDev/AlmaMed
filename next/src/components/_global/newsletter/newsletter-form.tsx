@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+
 import styles from './newsletter.module.scss';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Inputs } from "./newsletter.constants";

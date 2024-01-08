@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './button-big.module.scss';
 import { Props } from './button-big.constants';
 import { ArrowRight } from './button-big.icons';

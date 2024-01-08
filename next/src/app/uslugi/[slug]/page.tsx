@@ -3,11 +3,13 @@ import Treatments from '@/components/components/_services/treatments';
 import { sanityFetch } from '../../../utils/sanity-client';
 import { notFound } from 'next/navigation';
 import Flex from '@/components/components/_services/flex';
+import Video from '@/components/components/_global/video';
+import BlogSlider from '@/components/components/_global/blog-slider';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
-  const page = await sanityFetch<any>({
-    query: `
-    *[_type == "services" && slug.current == $slug]{
+  const { page, global, posts } = await sanityFetch<any>({
+    query: `{
+    "page": *[_type == "services" && slug.current == $slug][0]{
       // Hero
       hero_Heading,
       hero_Paragraph,
@@ -110,12 +112,47 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           }
         }
       }
-    }[0]
+    },
+    "global": *[_id == 'global'][0]{
+      blog_heading,
+      blog_paragraph,
+      registration_heading,
+      registration_steps[],
+      registration_paragraph,
+      registration_video
+    },
+    "posts": *[_type == 'blogEntry'][0...1]{
+      _updatedAt,
+      brief,
+      name,
+      slug{
+        current
+      },
+      categories[]->{
+        name,
+        slug{
+          current,
+        }
+      },
+      thumbnail{
+        asset ->{
+          url,
+          altText,
+          metadata{
+            lqip,
+            dimensions{
+              aspectRatio,
+              width,
+              height
+            }
+          }
+        }
+      }
+    },
+  }
     `,
     params: { slug: slug },
   });
-
-  console.log(page);
 
   if (!page) return notFound();
 
@@ -139,17 +176,17 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         image={page.flex_image}
         links={page.flex_Cta}
       />
-      {/* <Video
-        title={page.registration_heading}
-        text={page.registration_paragraph}
-        video={page.registration_video}
-        steps={page.registration_steps}
-      /> */}
-      {/* <BlogSlider
-        title={page.blog_heading}
-        text={page.blog_paragraph}
-        posts={[]}
-      /> */}
+      <Video
+        title={global.registration_heading}
+        text={global.registration_paragraph}
+        video={global.registration_video}
+        steps={global.registration_steps}
+      />
+      <BlogSlider
+        title={global.blog_heading}
+        text={global.blog_paragraph}
+        posts={posts}
+      />
     </>
   );
 }

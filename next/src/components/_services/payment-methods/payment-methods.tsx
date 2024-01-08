@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './payment-methods.module.scss';
 import { Props } from './payment-methods.constants';
 import Markdown from '../../ui/markdown';

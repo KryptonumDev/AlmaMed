@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export const Logo = ({ ...props }) => (
   <svg {...props} width="478" height="123" viewBox="0 0 478 123" fill="none" xmlns="http://www.w3.org/2000/svg">

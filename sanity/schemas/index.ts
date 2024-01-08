@@ -9,8 +9,10 @@ export const singleTypes = [IndexPage, NotFoundPage, servicesPage]
 // Collection Types
 import localizations from './collectionTypes/localizations'
 import services from './collectionTypes/services'
+import posts from './collectionTypes/posts'
+import categories from './collectionTypes/blogCategory'
 
-export const collectionTypes = [localizations, services]
+export const collectionTypes = [localizations, services, posts, categories]
 
 // Components
 import cta from './components/cta'
@@ -43,7 +45,7 @@ export const components = [
   mentoringListElement,
   servicesTypes,
   faq,
-  treatment
+  treatment,
 ]
 
 export const schemaTypes = [

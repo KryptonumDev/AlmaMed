@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './newsletter.module.scss';
 import Button from '../../ui/button';
 import Form from './newsletter-form';

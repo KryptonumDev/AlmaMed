@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './tile.module.scss';
 import { Props } from './tile.constants';
 import Image from '../image';

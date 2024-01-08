@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './flex.module.scss';
 import { Props } from './flex.constants';
 import Image from '../../ui/image';

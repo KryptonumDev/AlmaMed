@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import { ArrowUp, Calendar, Letter, Phone } from './header.icons';

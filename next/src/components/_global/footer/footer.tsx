@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './styles.module.scss';
 import { Logo } from '../../ui/logo';
 import Link from 'next/link';

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './radial-chart.module.scss';
 import { Props } from './radial-chart.constants';
 

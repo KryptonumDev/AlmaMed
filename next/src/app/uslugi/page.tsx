@@ -9,57 +9,35 @@ import Freebie from '@/components/components/_services/freebie';
 import Faq from '@/components/components/_global/faq';
 
 export default async function Index() {
-  const page = await sanityFetch<any>({
-    query: `
-    *[_id == "servicesPage"]{
-      // Hero
-      hero_Heading,
-      hero_Paragraph,
-      hero_icons_list[]{
-        text,
-        icon{
-          asset ->{
-            url,
-            altText,
-            metadata{
-              lqip,
-              dimensions{
-                aspectRatio,
-                width,
-                height
+  const { page, global } = await sanityFetch<any>({
+    query: `{
+      "page": *[_id == "servicesPage"]{
+        // Hero
+        hero_Heading,
+        hero_Paragraph,
+        hero_icons_list[]{
+          text,
+          icon{
+            asset ->{
+              url,
+              altText,
+              metadata{
+                lqip,
+                dimensions{
+                  aspectRatio,
+                  width,
+                  height
+                }
               }
             }
           }
-        }
-      },
-      hero_Cta[]{
-        href,
-        text,
-        theme,  
-      },
-      hero_background {
-        asset->{
-          url,
-          altText,
-          metadata{
-            lqip,
-            dimensions{
-              aspectRatio,
-              width,
-              height
-            }
-          }
-        }
-      },
-      // Tiles
-      tiles_heading,
-      tiles_paragraph,
-      tiles_list[]->{
-        name,
-        color,
-        slug,
-        have_page,
-        icon{
+        },
+        hero_Cta[]{
+          href,
+          text,
+          theme,  
+        },
+        hero_background {
           asset->{
             url,
             altText,
@@ -72,35 +50,13 @@ export default async function Index() {
               }
             }
           }
-        }
-      },
-      // mentoring
-      mentoring_heading,
-      mentoring_paragraph,
-      mentoring_list[]{
-        text,
-        image{
-          asset->{
-            url,
-            altText,
-            metadata{
-              lqip,
-              dimensions{
-                aspectRatio,
-                width,
-                height
-              }
-            }
-          }
-        }
-      },
-      // types of services
-      services_types[]{
-        title,
-        paragraph,
-        list[]-> {
-          color, 
+        },
+        // Tiles
+        tiles_heading,
+        tiles_paragraph,
+        tiles_list[]->{
           name,
+          color,
           slug,
           have_page,
           icon{
@@ -117,62 +73,112 @@ export default async function Index() {
               }
             }
           }
-        }
-      },
-      // payment methods
-      payment_methods_heading,
-      payment_methods_paragraph,
-      payment_methods_image{
-        asset->{
-          url,
-          altText,
-          metadata{
-            lqip,
-            dimensions{
-              aspectRatio,
-              width,
-              height
+        },
+        // mentoring
+        mentoring_heading,
+        mentoring_paragraph,
+        mentoring_list[]{
+          text,
+          image{
+            asset->{
+              url,
+              altText,
+              metadata{
+                lqip,
+                dimensions{
+                  aspectRatio,
+                  width,
+                  height
+                }
+              }
             }
           }
-        }
-      },
-      // cta
-      cta_heading,
-      cta_paragraph,
-      cta_bigCta{
-        href,
-        text,
-      },
-      // freebie
-      freebie_heading,
-      freebie_paragraph,
-      freebie_image{
-        asset->{
-          url,
-          altText,
-          metadata{
-            lqip,
-            dimensions{
-              aspectRatio,
-              width,
-              height
+        },
+        // types of services
+        services_types[]{
+          title,
+          paragraph,
+          list[]-> {
+            color, 
+            name,
+            slug,
+            have_page,
+            icon{
+              asset->{
+                url,
+                altText,
+                metadata{
+                  lqip,
+                  dimensions{
+                    aspectRatio,
+                    width,
+                    height
+                  }
+                }
+              }
             }
           }
+        },
+        // payment methods
+        payment_methods_heading,
+        payment_methods_paragraph,
+        payment_methods_image{
+          asset->{
+            url,
+            altText,
+            metadata{
+              lqip,
+              dimensions{
+                aspectRatio,
+                width,
+                height
+              }
+            }
+          }
+        },
+        // cta
+        cta_heading,
+        cta_paragraph,
+        cta_bigCta{
+          href,
+          text,
+        },
+        // freebie
+        freebie_heading,
+        freebie_paragraph,
+        freebie_image{
+          asset->{
+            url,
+            altText,
+            metadata{
+              lqip,
+              dimensions{
+                aspectRatio,
+                width,
+                height
+              }
+            }
+          }
+        },
+        // faq
+        faq_heading,
+        faq_paragraph,
+        faq_Cta{
+          href,
+          text,
+        },
+        faq_list[]{
+          answer,
+          question
         }
-      },
-      // faq
-      faq_heading,
-      faq_paragraph,
-      faq_Cta{
-        href,
-        text,
-      },
-      faq_list[]{
-        answer,
-        question
-      }
-    }[0]
-    `,
+      }[0],
+      "global": *[_id == 'global']{
+        registration_heading,
+        registration_steps[],
+        registration_paragraph,
+        registration_video
+      }[0],
+    }`,
   });
 
   return (
@@ -212,12 +218,12 @@ export default async function Index() {
         text={page.payment_methods_paragraph}
         image={page.payment_methods_image}
       />
-      {/* <Video
-        title={page.registration_heading}
-        text={page.registration_paragraph}
-        video={page.registration_video}
-        steps={page.registration_steps}
-      /> */}
+      <Video
+        title={global.registration_heading}
+        text={global.registration_paragraph}
+        video={global.registration_video}
+        steps={global.registration_steps}
+      />
       <Freebie
         title={page.freebie_heading}
         text={page.freebie_paragraph}

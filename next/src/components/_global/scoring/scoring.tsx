@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './scoring.module.scss';
 import { StarFace, StarPlaces } from './scoring.icons';
 import { Props } from './scoring.constants';

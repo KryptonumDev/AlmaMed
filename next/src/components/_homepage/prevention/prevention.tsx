@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './prevention.module.scss';
 import { Props } from './prevention.constants';
 import Markdown from '../../ui/markdown';

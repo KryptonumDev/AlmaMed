@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './mentoring.module.scss';
 import { Props } from './mentoring.constants';
 import Markdown from '../../ui/markdown';

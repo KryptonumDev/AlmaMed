@@ -188,48 +188,6 @@ export default {
         },
       ],
     },
-    // newsletter
-    {
-      name: 'newsletter_left_icon',
-      type: 'image',
-      title: 'Ikona lewej kolumny',
-      fieldset: 'newsletter',
-      group: 'newsletter',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'newsletter_left_content',
-      type: 'markdown',
-      title: 'Treść lewej kolumny',
-      fieldset: 'newsletter',
-      group: 'newsletter',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'newsletter_left_cta',
-      type: 'cta',
-      title: 'CTA lewej kolumny',
-      fieldset: 'newsletter',
-      group: 'newsletter',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'newsletter_right_heading',
-      type: 'markdown',
-      title: 'Nagłówek prawej kolumny',
-      fieldset: 'newsletter',
-      group: 'newsletter',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'newsletter_right_paragraph',
-      type: 'markdown',
-      title: 'Paragraf prawej kolumny',
-      fieldset: 'newsletter',
-      group: 'newsletter',
-      validation: (Rule) => Rule.required(),
-    },
-    // Formularz..?
     // prevention
     {
       name: 'prevention_heading',

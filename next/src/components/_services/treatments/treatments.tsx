@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './treatments.module.scss';
 import { Props } from './treatments.constants';
 import Markdown from '../../ui/markdown';

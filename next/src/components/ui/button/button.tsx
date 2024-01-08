@@ -1,4 +1,4 @@
-import React from "react";
+
 import styles from "./button.module.scss";
 import { Props } from "./button.constants";
 import Link from "next/link";

@@ -1,5 +1,5 @@
 import Advantages from '../components/_global/advantages';
-// import BlogSlider from '../components/blog-slider';
+import BlogSlider from '../components/_global/blog-slider';
 import Cta from '../components/_global/cta';
 // import Hero from '../components/hero';
 import Tiles from '../components/_homepage/tiles';
@@ -10,9 +10,9 @@ import { sanityFetch } from '../utils/sanity-client';
 import Prevention from '../components/_homepage/prevention';
 
 export default async function Index() {
-  const page = await sanityFetch<any>({
-    query: `
-    *[_id == "IndexPage"]{
+  const { page, global } = await sanityFetch<any>({
+    query: `{
+    "page": *[_id == "IndexPage"][0]{
       // Hero
       hero_Heading,
       hero_Paragraph,
@@ -100,6 +100,28 @@ export default async function Index() {
         title,
         text,
       },
+      // Prevention
+      prevention_heading,
+      prevention_paragraph,
+      prevention_cta{
+        href,
+        text,
+        theme, 
+      },
+      prevention_metrics_title,
+      prevention_metrics_number,
+      // cta
+      cta_heading,
+      cta_paragraph,
+      cta_bigCta{
+        href,
+        text,
+      },
+    },
+    "global": *[_id == 'global'][0]{
+      // Blog
+      blog_heading,
+      blog_paragraph,
       // Newsletter
       newsletter_left_icon{
         asset->{
@@ -123,25 +145,8 @@ export default async function Index() {
       },
       newsletter_right_heading,
       newsletter_right_paragraph,
-      // Prevention
-      prevention_heading,
-      prevention_paragraph,
-      prevention_cta{
-        href,
-        text,
-        theme, 
-      },
-      prevention_metrics_title,
-      prevention_metrics_number,
-      // cta
-      cta_heading,
-      cta_paragraph,
-      cta_bigCta{
-        href,
-        text,
-      },
-    }[0]
-    `,
+    },
+  }`,
   });
 
   return (
@@ -175,11 +180,11 @@ export default async function Index() {
         advantages={page.advantages_list}
       />
       <Newsletter
-        icon={page.newsletter_left_icon}
-        content={page.newsletter_left_content}
-        link={page.newsletter_left_cta}
-        title={page.newsletter_right_heading}
-        text={page.newsletter_right_paragraph}
+        icon={global.newsletter_left_icon}
+        content={global.newsletter_left_content}
+        link={global.newsletter_left_cta}
+        title={global.newsletter_right_heading}
+        text={global.newsletter_right_paragraph}
       />
       <Prevention
         title={page.prevention_heading}
@@ -193,11 +198,11 @@ export default async function Index() {
         text={page.cta_paragraph}
         link={page.cta_bigCta}
       />
-      {/* <BlogSlider
-        title={page.blog_heading}
-        text={page.blog_paragraph}
+      <BlogSlider
+        title={global.blog_heading}
+        text={global.blog_paragraph}
         posts={[]}
-      /> */}
+      />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './cta.module.scss';
 import { Props } from './cta.constants';
 import ButtonBig from '../../ui/button-big';

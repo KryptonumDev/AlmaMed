@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './localization.module.scss';
 import { Props } from './localization.constants';
 import { Letter, MapDot, Phone } from './localization.icons';
@@ -13,7 +13,7 @@ export default function Localization({ title, cards, ctaLink, ctaTitle }: Props)
         children={title}
       />
       <div className={styles.grid}>
-        {cards.map((card) => (
+        {cards?.map((card) => (
           <div
             key={card.name}
             className={styles.item}

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './tiles.module.scss';
 import { Props } from './tiles.constants';
 import Markdown from '../../ui/markdown';

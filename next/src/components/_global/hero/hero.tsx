@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './hero.module.scss';
 import { Props } from './hero.constants';
 import Button from '../../ui/button';

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './faq.module.scss';
 import { Props } from './faq.constants';
 import Markdown from '../../ui/markdown';

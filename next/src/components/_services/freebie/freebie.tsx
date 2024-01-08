@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './freebie.module.scss';
 import { Props } from './freebie.constants';
 import Image from '../../ui/image';

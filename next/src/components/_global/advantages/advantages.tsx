@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './advantages.module.scss';
 import { Props } from './advantages.constants';
 import { Certificate } from './advantages.icons';
@@ -23,7 +23,7 @@ export default function Advantages({ title, text, advantages }: Props) {
         </div>
       </div>
       <div className={styles.grid}>
-        {advantages.map((advantage) => (
+        {advantages?.map((advantage) => (
           <div
             className={styles.item}
             key={advantage.title}
