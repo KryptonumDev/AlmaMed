@@ -61,3 +61,9 @@ export interface CardProps {
     };
   }>;
 }
+
+
+export interface PaginationProps {
+  currentPage: number;
+  itemCount: number;
+}

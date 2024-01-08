@@ -3,16 +3,10 @@ export interface Props {
   text: string;
   posts: Array<{
     name: string;
-    brief: string;
+    _updatedAt: string;
     slug: {
       current: string;
     };
-    categories: Array<{
-      name: string;
-      slug: {
-        current: string;
-      };
-    }>;
     thumbnail: {
       asset: {
         url: string;
@@ -28,4 +22,24 @@ export interface Props {
       };
     };
   }>;
+}
+
+export interface CardProps {
+  image: {
+    asset: {
+      url: string;
+      altText: string;
+      metadata: {
+        lqip: string;
+        dimensions: {
+          aspectRatio: number;
+          height: number;
+          width: number;
+        };
+      };
+    };
+  };
+  slug: string;
+  title: string;
+  date: string;
 }

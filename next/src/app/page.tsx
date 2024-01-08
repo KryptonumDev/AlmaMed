@@ -10,7 +10,7 @@ import { sanityFetch } from '../utils/sanity-client';
 import Prevention from '../components/_homepage/prevention';
 
 export default async function Index() {
-  const { page, global } = await sanityFetch<any>({
+  const { page, global, posts } = await sanityFetch<any>({
     query: `{
     "page": *[_id == "IndexPage"][0]{
       // Hero
@@ -146,8 +146,30 @@ export default async function Index() {
       newsletter_right_heading,
       newsletter_right_paragraph,
     },
+    "posts": *[_type == 'blogEntry'][0...1]{
+      _updatedAt,
+      name,
+      slug{
+        current
+      },
+      thumbnail{
+        asset ->{
+          url,
+          altText,
+          metadata{
+            lqip,
+            dimensions{
+              aspectRatio,
+              width,
+              height
+            }
+          }
+        }
+      }
+    },
   }`,
   });
+
 
   return (
     <>
@@ -201,7 +223,7 @@ export default async function Index() {
       <BlogSlider
         title={global.blog_heading}
         text={global.blog_paragraph}
-        posts={[]}
+        posts={posts}
       />
     </>
   );

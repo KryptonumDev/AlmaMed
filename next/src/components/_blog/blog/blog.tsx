@@ -2,6 +2,7 @@ import styles from './blog.module.scss';
 import { Props } from './blog.constants';
 import Button from '../../ui/button';
 import Card from './blog-card';
+import Pagination from './blog-pagination';
 
 export default function Blog({ posts, categories }: Props) {
   return (
@@ -21,18 +22,24 @@ export default function Blog({ posts, categories }: Props) {
           ))}
         </ul>
       </div>
-      <div className={styles.grid}>
-        {posts.map((el, index) => (
-          <Card
-            key={index + el.name}
-            image={el.thumbnail}
-            title={el.name}
-            date={el._updatedAt}
-            brief={el.brief}
-            categories={el.categories}
-            slug={el.slug.current}
-          />
-        ))}
+      <div>
+        <div className={styles.grid}>
+          {posts.map((el, index) => (
+            <Card
+              key={index + el.name}
+              image={el.thumbnail}
+              title={el.name}
+              date={el._updatedAt}
+              brief={el.brief}
+              categories={el.categories}
+              slug={el.slug.current}
+            />
+          ))}
+        </div>
+        <Pagination 
+          currentPage={1}
+          itemCount={1}
+        />
       </div>
     </section>
   );

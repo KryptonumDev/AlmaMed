@@ -3,6 +3,7 @@ import Image from "../../ui/image";
 import { CardProps } from "./blog.constants";
 import Button from "../../ui/button";
 import Link from "next/link";
+import { transformDateFormat } from "@/components/utils/date-formatter";
 
 export default function Card ({image, title, date, brief, categories, slug}: CardProps) {
   return (
@@ -25,14 +26,4 @@ export default function Card ({image, title, date, brief, categories, slug}: Car
       </ul>
     </div>
   )
-}
-
-function transformDateFormat(inputDate: string) {
-  // Parse the input date string
-  const parsedDate = new Date(inputDate);
-
-  // Format the date as DD MMMM YYYY
-  const formattedDate = parsedDate.toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
-
-  return formattedDate;
 }

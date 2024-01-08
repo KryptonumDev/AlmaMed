@@ -3,5 +3,5 @@ export interface Props {
     url: string,
     title: string,
   };
-  type: 'primary' | 'secondary';
+  type: 'primary' | 'secondary' | 'tertiary';
 }

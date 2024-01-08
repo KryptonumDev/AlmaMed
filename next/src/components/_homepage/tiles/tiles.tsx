@@ -1,4 +1,3 @@
-'use client'
 import styles from './tiles.module.scss';
 import { Props } from './tiles.constants';
 import Markdown from '../../ui/markdown';
@@ -6,7 +5,6 @@ import Tile from '../../ui/tile';
 import ButtonBig from '../../ui/button-big';
 
 export default function Tiles({ title, text, tiles }: Props) {
-  debugger
   return (
     <section className={styles.wrapper}>
       <Markdown.h2
@@ -31,7 +29,7 @@ export default function Tiles({ title, text, tiles }: Props) {
           />
         ))}
         <ButtonBig
-          ctaLink={{ url: '/', title: 'Dowiedz się więcej ' }}
+          ctaLink={{ url: '/uslugi', title: 'Dowiedz się więcej ' }}
           type={'primary'}
         />
       </div>

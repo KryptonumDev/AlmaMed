@@ -1,9 +1,77 @@
-.wrapper{
-  h2{
+.wrapper {
+  .title {
     max-width: 585px;
-  }  
+    margin-bottom: 32px;
+  }
 
-  p{
+  .text {
     max-width: 585px;
+  }
+
+  .grid {
+    display: grid;
+    margin-top: 32px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+
+    @media (max-width: 864px) {
+      grid-template-columns: 1fr 1fr;
+
+      > a {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 540px) {
+      grid-template-columns: 1fr;
+
+      > a {
+        grid-column: unset;
+      }
+    }
+
+    > a {
+      height: 222px;
+    }
+  }
+}
+
+.card {
+  position: relative;
+
+  .link {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+  }
+
+  .imageWrap {
+    z-index: -1;
+    position: relative;
+    height: 222px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  img {
+    inset: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    position: absolute;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .date {
+    color: #101730;
+  }
+
+  .name {
+    color: #101730;
+    font-weight: 500;
   }
 }
