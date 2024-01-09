@@ -11,10 +11,10 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'paragraphs',
-      title: 'Paragrafy',
-      type: 'array',
-      of: [{ type: 'markdown' }]
+      name: 'content',
+      type: 'markdown',
+      title: 'Treść polityki prywatności',
+      validation: Rule => Rule.required(),
     },
     // seo
     {

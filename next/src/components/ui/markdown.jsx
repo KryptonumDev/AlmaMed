@@ -1,3 +1,4 @@
+import { slugify } from '@/components/utils/slugify';
 import NextImage from 'next/image';
 import Link from 'next/link';
 
@@ -17,7 +18,12 @@ const LinkRenderer = ({ href, children }) => {
   );
 };
 
-const Markdown = ({ level, children, components, ...props }) => {
+const HeadingRenderer = ({ children }) => {
+  var slug = slugify(children);
+  return <h2 id={slug}>{children}</h2>;
+};
+
+const Markdown = ({ level, children, components, withAnchors, ...props }) => {
   const HeadingComponent = level;
   const updatedComponents = level
     ? {
@@ -29,6 +35,7 @@ const Markdown = ({ level, children, components, ...props }) => {
   return (
     <ReactMarkdown
       components={{
+        h2: HeadingRenderer,
         a: LinkRenderer,
         li: ({ children, ordered }) => (
           <li>
