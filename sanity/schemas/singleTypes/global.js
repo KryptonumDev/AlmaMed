@@ -104,6 +104,59 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     // Formularz..?
+    // metrics
+    {
+      name: 'patients',
+      type: 'string',
+      title: 'Ilość pacjentów',
+      fieldset: 'metrics',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'averageRating',
+      type: 'string',
+      title: 'Średnia ocena',
+      fieldset: 'metrics',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'percentTakenCalls',
+      type: 'string',
+      title: 'Procent odebranych telefonów',
+      fieldset: 'metrics',
+      validation: (Rule) => Rule.required(),
+    },
+    // advantages
+    {
+      name: 'advantages_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'advantages',
+      group: 'advantages',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'advantages_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'advantages',
+      group: 'advantages',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'advantages_list',
+      type: 'array',
+      title: 'Lista wyróżników',
+      fieldset: 'advantages',
+      group: 'advantages',
+      of: [
+        {
+          type: 'advantages',
+          name: 'advantages',
+          title: 'Element listy',
+        },
+      ],
+    },
   ],
   fieldsets: [
     {
@@ -125,6 +178,16 @@ export default {
       name: 'newsletter',
       title: 'Newsletter',
       options: {collapsible: true, collapsed: true},
+    },
+    {
+      name: 'metrics',
+      title: 'Metrics',
+      options: {collapsible: true, collapsed: true},
+    },
+    {
+      name: 'advantages',
+      title: 'Wyróżniki',
+      options: {collapsible: true},
     },
   ],
 }

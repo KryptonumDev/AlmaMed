@@ -75,10 +75,6 @@ export default async function Index() {
           }
         }
       },
-      // Scoring
-      patients,
-      averageRating,
-      percentTakenCalls,
       // Localization
       localizations_heading,
       localizations[]->{
@@ -92,13 +88,6 @@ export default async function Index() {
       localizations_Cta_link{
         href,
         text
-      },
-      // Advantages
-      advantages_heading,
-      advantages_paragraph,
-      advantages_list[]{
-        title,
-        text,
       },
       // Prevention
       prevention_heading,
@@ -119,6 +108,17 @@ export default async function Index() {
       },
     },
     "global": *[_id == 'global'][0]{
+      // Advantages
+      advantages_heading,
+      advantages_paragraph,
+      advantages_list[]{
+        title,
+        text,
+      },
+      // Scoring
+      patients,
+      averageRating,
+      percentTakenCalls,
       // Blog
       blog_heading,
       blog_paragraph,
@@ -186,9 +186,9 @@ export default async function Index() {
         tiles={page.tiles_list}
       />
       <Scoring
-        patients={Number(page.patients)}
-        averageRating={page.averageRating}
-        percentTakenCalls={Number(page.percentTakenCalls)}
+        patients={Number(global.patients)}
+        averageRating={global.averageRating}
+        percentTakenCalls={Number(global.percentTakenCalls)}
       />
       <Localization
         title={page.localizations_heading}
@@ -197,9 +197,9 @@ export default async function Index() {
         ctaLink={page.localizations_Cta_link}
       />
       <Advantages
-        title={page.advantages_heading}
-        text={page.advantages_paragraph}
-        advantages={page.advantages_list}
+        title={global.advantages_heading}
+        text={global.advantages_paragraph}
+        advantages={global.advantages_list}
       />
       <Newsletter
         icon={global.newsletter_left_icon}

@@ -93,31 +93,6 @@ export default {
         },
       ],
     },
-    // metrics
-    {
-      name: 'patients',
-      type: 'string',
-      title: 'Ilość pacjentów',
-      fieldset: 'metrics',
-      group: 'metrics',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'averageRating',
-      type: 'string',
-      title: 'Średnia ocena',
-      fieldset: 'metrics',
-      group: 'metrics',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'percentTakenCalls',
-      type: 'string',
-      title: 'Procent odebranych telefonów',
-      fieldset: 'metrics',
-      group: 'metrics',
-      validation: (Rule) => Rule.required(),
-    },
     // localizations
     {
       name: 'localizations_heading',
@@ -156,37 +131,6 @@ export default {
       fieldset: 'localizations',
       group: 'localizations',
       validation: (Rule) => Rule.required(),
-    },
-    // advantages
-    {
-      name: 'advantages_heading',
-      type: 'markdown',
-      title: 'Nagłówek',
-      fieldset: 'advantages',
-      group: 'advantages',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'advantages_paragraph',
-      type: 'markdown',
-      title: 'Paragraf pod nagłówkiem',
-      fieldset: 'advantages',
-      group: 'advantages',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'advantages_list',
-      type: 'array',
-      title: 'Lista wyróżników',
-      fieldset: 'advantages',
-      group: 'advantages',
-      of: [
-        {
-          type: 'advantages',
-          name: 'advantages',
-          title: 'Element listy',
-        },
-      ],
     },
     // prevention
     {
@@ -274,18 +218,8 @@ export default {
       options: {collapsible: true},
     },
     {
-      name: 'metrics',
-      title: 'Wyniki',
-      options: {collapsible: true},
-    },
-    {
       name: 'localizations',
       title: 'Placówki',
-      options: {collapsible: true},
-    },
-    {
-      name: 'advantages',
-      title: 'Wyróżniki',
       options: {collapsible: true},
     },
     {
@@ -319,16 +253,8 @@ export default {
       name: 'tiles',
     },
     {
-      title: 'Wyniki',
-      name: 'metrics',
-    },
-    {
       title: 'Placówki',
       name: 'localizations',
-    },
-    {
-      title: 'Wyróżniki',
-      name: 'advantages',
     },
     {
       title: 'Newsletter',

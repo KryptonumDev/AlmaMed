@@ -3,8 +3,9 @@ import global, {global_Seo} from './singleTypes/global'
 import IndexPage from './singleTypes/IndexPage'
 import servicesPage from './singleTypes/servicesPage'
 import PrivacyPolicy from './singleTypes/privacyPolicy'
+import personal from './singleTypes/personal'
 
-export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy]
+export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy, personal]
 
 // Collection Types
 import localizations from './collectionTypes/localizations'
