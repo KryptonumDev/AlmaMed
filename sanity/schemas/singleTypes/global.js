@@ -132,7 +132,6 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'advantages',
-      group: 'advantages',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -140,7 +139,6 @@ export default {
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'advantages',
-      group: 'advantages',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -148,7 +146,6 @@ export default {
       type: 'array',
       title: 'Lista wyróżników',
       fieldset: 'advantages',
-      group: 'advantages',
       of: [
         {
           type: 'advantages',
