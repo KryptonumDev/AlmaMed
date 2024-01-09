@@ -130,12 +130,12 @@ export default async function Index() {
         text={page.comments_paragraph}
         comments={page.comments}
       />
-      {/* <Faq
+      <Faq
         title={page.faq_heading}
         text={page.faq_paragraph}
         cta={page.faq_Cta}
         list={page.faq_list}
-      /> */}
+      />
     </>
   );
 }

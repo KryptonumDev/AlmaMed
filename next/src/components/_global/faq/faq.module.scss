@@ -38,3 +38,21 @@
     }
   }
 }
+
+.list {
+  margin: 0 auto;
+  details {
+    margin-top: 42px;
+    border-bottom: 1px solid var(--light-blue-600, #025E98);
+    summary {
+      padding-bottom: 12px;
+
+      p{
+        color: var(--light-blue-600, #025E98);
+      }
+    }
+    .answer {
+      overflow: hidden;
+    }
+  }
+}

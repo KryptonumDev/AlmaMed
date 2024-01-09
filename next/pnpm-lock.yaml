@@ -17,6 +17,9 @@ dependencies:
   '@studio-freight/lenis':
     specifier: ^1.0.29
     version: 1.0.29
+  framer-motion:
+    specifier: ^10.17.12
+    version: 10.17.12(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)
@@ -3605,6 +3608,24 @@ packages:
 
   /framer-motion@10.16.16(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-je6j91rd7NmUX7L1XHouwJ4v3R+SO4umso2LUcgOct3rHZ0PajZ80ETYZTajzEXEl9DlKyzjyt4AvGQ+lrebOw==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+    dev: false
+
+  /framer-motion@10.17.12(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-6aaBLN2EgH/GilXwOzEalTfw5Rx9DTQJJjTrxq5bfDbGtPCzXz2GCN6ePGRpTi1ZGugLHxdU273h38ENbcdFKQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0

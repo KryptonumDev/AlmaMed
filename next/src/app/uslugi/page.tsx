@@ -229,12 +229,12 @@ export default async function Index() {
         text={page.freebie_paragraph}
         image={page.freebie_image}
       />
-      {/* <Faq
+      <Faq
         title={page.faq_heading}
         text={page.faq_paragraph}
         cta={page.faq_Cta}
         list={page.faq_list}
-      /> */}
+      />
     </>
   );
 }
