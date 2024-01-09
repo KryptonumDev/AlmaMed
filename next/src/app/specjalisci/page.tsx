@@ -3,9 +3,10 @@ import { sanityFetch } from '../../utils/sanity-client';
 import Faq from '@/components/components/_global/faq';
 import Advantages from '@/components/components/_global/advantages';
 import Comments from '@/components/components/_global/comments';
+import Specialists from '@/components/components/_global/specialists';
 
 export default async function Index() {
-  const { page, global } = await sanityFetch<any>({
+  const { page, global, specialists } = await sanityFetch<any>({
     query: `{
       "page": *[_id == "Personal"]{
         // Hero
@@ -80,13 +81,10 @@ export default async function Index() {
         averageRating,
         percentTakenCalls,
       }[0],
-      "specilists": *[_type == 'doctors']{
+      "specialists": *[_type == 'doctors']{
         name,
-        comments[]->{
-          text,
-          name,
-          rating
-        },
+        profession,
+        slug,
         image {
           asset->{
             url,
@@ -114,8 +112,9 @@ export default async function Index() {
         cta={page.hero_Cta}
         image={page.hero_background}
       /> */}
-      {/* GRID */}
-      {/* specilists */}
+      <Specialists
+        specialists={specialists}
+      />
       <Advantages
         title={global.advantages_heading}
         text={global.advantages_paragraph}
@@ -131,12 +130,12 @@ export default async function Index() {
         text={page.comments_paragraph}
         comments={page.comments}
       />
-      <Faq
+      {/* <Faq
         title={page.faq_heading}
         text={page.faq_paragraph}
         cta={page.faq_Cta}
         list={page.faq_list}
-      />
+      /> */}
     </>
   );
 }
