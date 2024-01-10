@@ -33,9 +33,29 @@ export default {
     },
     {
       type: 'array',
+      name: 'education',
+      title: 'Wykształcenie',
+      of: [{type: 'icon_list_element'}],
+    },
+    {
+      type: 'array',
+      name: 'flex',
+      title: 'Opis',
+      of: [{type: 'flex'}],
+    },
+    {
+      type: 'array',
       name: 'comments',
       title: 'Opinie pacjentów',
       of: [{type: 'reference', to: [{type: 'comments'}]}],
+      validation: (Rule) => Rule.max(5),
+    },
+    {
+      type: 'array',
+      name: 'similar',
+      title: 'Podobni specjaliści',
+      of: [{type: 'reference', to: [{type: 'doctors'}]}],
+      validation: (Rule) => Rule.max(3),
     },
   ],
   preview: {
