@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { CardProps } from './specialists.constants';
-import styles from './specialists.module.scss';
-import Image from '../../ui/image';
-import { removeMarkdownTags } from '@/components/utils/remove-markdown';
-import Button from '../../ui/button';
+import { CardProps } from './specialists-card.constants';
+import styles from './specialists-card.module.scss';
+import Image from '../image';
+import Button from '../button';
+import { removeMarkdownTags } from '../../../utils/remove-markdown';
 
 export default function Card({ slug, name, image, profession }: CardProps) {
   return (

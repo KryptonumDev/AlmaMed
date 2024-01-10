@@ -1,3 +1,4 @@
+import Markdown from '@/components/ui/markdown';
 import { CardProps } from './comments.constants';
 import styles from './comments.module.scss';
 
@@ -12,7 +13,7 @@ export default function Card({ text, name, rating, long }: CardProps) {
           ))}
         </div>
       </div>
-      <p>{text}</p>
+      <Markdown.p children={text} />
     </div>
   );
 }

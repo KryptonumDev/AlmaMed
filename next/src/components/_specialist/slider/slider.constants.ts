@@ -1,10 +1,11 @@
 export interface Props {
+  title: string;
   specialists: Array<{
+    name: string;
     slug: {
       current: string;
     };
     profession: string;
-    name: string;
     image: {
       asset: {
         url: string;

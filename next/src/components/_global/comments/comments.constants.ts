@@ -1,6 +1,6 @@
 export interface Props {
   title: string;
-  text: string;
+  text?: string;
   comments: Array<{
     text: string;
     name: string;

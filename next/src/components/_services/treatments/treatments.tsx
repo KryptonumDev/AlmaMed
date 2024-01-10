@@ -2,9 +2,9 @@
 import styles from './treatments.module.scss';
 import { Props } from './treatments.constants';
 import Markdown from '../../ui/markdown';
-import { removeMarkdownTags } from '@/components/utils/remove-markdown';
+import { removeMarkdownTags } from '../../../utils/remove-markdown';
 import { TreatmentPart } from './treatments-part';
-import { slugify } from '@/components/utils/slugify';
+import { slugify } from '../../../utils/slugify';
 
 export default function Treatments({ title, text, list }: Props) {
   return (

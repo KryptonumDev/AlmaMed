@@ -1,9 +1,9 @@
-import { slugify } from '@/components/utils/slugify';
 import NextImage from 'next/image';
 import Link from 'next/link';
 
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import { slugify } from '../../utils/slugify';
 
 const LinkRenderer = ({ href, children }) => {
   const isExternal = href && (href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:'));
