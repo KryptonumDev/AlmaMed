@@ -1,8 +1,18 @@
 .wrapper {
+  margin-top: 140px;
   padding: 48px 0px;
   background-color: #F9F9F9;
   position: relative;
 
+  >svg{
+    z-index: -1;
+    height: auto;
+    left: 0;
+    right: 0;
+    top: -120px;
+    width: 100%;
+    position: absolute;
+  }
 
   .container {
     display: grid;
