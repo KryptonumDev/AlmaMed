@@ -1,13 +1,40 @@
 .wrapper {
-  max-width: 1366px;
-  margin: 16px auto 0 auto;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: calc(100% - clamp(32px, calc(80vw / 10.24), 80px));
+  max-width: 1208px;
+  margin: 0 auto;
+  padding: 16px 78px;
+  box-sizing: content-box;
+  z-index: 100;
+
+  @media (max-width: 1366px) {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 16px 78px 0 78px;
+  }
 
   @media (max-width: 480px) {
     width: calc(100% - clamp(32px, calc(20vw / 10.24), 20px));
   }
 
+  &.scrolled {
+    .annotation {
+      transform: translateY(-100%);
+      opacity: 0;
+      margin-bottom: 0;
+    }
+
+    .navigation {
+      transform: translateY(calc(-1 * var(--transform)));
+    }
+  }
+
   .annotation {
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     margin-bottom: 20px;
     border-radius: 16px;
     background: var(--yellow-500, #f9bc41);
@@ -16,8 +43,9 @@
     gap: 16px;
     justify-content: space-around;
     align-items: center;
-
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     flex-wrap: wrap;
+    max-width: 1280px;
 
     .part {
       display: flex;
@@ -42,6 +70,7 @@
   }
 
   .navigation {
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     background: #f9f9f9;
     display: flex;
     justify-content: space-between;
@@ -49,10 +78,21 @@
     padding: 12px 40px;
     border-radius: 16px;
 
-    > svg {
+    max-width: 1280px;
+    width: 100%;
+
+    .logo {
       max-width: clamp(147px, calc(187vw / 7.68), 187px);
       width: 100%;
       height: fit-content;
+      display: flex;
+      align-items: center;
+
+      svg{
+        width: 100%;
+        height: fit-content;
+        align-self: center;
+      }
     }
 
     > ul {

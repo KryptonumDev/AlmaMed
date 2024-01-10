@@ -1,12 +1,12 @@
-import Mentoring from '@/components/components/_services/mentoring';
-import Cta from '../../components/_global/cta';
-// import Hero from '../components/hero';
-import Tiles from '../../components/_services/tiles';
+import Mentoring from '@/components/_services/mentoring';
+import Cta from '../@/components/_global/cta';
+// import Hero from '@/components/hero';
+import Tiles from '../@/components/_services/tiles';
 import { sanityFetch } from '../../utils/sanity-client';
-import PaymentMethods from '@/components/components/_services/payment-methods';
-import Video from '@/components/components/_global/video';
-import Freebie from '@/components/components/_services/freebie';
-import Faq from '@/components/components/_global/faq';
+import PaymentMethods from '@/components/_services/payment-methods';
+import Video from '@/components/_global/video';
+import Freebie from '@/components/_services/freebie';
+import Faq from '@/components/_global/faq';
 
 export default async function Index() {
   const { page, global } = await sanityFetch<any>({

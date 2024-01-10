@@ -1,13 +1,13 @@
-import Advantages from '../components/_global/advantages';
-import BlogSlider from '../components/_global/blog-slider';
-import Cta from '../components/_global/cta';
-// import Hero from '../components/hero';
-import Tiles from '../components/_homepage/tiles';
-import Localization from '../components/_global/localization';
-import Newsletter from '../components/_global/newsletter';
-import Scoring from '../components/_global/scoring';
+import Advantages from '@/components/_global/advantages';
+import BlogSlider from '@/components/_global/blog-slider';
+import Cta from '@/components/_global/cta';
+import Hero from '@/components/_global/hero';
+import Tiles from '@/components/_homepage/tiles';
+import Localization from '@/components/_global/localization';
+import Newsletter from '@/components/_global/newsletter';
+import Scoring from '@/components/_global/scoring';
 import { sanityFetch } from '../utils/sanity-client';
-import Prevention from '../components/_homepage/prevention';
+import Prevention from '@/components/_homepage/prevention';
 
 export default async function Index() {
   const { page, global, posts } = await sanityFetch<any>({
@@ -173,13 +173,13 @@ export default async function Index() {
 
   return (
     <>
-      {/* <Hero
+      <Hero
         title={page.hero_Heading}
         text={page.hero_Paragraph}
         list={page.hero_icons_list}
         cta={page.hero_Cta}
         image={page.hero_background}
-      /> */}
+      />
       <Tiles
         title={page.tiles_heading}
         text={page.tiles_paragraph}

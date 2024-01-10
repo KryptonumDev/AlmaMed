@@ -1,10 +1,10 @@
-// import Hero from '../../../components/hero';
-import Treatments from '@/components/components/_services/treatments';
+// import Hero from '../../@/components/hero';
+import Treatments from '@/components/_services/treatments';
 import { sanityFetch } from '../../../utils/sanity-client';
 import { notFound } from 'next/navigation';
-import Flex from '@/components/components/_services/flex';
-import Video from '@/components/components/_global/video';
-import BlogSlider from '@/components/components/_global/blog-slider';
+import Flex from '@/components/_services/flex';
+import Video from '@/components/_global/video';
+import BlogSlider from '@/components/_global/blog-slider';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({

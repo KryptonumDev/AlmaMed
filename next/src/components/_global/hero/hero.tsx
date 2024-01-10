@@ -1,4 +1,3 @@
-
 import styles from './hero.module.scss';
 import { Props } from './hero.constants';
 import Button from '../../ui/button';
@@ -18,7 +17,7 @@ export default function Hero({ title, text, list, cta, image }: Props) {
           children={text}
         />
         <ul className={styles.list}>
-          {list.map((el) => (
+          {list?.map((el) => (
             <li key={el.text}>
               <Image data={el.icon} />
               <span>{el.text}</span>
@@ -26,7 +25,7 @@ export default function Hero({ title, text, list, cta, image }: Props) {
           ))}
         </ul>
         <div className={styles.buttons}>
-          {cta.map((link) => (
+          {cta?.map((link) => (
             <Button
               key={link.text}
               url={link.href}
@@ -36,10 +35,12 @@ export default function Hero({ title, text, list, cta, image }: Props) {
           ))}
         </div>
       </div>
-      <Image
-        className={styles.image}
-        data={image}
-      />
+      <div className={styles.imageWrap}>
+        <Image
+          className={styles.image}
+          data={image}
+        />
+      </div>
     </section>
   );
 }

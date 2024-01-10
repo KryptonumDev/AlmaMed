@@ -4,8 +4,9 @@ import IndexPage from './singleTypes/IndexPage'
 import servicesPage from './singleTypes/servicesPage'
 import PrivacyPolicy from './singleTypes/privacyPolicy'
 import personal from './singleTypes/personal'
+import forPatient from './singleTypes/forPatient'
 
-export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy, personal]
+export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy, personal, forPatient]
 
 // Collection Types
 import localizations from './collectionTypes/localizations'
@@ -27,6 +28,8 @@ import mentoringListElement from './components/mentoring'
 import servicesTypes from './components/servicesTypes'
 import faq from './components/faq'
 import treatment from './components/treatment'
+import instructionListElement from './components/instructions'
+import instructionListElementStep from './components/instructions-steps'
 import {
   titleAndDescription,
   titleAndImage,
@@ -49,6 +52,8 @@ export const components = [
   servicesTypes,
   faq,
   treatment,
+  instructionListElement,
+  instructionListElementStep,
 ]
 
 export const schemaTypes = [

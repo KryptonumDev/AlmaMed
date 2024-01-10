@@ -1,9 +1,9 @@
-import Scoring from '@/components/components/_global/scoring';
+import Scoring from '@/components/_global/scoring';
 import { sanityFetch } from '../../utils/sanity-client';
-import Faq from '@/components/components/_global/faq';
-import Advantages from '@/components/components/_global/advantages';
-import Comments from '@/components/components/_global/comments';
-import Specialists from '@/components/components/_global/specialists';
+import Faq from '@/components/_global/faq';
+import Advantages from '@/components/_global/advantages';
+import Comments from '@/components/_global/comments';
+import Specialists from '@/components/_global/specialists';
 
 export default async function Index() {
   const { page, global, specialists } = await sanityFetch<any>({

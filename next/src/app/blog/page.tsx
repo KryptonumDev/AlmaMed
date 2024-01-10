@@ -1,6 +1,6 @@
-import Newsletter from '@/components/components/_global/newsletter';
+import Newsletter from '@/components/_global/newsletter';
 import { sanityFetch } from '../../utils/sanity-client';
-import Blog from '@/components/components/_global/blog';
+import Blog from '@/components/_global/blog';
 
 export default async function Index() {
   const { posts, categories, global } = await sanityFetch<any>({
