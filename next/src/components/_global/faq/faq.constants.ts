@@ -10,3 +10,10 @@ export interface Props {
     answer: string;
   }>;
 }
+
+export interface FaqProps {
+  list: Array<{
+    question: string;
+    answer: string;
+  }>;
+}

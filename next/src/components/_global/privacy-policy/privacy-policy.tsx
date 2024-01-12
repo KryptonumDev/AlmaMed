@@ -2,11 +2,11 @@ import styles from './privacy-policy.module.scss';
 import { Props } from './privacy-policy.constants';
 import Markdown from '../../ui/markdown';
 import Link from 'next/link';
-import { slugify } from '@/components/utils/slugify';
+import { slugify } from '../../../utils/slugify';
 
 export default function PrivacyPolicy({ title, text }: Props) {
   const titles = getTitles(text);
-  console.log(titles);
+
   return (
     <section className={styles.wrapper}>
       <Markdown.h1

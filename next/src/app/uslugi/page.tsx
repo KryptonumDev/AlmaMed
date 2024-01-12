@@ -1,7 +1,7 @@
 import Mentoring from '@/components/_services/mentoring';
-import Cta from '../@/components/_global/cta';
+import Cta from '@/components/_global/cta';
 // import Hero from '@/components/hero';
-import Tiles from '../@/components/_services/tiles';
+import Tiles from '@/components/_services/tiles';
 import { sanityFetch } from '../../utils/sanity-client';
 import PaymentMethods from '@/components/_services/payment-methods';
 import Video from '@/components/_global/video';

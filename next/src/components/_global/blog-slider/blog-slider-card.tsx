@@ -1,4 +1,4 @@
-import { transformDateFormat } from '@/components/utils/date-formatter';
+import { transformDateFormat } from '../../../utils/date-formatter';
 import Image from '../../ui/image';
 import { CardProps } from './blog-slider.constants';
 import styles from './blog-slider.module.scss';

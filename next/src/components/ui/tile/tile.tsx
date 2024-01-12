@@ -3,7 +3,7 @@ import styles from './tile.module.scss';
 import { Props } from './tile.constants';
 import Image from '../image';
 import Link from 'next/link';
-import { slugify } from '@/components/utils/slugify';
+import { slugify } from '../../../utils/slugify';
 
 export default function Tile({ color, title, icon, className, havePage, slug }: Props) {
   return (

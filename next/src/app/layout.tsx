@@ -4,6 +4,7 @@ import SmoothScroll from '../HOCs/smooth-scroll'
 import '../assets/global.scss'
 import Header from '@/components/_global/header'
 import Footer from '@/components/_global/footer'
+import Template from './template'
 
 
 const satoshi = localFont({
@@ -37,9 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${satoshi.className} ${satoshi.variable}`}>
         {/* <Header /> */}
         <SmoothScroll>
-          <main>
+          <Template>
             {children}
-          </main>
+          </Template>
         </SmoothScroll>
         <Footer />
       </body>

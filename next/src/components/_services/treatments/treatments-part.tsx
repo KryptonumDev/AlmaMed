@@ -3,7 +3,7 @@ import { PartProps } from './treatments.constants';
 import Markdown from '../../ui/markdown';
 import Image from '../../ui/image';
 import { Wallet } from './treatments.icons';
-import { slugify } from '@/components/utils/slugify';
+import { slugify } from '../../../utils/slugify';
 
 export const TreatmentPart = ({ title, text, image, benefits, subTitle, price, list }: PartProps) => {
   return (

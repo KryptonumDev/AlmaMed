@@ -3,7 +3,7 @@ import Image from "../../ui/image";
 import { CardProps } from "./blog.constants";
 import Button from "../../ui/button";
 import Link from "next/link";
-import { transformDateFormat } from "@/components/utils/date-formatter";
+import { transformDateFormat } from "../../../utils/date-formatter";
 
 export default function Card ({image, title, date, brief, categories, slug}: CardProps) {
   return (

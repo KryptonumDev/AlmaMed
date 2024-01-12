@@ -1,5 +1,5 @@
 import PrivacyPolicy from '@/components/_global/privacy-policy';
-import { sanityFetch } from '@/components/utils/sanity-client';
+import { sanityFetch } from '../../utils/sanity-client';
 
 export default async function Index() {
   const { page } = await sanityFetch<any>({
