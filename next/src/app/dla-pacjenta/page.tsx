@@ -4,6 +4,7 @@ import { sanityFetch } from '../../utils/sanity-client';
 import Video from '@/components/_global/video';
 import Freebie from '@/components/_services/freebie';
 import Faq from '@/components/_global/faq';
+import Instructions from '@/components/_for-patient/instructions';
 
 export default async function Index() {
   const { page, global } = await sanityFetch<any>({
@@ -89,7 +90,30 @@ export default async function Index() {
       faq_list[]{
         answer,
         question
-      }
+      },
+      // Instructions
+      instructions_heading,
+      instructions_paragraph,
+      instructions_list[]{
+        title,
+        steps[]{
+          text,
+          image {
+            asset->{
+              url,
+              altText,
+              metadata{
+                lqip,
+                dimensions{
+                  aspectRatio,
+                  width,
+                  height
+                }
+              }
+            }
+          }
+        }
+      },
     },
     "global": *[_id == "global"][0]{
       registration_heading,
@@ -115,7 +139,11 @@ export default async function Index() {
         ctaTitle={page.localizations_Cta_text}
         ctaLink={page.localizations_Cta_link}
       />
-
+      <Instructions
+        title={page.instructions_heading}
+        text={page.instructions_paragraph}
+        list={page.instructions_list}
+      />
       <Video
         title={global.registration_heading}
         text={global.registration_paragraph}

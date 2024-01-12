@@ -115,8 +115,13 @@
     gap: 32px;
   }
 
-  >p {
+  >.text {
     max-width: 600px;
+
+    strong{
+      font-weight: 700;
+      color: unset;
+    }
 
     @media(max-width: 540px) {
       font-size: 16px;

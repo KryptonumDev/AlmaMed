@@ -31,7 +31,8 @@ strong {
 p,
 li,
 span,
-a {
+a, 
+button {
   font-size: clamp(16px, calc(20vw / 7.68), 20px);
   line-height: 150%;
   letter-spacing: 0.3px;

@@ -1,4 +1,3 @@
-
 import styles from './localization.module.scss';
 import { Props } from './localization.constants';
 import { Letter, MapDot, Phone } from './localization.icons';
@@ -52,7 +51,10 @@ export default function Localization({ title, cards, ctaLink, ctaTitle }: Props)
         ))}
       </div>
       <div className={styles.cta}>
-        <p className='h4'>{ctaTitle}</p>
+        <Markdown.p
+          className={`h4 ${styles.text}`}
+          children={ctaTitle}
+        />
         <ButtonBig
           ctaLink={{
             url: '#',

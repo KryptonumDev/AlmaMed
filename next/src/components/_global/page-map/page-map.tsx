@@ -83,7 +83,7 @@ export default function PageMap({ categories, specialists, posts, services }: Pr
       <h1>Mapa strony</h1>
       <div className={styles.grid}>
         {structuredData.map((el, index) => (
-          <div className={styles.item}>
+          <div key={el.link.name+ index} className={styles.item}>
             <Link
               className='h4'
               href={el.link.href}
