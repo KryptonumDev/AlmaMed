@@ -5,6 +5,7 @@ import Video from '@/components/_global/video';
 import Freebie from '@/components/_services/freebie';
 import Faq from '@/components/_global/faq';
 import Instructions from '@/components/_for-patient/instructions';
+import TestLocalizations from '@/components/_for-patient/test-localizations';
 
 export default async function Index() {
   const { page, global } = await sanityFetch<any>({
@@ -62,6 +63,33 @@ export default async function Index() {
       localizations_Cta_link{
         href,
         text
+      },
+      // testLocalizations,
+      testsLocalizations_heading,
+      testsLocalizations_paragraph,
+      testsLocalizations_card_with_list[]{
+        title,
+        isClosed,
+        content[]{
+          _type,
+          content,
+          href,
+          list[],
+          icon{
+            asset->{
+              url,
+              altText,
+              metadata{
+                lqip,
+                dimensions{
+                  aspectRatio,
+                  width,
+                  height
+                }
+              }
+            }
+          }
+        }
       },
       // freebie
       freebie_heading,
@@ -150,7 +178,11 @@ export default async function Index() {
         video={global.registration_video}
         steps={global.registration_steps}
       />
-
+      <TestLocalizations
+        title={page.testsLocalizations_heading}
+        text={page.testsLocalizations_paragraph}
+        cards={page.testsLocalizations_card_with_list}
+      />
       <Freebie
         title={page.freebie_heading}
         text={page.freebie_paragraph}

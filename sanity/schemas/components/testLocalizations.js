@@ -39,7 +39,7 @@ export const list = {
   title: 'Lista',
   fields: [
     {
-      name: 'content',
+      name: 'list',
       type: 'array',
       title: 'Treść',
       of: [

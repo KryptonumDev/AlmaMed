@@ -147,18 +147,15 @@ export default {
       name: 'testsLocalizations_card_with_list',
       type: 'array',
       title: 'Karta z listą',
-      fieldset: 'testsLocalizations',     
+      fieldset: 'testsLocalizations',
       group: 'testsLocalizations',
       of: [
         {
           type: 'test_localization',
           title: 'Element listy',
         },
-      ], 
-
+      ],
     },
-
-    
     // freebie
     {
       name: 'freebie_heading',
