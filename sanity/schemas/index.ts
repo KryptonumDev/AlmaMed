@@ -31,6 +31,7 @@ import treatment from './components/treatment'
 import instructionListElement from './components/instructions'
 import instructionListElementStep from './components/instructions-steps'
 import flex from './components/flex'
+import testLocalizations, {paragraph, list, link} from './components/testLocalizations'
 import {
   titleAndDescription,
   titleAndImage,
@@ -55,7 +56,11 @@ export const components = [
   treatment,
   instructionListElement,
   instructionListElementStep,
-  flex
+  flex,
+  testLocalizations,
+  paragraph,
+  list,
+  link,
 ]
 
 export const schemaTypes = [

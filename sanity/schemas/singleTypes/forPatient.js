@@ -126,6 +126,39 @@ export default {
         },
       ],
     },
+    // testsLocalizations
+    {
+      name: 'testsLocalizations_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'testsLocalizations',
+      group: 'testsLocalizations',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'testsLocalizations_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'testsLocalizations',
+      group: 'testsLocalizations',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'testsLocalizations_card_with_list',
+      type: 'array',
+      title: 'Karta z listą',
+      fieldset: 'testsLocalizations',     
+      group: 'testsLocalizations',
+      of: [
+        {
+          type: 'test_localization',
+          title: 'Element listy',
+        },
+      ], 
+
+    },
+
+    
     // freebie
     {
       name: 'freebie_heading',
@@ -215,6 +248,11 @@ export default {
       options: {collapsible: true},
     },
     {
+      name: 'testsLocalizations',
+      title: 'Gdzie wykonać badania',
+      options: {collapsible: true},
+    },
+    {
       name: 'freebie',
       title: 'Darmowy e-book',
       options: {collapsible: true},
@@ -242,6 +280,10 @@ export default {
     {
       title: 'Instrukcje',
       name: 'instructions',
+    },
+    {
+      title: 'Gdzie wykonać badania',
+      name: 'testsLocalizations',
     },
     {
       title: 'Darmowy e-book',
