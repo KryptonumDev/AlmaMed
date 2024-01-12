@@ -1,3 +1,7 @@
+const shouldShow = (document) => {
+  return document.have_page === true
+}
+
 export default {
   name: 'services',
   title: 'Usługi',
@@ -8,7 +12,12 @@ export default {
       type: 'string',
       name: 'name',
       title: 'Nazwa usługi',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
     },
     {
       type: 'slug',
@@ -17,14 +26,24 @@ export default {
       options: {
         source: 'name',
       },
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     {
       name: 'icon',
       type: 'image',
       title: 'Ikona usłgugi',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
     },
     {
       name: 'color',
@@ -40,7 +59,12 @@ export default {
         direction: 'horizontal',
       },
       initialValue: 'green',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
     },
     {
       name: 'have_page',
@@ -57,7 +81,12 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'hero',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     {
@@ -65,7 +94,12 @@ export default {
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'hero',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     {
@@ -91,7 +125,12 @@ export default {
           name: 'cta',
           type: 'cta',
           title: 'CTA',
-          validation: (Rule) => Rule.required(),
+          validation: (rule) =>
+            rule.custom((currentValue, {document}) => {
+              if (shouldShow(document) && currentValue === undefined)
+                return "This field is required"
+              return true
+            }),
         },
       ],
       hidden: ({document}) => !document.have_page,
@@ -101,7 +140,12 @@ export default {
       type: 'image',
       title: 'Obrazek w tle',
       fieldset: 'hero',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     // treatments
@@ -110,7 +154,12 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'treatments',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     {
@@ -118,7 +167,12 @@ export default {
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'treatments',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     {
@@ -126,13 +180,23 @@ export default {
       type: 'array',
       title: 'Lista zabiegów',
       fieldset: 'treatments',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
       of: [
         {
           type: 'treatment',
           title: 'Zabieg',
-          validation: (Rule) => Rule.required(),
+          validation: (rule) =>
+            rule.custom((currentValue, {document}) => {
+              if (shouldShow(document) && currentValue === undefined)
+                return "This field is required"
+              return true
+            }),
         },
       ],
     },
@@ -142,7 +206,12 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'flex',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     {
@@ -150,13 +219,23 @@ export default {
       type: 'array',
       title: 'Lista ikon z tekstem',
       fieldset: 'flex',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
       of: [
         {
           type: 'icon_list_element',
           title: 'Element listy',
-          validation: (Rule) => Rule.required(),
+          validation: (rule) =>
+            rule.custom((currentValue, {document}) => {
+              if (shouldShow(document) && currentValue === undefined)
+                return "This field is required"
+              return true
+            }),
         },
       ],
     },
@@ -171,7 +250,12 @@ export default {
           name: 'cta',
           type: 'cta',
           title: 'CTA',
-          validation: (Rule) => Rule.required(),
+          validation: (rule) =>
+            rule.custom((currentValue, {document}) => {
+              if (shouldShow(document) && currentValue === undefined)
+                return "This field is required"
+              return true
+            }),
         },
       ],
     },
@@ -180,7 +264,12 @@ export default {
       type: 'image',
       title: 'Obrazek',
       fieldset: 'flex',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined)
+            return "This field is required"
+          return true
+        }),
       hidden: ({document}) => !document.have_page,
     },
     //seo
