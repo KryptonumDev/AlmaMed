@@ -98,10 +98,10 @@ export default async function Index() {
 
   return (
     <>
-    <Hero
-      title={page.hero_Heading}
-      text={page.hero_Paragraph}
-    />
+      <Hero
+        title={page.hero_Heading}
+        text={page.hero_Paragraph}
+      />
       <Localization
         title={page.localizations_heading}
         cards={page.localizations}

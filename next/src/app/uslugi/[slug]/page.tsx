@@ -1,10 +1,10 @@
-// import Hero from '../../@/components/hero';
 import Treatments from '@/components/_services/treatments';
 import { sanityFetch } from '../../../utils/sanity-client';
 import { notFound } from 'next/navigation';
 import Flex from '@/components/_services/flex';
 import Video from '@/components/_global/video';
 import BlogSlider from '@/components/_global/blog-slider';
+import Hero from '@/components/_global/hero';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -158,13 +158,13 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
 
   return (
     <>
-      {/* <Hero
+      <Hero
         title={page.hero_Heading}
         text={page.hero_Paragraph}
         list={page.hero_icons_list}
         cta={page.hero_Cta}
         image={page.hero_background}
-      /> */}
+      />
       <Treatments
         title={page.treatments_heading}
         text={page.treatments_paragraph}

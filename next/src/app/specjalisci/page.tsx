@@ -4,6 +4,7 @@ import Faq from '@/components/_global/faq';
 import Advantages from '@/components/_global/advantages';
 import Comments from '@/components/_global/comments';
 import Specialists from '@/components/_global/specialists';
+import Hero from '@/components/_global/hero';
 
 export default async function Index() {
   const { page, global, specialists } = await sanityFetch<any>({
@@ -105,16 +106,14 @@ export default async function Index() {
 
   return (
     <>
-      {/* <Hero
+      <Hero
         title={page.hero_Heading}
         text={page.hero_Paragraph}
         list={page.hero_icons_list}
         cta={page.hero_Cta}
         image={page.hero_background}
-      /> */}
-      <Specialists
-        specialists={specialists}
       />
+      <Specialists specialists={specialists} />
       <Advantages
         title={global.advantages_heading}
         text={global.advantages_paragraph}
