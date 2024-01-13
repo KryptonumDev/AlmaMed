@@ -12,12 +12,7 @@ export default {
       type: 'string',
       name: 'name',
       title: 'Nazwa usługi',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
-          return true
-        }),
+      validation: (Rule) => Rule.required(),
     },
     {
       type: 'slug',
@@ -28,8 +23,7 @@ export default {
       },
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -38,12 +32,7 @@ export default {
       name: 'icon',
       type: 'image',
       title: 'Ikona usłgugi',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
-          return true
-        }),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'color',
@@ -58,13 +47,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      initialValue: 'green',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
-          return true
-        }),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'have_page',
@@ -83,8 +66,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -96,8 +78,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -128,7 +109,7 @@ export default {
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
               if (shouldShow(document) && currentValue === undefined)
-                return "This field is required"
+                return 'This field is required'
               return true
             }),
         },
@@ -142,8 +123,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -156,8 +136,7 @@ export default {
       fieldset: 'treatments',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -169,8 +148,7 @@ export default {
       fieldset: 'treatments',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -182,8 +160,7 @@ export default {
       fieldset: 'treatments',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -194,7 +171,7 @@ export default {
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
               if (shouldShow(document) && currentValue === undefined)
-                return "This field is required"
+                return 'This field is required'
               return true
             }),
         },
@@ -208,8 +185,7 @@ export default {
       fieldset: 'flex',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -221,8 +197,7 @@ export default {
       fieldset: 'flex',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -233,7 +208,7 @@ export default {
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
               if (shouldShow(document) && currentValue === undefined)
-                return "This field is required"
+                return 'This field is required'
               return true
             }),
         },
@@ -253,7 +228,7 @@ export default {
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
               if (shouldShow(document) && currentValue === undefined)
-                return "This field is required"
+                return 'This field is required'
               return true
             }),
         },
@@ -266,8 +241,7 @@ export default {
       fieldset: 'flex',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined)
-            return "This field is required"
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
           return true
         }),
       hidden: ({document}) => !document.have_page,
