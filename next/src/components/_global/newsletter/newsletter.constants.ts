@@ -1,13 +1,13 @@
 export interface Props {
-  content: string;
+  content?: string;
   title: string;
   text: string;
-  link: {
+  link?: {
     href: string;
     text: string;
     theme: 'primary' | 'secondary';
   };
-  icon: {
+  icon?: {
     asset: {
       url: string;
       altText: string;
@@ -21,9 +21,30 @@ export interface Props {
       };
     };
   };
+  post?: {
+    _updatedAt: string;
+    name: string;
+    slug: {
+      current: string;
+    };
+    thumbnail: {
+      asset: {
+        url: string;
+        altText: string;
+        metadata: {
+          lqip: string;
+          dimensions: {
+            aspectRatio: number;
+            height: number;
+            width: number;
+          };
+        };
+      };
+    };
+  };
 }
 
 export type Inputs = {
   email: string;
   agreement: boolean;
-}
+};

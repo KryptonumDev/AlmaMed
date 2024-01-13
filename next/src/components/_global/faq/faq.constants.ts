@@ -1,7 +1,7 @@
 export interface Props {
   title: string;
-  text: string;
-  cta: {
+  text?: string;
+  cta?: {
     text: string;
     href: string;
   };

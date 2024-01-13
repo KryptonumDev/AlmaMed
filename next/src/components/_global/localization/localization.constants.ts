@@ -7,8 +7,8 @@ export interface Props {
     email: string;
     map: string;
   }>;
-  ctaTitle: string;
-  ctaLink: {
+  ctaTitle?: string;
+  ctaLink?: {
     href: string;
     text: string;
   };

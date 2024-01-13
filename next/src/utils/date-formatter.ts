@@ -1,4 +1,6 @@
-export function transformDateFormat(inputDate: string) {
+export function transformDateFormat(inputDate?: string) {
+  if (!inputDate) return '';
+  
   // Parse the input date string
   const parsedDate = new Date(inputDate);
 

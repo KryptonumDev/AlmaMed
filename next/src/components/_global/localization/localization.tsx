@@ -3,6 +3,7 @@ import { Props } from './localization.constants';
 import { Letter, MapDot, Phone } from './localization.icons';
 import ButtonBig from '../../ui/button-big';
 import Markdown from '../../ui/markdown';
+import cta from '../cta';
 
 export default function Localization({ title, cards, ctaLink, ctaTitle }: Props) {
   return (
@@ -50,19 +51,21 @@ export default function Localization({ title, cards, ctaLink, ctaTitle }: Props)
           </div>
         ))}
       </div>
-      <div className={styles.cta}>
-        <Markdown.p
-          className={`h4 ${styles.text}`}
-          children={ctaTitle}
-        />
-        <ButtonBig
-          ctaLink={{
-            url: '#',
-            title: 'Skontaktuj się z nami',
-          }}
-          type='secondary'
-        />
-      </div>
+      {ctaLink && ctaTitle && (
+        <div className={styles.cta}>
+          <Markdown.p
+            className={`h4 ${styles.text}`}
+            children={ctaTitle}
+          />
+          <ButtonBig
+            ctaLink={{
+              url: ctaLink?.href,
+              title: ctaLink?.text,
+            }}
+            type='secondary'
+          />
+        </div>
+      )}
     </section>
   );
 }

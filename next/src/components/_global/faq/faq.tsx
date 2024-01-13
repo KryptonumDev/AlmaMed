@@ -6,7 +6,7 @@ import List from './faq-list';
 
 export default function Faq({ list, title, text, cta }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} ${!text && !cta ? styles.fullWidth : ''}`}>
       <div className={styles.faq}>
         <Markdown.h2
           className={`${styles.title} h3`}
@@ -14,19 +14,21 @@ export default function Faq({ list, title, text, cta }: Props) {
         />
         <List list={list} />
       </div>
-      <div className={styles.column}>
-        <Markdown.p
-          className={`${styles.text} h5`}
-          children={text}
-        />
-        <ButtonBig
-          ctaLink={{
-            url: cta.href,
-            title: cta.text,
-          }}
-          type='primary'
-        />
-      </div>
+      {text && cta && (
+        <div className={styles.column}>
+          <Markdown.p
+            className={`${styles.text} h5`}
+            children={text}
+          />
+          <ButtonBig
+            ctaLink={{
+              url: cta.href,
+              title: cta.text,
+            }}
+            type='primary'
+          />
+        </div>
+      )}
     </section>
   );
 }

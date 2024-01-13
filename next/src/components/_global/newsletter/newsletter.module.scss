@@ -31,6 +31,32 @@
     }
   }
 
+  .post{
+    position: relative;
+    border-radius: 32px;
+    border: 1px solid var(--light-blue-500, #0376BE);
+    background: var(--light-blue-100, #F8FCFF);
+    padding: clamp(16px, calc(32vw / 7.68), 32px);
+    box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
+
+    >a{
+      display: block;
+      position: absolute;
+      inset: 0;
+      border-radius: 32px;
+      z-index: 1;
+    }
+
+    img{
+      border-radius: 16px;
+      width: 100%;
+      max-width: 100%;
+      height: fit-content;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
   .right {
     border-radius: 32px;
     background: var(--neutral-100, #fff);
