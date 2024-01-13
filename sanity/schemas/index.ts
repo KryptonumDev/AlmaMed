@@ -5,8 +5,9 @@ import servicesPage from './singleTypes/servicesPage'
 import PrivacyPolicy from './singleTypes/privacyPolicy'
 import personal from './singleTypes/personal'
 import forPatient from './singleTypes/forPatient'
+import contact from './singleTypes/contact'
 
-export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy, personal, forPatient]
+export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy, personal, forPatient, contact]
 
 // Collection Types
 import localizations from './collectionTypes/localizations'
@@ -32,6 +33,7 @@ import instructionListElement from './components/instructions'
 import instructionListElementStep from './components/instructions-steps'
 import flex from './components/flex'
 import testLocalizations, {paragraph, list, link} from './components/testLocalizations'
+import blocks, {icon} from './components/blocks'
 import {
   titleAndDescription,
   titleAndImage,
@@ -61,6 +63,8 @@ export const components = [
   paragraph,
   list,
   link,
+  blocks,
+  icon,
 ]
 
 export const schemaTypes = [
