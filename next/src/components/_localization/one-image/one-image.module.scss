@@ -1,0 +1,31 @@
+.wrapper{
+  .title{
+    max-width: 900px;
+  }
+
+  .text{
+    column-gap: 12px;
+    columns: 2;
+    margin-bottom: 32px;
+    margin-top: 24px;
+
+    p{
+      margin-top: 0;
+    }
+
+    @media (max-width: 580px) {
+      columns: 1;
+
+      p+p{
+        margin-top: 12px;
+      }
+    }
+
+  }
+
+  img{
+    border-radius: 32px;
+    max-width: 100%;
+    height: fit-content;
+  }
+}

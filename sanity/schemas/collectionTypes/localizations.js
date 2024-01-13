@@ -1,3 +1,7 @@
+const shouldShow = (document) => {
+  return document.have_page === true
+}
+
 export default {
   name: 'localizations',
   title: 'Placówki',
@@ -133,21 +137,36 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'one_image',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'one_image_paragraph',
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'one_image',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'one_image_image',
       type: 'image',
       title: 'Obrazek',
       fieldset: 'one_image',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     // two image section
     {
@@ -155,28 +174,48 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'two_image',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'two_image_paragraph',
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'two_image',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'two_image_first_image',
       type: 'image',
       title: 'Obrazek',
       fieldset: 'two_image',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'two_image_second_image',
       type: 'image',
       title: 'Obrazek',
       fieldset: 'two_image',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     // localizations
     {
@@ -184,15 +223,18 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'localizations',
-      group: 'localizations',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'localizations',
       type: 'array',
       title: 'Placówki',
       fieldset: 'localizations',
-      group: 'localizations',
       of: [
         {
           type: 'reference',
@@ -200,22 +242,31 @@ export default {
           to: [{type: 'localizations'}],
         },
       ],
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'localizations_Cta_text',
       type: 'markdown',
       title: 'Tekst obok przycisku',
       fieldset: 'localizations',
-      group: 'localizations',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'localizations_Cta_link',
       type: 'bigCta',
       title: 'CTA',
       fieldset: 'localizations',
-      group: 'localizations',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     // mentoring
     {
@@ -223,30 +274,47 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'mentoring',
-      group: 'mentoring',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'mentoring_paragraph',
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'mentoring',
-      group: 'mentoring',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'mentoring_list',
       type: 'array',
       title: 'Etapy opieky koordynowanej',
       fieldset: 'mentoring',
-      group: 'mentoring',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
       of: [
         {
           name: 'mentoring_list_element',
           type: 'mentoring_list_element',
           title: 'Element listy',
-          validation: (Rule) => Rule.required(),
+          validation: (rule) =>
+            rule.custom((currentValue, {document}) => {
+              if (shouldShow(document) && currentValue === undefined)
+                return 'This field is required'
+              return true
+            }),
         },
       ],
     },
@@ -256,40 +324,57 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'prevention',
-      group: 'prevention',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'prevention_paragraph',
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'prevention',
-      group: 'prevention',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'prevention_cta',
       type: 'cta',
       title: 'CTA',
       fieldset: 'prevention',
-      group: 'prevention',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'prevention_metrics_title',
       type: 'string',
       title: 'Tytuł wykresu',
       fieldset: 'prevention',
-      group: 'prevention',
-      validation: (Rule) => Rule.required(),
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'prevention_metrics_number',
       type: 'number',
       title: 'Wartość wykresu',
       fieldset: 'prevention',
-      group: 'prevention',
-      validation: (Rule) => Rule.required().min(0).max(100),
+      initialValue: 0,
+      validation: (Rule) => Rule.min(0).max(100),
+      hidden: ({document}) => !document.have_page,
     },
     //seo
     {
