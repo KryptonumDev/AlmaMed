@@ -5,7 +5,7 @@ import Card from '@/components/ui/specialist-card/specialists-card';
 
 export default function Specialists({ specialists }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       {specialists.map((specialist, index) => (
         <Card
           key={specialist.name + index}

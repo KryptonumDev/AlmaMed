@@ -8,7 +8,7 @@ export default function PrivacyPolicy({ title, text }: Props) {
   const titles = getTitles(text);
 
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h1
         children={title}
         className={styles.heading}

@@ -6,7 +6,7 @@ import ButtonBig from '../../ui/button-big';
 
 export default function Tiles({ title, text, tiles }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         className={`${styles.title} h3`}
         children={title}

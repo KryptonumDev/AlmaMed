@@ -6,7 +6,7 @@ import Image from '../../ui/image';
 
 export default function PaymentMethods({ title, text, image }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div>
         <Markdown.h2
           className={`h3 ${styles.title}`}

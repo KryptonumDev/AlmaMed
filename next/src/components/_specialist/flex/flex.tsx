@@ -5,7 +5,7 @@ import Markdown from '@/components/ui/markdown';
 
 export default function Flex({ content, image, reverse }: Props) {
   return (
-    <section className={`${styles.wrapper} ${reverse ? styles.reverse : ''}`}>
+    <section className={`${styles.wrapper} container ${reverse ? styles.reverse : ''}`}>
       <div className={styles.content}>
         <Markdown.p children={content} />
       </div>

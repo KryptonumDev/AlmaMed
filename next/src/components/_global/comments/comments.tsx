@@ -5,7 +5,7 @@ import Card from './comments-card';
 
 export default function Comments({ title, text, comments }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         className={`${styles.title} h3`}
         children={title}

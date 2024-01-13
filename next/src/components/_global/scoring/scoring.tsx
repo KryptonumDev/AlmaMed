@@ -6,7 +6,7 @@ import RadialChart from '../../ui/radial-chart';
 
 export default function Scoring({ patients, averageRating, percentTakenCalls }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div>
         <StarFace />
         <span className='h3'>{patients}</span>

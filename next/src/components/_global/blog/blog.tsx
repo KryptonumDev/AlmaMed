@@ -6,7 +6,7 @@ import Pagination from './blog-pagination';
 
 export default function Blog({ posts, categories }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div className={styles.categories}>
         <h1>Blog</h1>
         <p className='h4'>Kategorie</p>
@@ -36,7 +36,7 @@ export default function Blog({ posts, categories }: Props) {
             />
           ))}
         </div>
-        <Pagination 
+        <Pagination
           currentPage={1}
           itemCount={1}
         />

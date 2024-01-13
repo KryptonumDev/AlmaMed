@@ -1,4 +1,3 @@
-
 import styles from './freebie.module.scss';
 import { Props } from './freebie.constants';
 import Image from '../../ui/image';
@@ -7,7 +6,7 @@ import Form from '../../_global/newsletter/newsletter-form';
 
 export default function Freebie({ title, text, image }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div>
         <Markdown.h2
           className={`${styles.title} h3`}
@@ -17,7 +16,7 @@ export default function Freebie({ title, text, image }: Props) {
           className={styles.text}
           children={text}
         />
-        <Form/>
+        <Form />
       </div>
       <Image data={image} />
     </section>

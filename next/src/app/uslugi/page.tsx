@@ -1,6 +1,6 @@
 import Mentoring from '@/components/_services/mentoring';
 import Cta from '@/components/_global/cta';
-// import Hero from '@/components/hero';
+import Hero from '@/components/_global/hero';
 import Tiles from '@/components/_services/tiles';
 import { sanityFetch } from '../../utils/sanity-client';
 import PaymentMethods from '@/components/_services/payment-methods';
@@ -183,13 +183,13 @@ export default async function Index() {
 
   return (
     <>
-      {/* <Hero
+      <Hero
         title={page.hero_Heading}
         text={page.hero_Paragraph}
         list={page.hero_icons_list}
         cta={page.hero_Cta}
         image={page.hero_background}
-      /> */}
+      />
       <Tiles
         title={page.tiles_heading}
         text={page.tiles_paragraph}

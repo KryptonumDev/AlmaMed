@@ -9,7 +9,7 @@ import { slugify } from '../../../utils/slugify';
 export default function Treatments({ title, text, list }: Props) {
   return (
     <>
-      <section className={styles.wrapper}>
+      <section className={`${styles.wrapper} container`}>
         <Markdown.h2
           children={title}
           className={`${styles.title} h3`}

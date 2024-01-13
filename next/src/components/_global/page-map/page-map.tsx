@@ -79,7 +79,7 @@ export default function PageMap({ categories, specialists, posts, services }: Pr
   ];
 
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <h1>Mapa strony</h1>
       <div className={styles.grid}>
         {structuredData.map((el, index) => (

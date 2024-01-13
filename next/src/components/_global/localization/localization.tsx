@@ -3,11 +3,10 @@ import { Props } from './localization.constants';
 import { Letter, MapDot, Phone } from './localization.icons';
 import ButtonBig from '../../ui/button-big';
 import Markdown from '../../ui/markdown';
-import cta from '../cta';
 
 export default function Localization({ title, cards, ctaLink, ctaTitle }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         className='h3'
         children={title}

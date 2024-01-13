@@ -2,7 +2,7 @@
 import styles from './styles.module.scss';
 import { Logo } from '../../ui/logo';
 import Link from 'next/link';
-import { Blob, Kryptonum } from './footer.icons';
+import { Background, Blob, Kryptonum } from './footer.icons';
 
 const links = [
   {
@@ -65,7 +65,8 @@ const links = [
 export default function Footer() {
   return (
     <footer className={styles.wrapper}>
-      <Blob/>
+      {/* <Blob/> */}
+      <Background/>
       <div className={`container ${styles.container}`}>
         <div className={styles.information}>
           <Logo className={styles.logo} />

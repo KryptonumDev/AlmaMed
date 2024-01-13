@@ -9,7 +9,7 @@ import { transformDateFormat } from '../../../utils/date-formatter';
 
 export default function Newsletter({ content, title, text, icon, link, post }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       {post ? (
         <div className={styles.post}>
           <Link href={`/blog/${post?.slug.current}`} />

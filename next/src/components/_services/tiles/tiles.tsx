@@ -6,7 +6,7 @@ import Tile from '../../ui/tile';
 
 export default function Tiles({ title, text, tiles }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div>
         <Markdown.h2
           className={`${styles.title} h3`}

@@ -7,7 +7,7 @@ import RadialChart from '../../ui/radial-chart';
 
 export default function Prevention({ title, text, cta, metricsTitle, metricsNumber }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div className={styles.content}>
         <Markdown.h2
           className='h3'

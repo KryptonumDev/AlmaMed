@@ -6,7 +6,7 @@ import List from './faq-list';
 
 export default function Faq({ list, title, text, cta }: Props) {
   return (
-    <section className={`${styles.wrapper} ${!text && !cta ? styles.fullWidth : ''}`}>
+    <section className={`${styles.wrapper} container ${!text && !cta ? styles.fullWidth : ''}`}>
       <div className={styles.faq}>
         <Markdown.h2
           className={`${styles.title} h3`}

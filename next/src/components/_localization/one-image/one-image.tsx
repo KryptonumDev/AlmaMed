@@ -5,7 +5,7 @@ import Image from '@/components/ui/image';
 
 export default function OneImage({ title, text, image }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         children={title}
         className={`${styles.title} h3`}

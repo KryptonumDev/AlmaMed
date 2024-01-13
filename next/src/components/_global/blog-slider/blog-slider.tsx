@@ -7,7 +7,7 @@ import ButtonBig from '../../ui/button-big';
 export default function BlogSlider({ title, text, posts }: Props) {
   if (!posts?.length) return null;
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         className={`h3 ${styles.title}`}
         children={title}

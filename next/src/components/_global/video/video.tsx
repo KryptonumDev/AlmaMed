@@ -5,7 +5,7 @@ import Markdown from '../../ui/markdown';
 
 export default function Video({ title, text, video, steps }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         className={`${styles.title} h3`}
         children={title}

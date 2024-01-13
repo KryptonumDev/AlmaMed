@@ -6,7 +6,7 @@ import Markdown from '../../ui/markdown';
 
 export default function Cta({ title, text, link }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div className={styles.content}>
         <Markdown.h2
           className='h3'

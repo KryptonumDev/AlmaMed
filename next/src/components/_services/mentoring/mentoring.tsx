@@ -6,7 +6,7 @@ import Image from '../../ui/image';
 
 export default function Mentoring({ title, text, list }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         className={`h3 ${styles.title}`}
         children={title}

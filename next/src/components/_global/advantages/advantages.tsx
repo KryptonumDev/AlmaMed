@@ -6,7 +6,7 @@ import Markdown from '../../ui/markdown';
 
 export default function Advantages({ title, text, advantages }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div className={styles.flex}>
         <div className={styles.text}>
           <Markdown.h2

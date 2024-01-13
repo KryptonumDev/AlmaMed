@@ -7,7 +7,7 @@ import { slugify } from '../../../utils/slugify';
 
 export const TreatmentPart = ({ title, text, image, benefits, subTitle, price, list }: PartProps) => {
   return (
-    <section id={slugify(title)} className={styles.part}>
+    <section id={slugify(title)} className={`${styles.part} container`}>
       <Markdown.h2
         children={title}
         className={`h3 ${styles.title}`}

@@ -158,12 +158,14 @@ h6,
 }
 
 main {
+  display: grid;
+  gap: clamp(128px, calc(128vw / 7.68), 176px);
+}
+
+.container{
   max-width: 1208px;
   margin: 0 auto;
   width: calc(100% - clamp(32px, calc(120vw / 10.24), 160px));
-
-  display: grid;
-  gap: clamp(128px, calc(128vw / 7.68), 176px);
 
   @media (max-width: 420px) {
     width: calc(100% - 32px);

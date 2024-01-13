@@ -5,7 +5,7 @@ import Card from '@/components/ui/specialist-card/specialists-card';
 
 export default function Slider({ title, specialists }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         className={`${styles.title} h3`}
         children={title}

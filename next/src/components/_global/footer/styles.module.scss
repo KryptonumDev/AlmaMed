@@ -1,17 +1,15 @@
 .wrapper {
-  margin-top: 140px;
-  padding: 48px 0px;
-  background-color: #F9F9F9;
+  padding: 188px 0px 48px 0px;
   position: relative;
+  overflow: hidden;
 
   >svg{
     z-index: -1;
     height: auto;
-    left: 0;
-    right: 0;
-    top: -120px;
-    width: 100%;
     position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .container {

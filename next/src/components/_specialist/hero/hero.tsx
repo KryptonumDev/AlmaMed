@@ -5,7 +5,7 @@ import Image from '@/components/ui/image';
 
 export default function Hero({ name, profession, image, education }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div>
         <Markdown.h1
           className={`h3 ${styles.title}`}
