@@ -46,5 +46,6 @@ export interface Props {
 
 export type Inputs = {
   email: string;
+  name: string;
   agreement: boolean;
 };

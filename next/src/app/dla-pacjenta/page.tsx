@@ -1,10 +1,10 @@
 import Hero from '@/components/_global/hero';
-import Localization from '@/components/_global/localization';
 import { sanityFetch } from '../../utils/sanity-client';
+import Localization from '@/components/_global/localization';
+import Instructions from '@/components/_for-patient/instructions';
 import Video from '@/components/_global/video';
 import Freebie from '@/components/_services/freebie';
 import Faq from '@/components/_global/faq';
-import Instructions from '@/components/_for-patient/instructions';
 import TestLocalizations from '@/components/_for-patient/test-localizations';
 
 export default async function Index() {
@@ -197,3 +197,5 @@ export default async function Index() {
     </>
   );
 }
+// ├ ○ /dla-pacjenta                        91.1 kB         226 kB
+// ├ ○ /dla-pacjenta                        414 B          94.5 kB
