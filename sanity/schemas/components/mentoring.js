@@ -15,5 +15,10 @@ export default {
       title: 'Tekst',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'oversized',
+      type: 'boolean',
+      title: 'Czy elemnty mają być powiększone?',
+    }
   ],
 }

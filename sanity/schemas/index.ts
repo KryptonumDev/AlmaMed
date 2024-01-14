@@ -40,6 +40,7 @@ import {
   imageAndLink,
   titleDescriptionAndImage,
 } from './components/list'
+import services_specialists from './components/services-doctor'
 
 export const components = [
   global_Seo,
@@ -65,6 +66,7 @@ export const components = [
   link,
   blocks,
   icon,
+  services_specialists
 ]
 
 export const schemaTypes = [

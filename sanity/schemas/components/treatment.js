@@ -19,7 +19,6 @@ export default {
       name: 'benefits',
       type: 'array',
       title: 'Efekty zabiegu',
-      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'markdown',
@@ -51,18 +50,5 @@ export default {
         },
       ],
     },
-    {
-      name: 'price',
-      type: 'array',
-      title: 'Cennik',
-      validation: (Rule) => Rule.required(),
-      of: [
-        {
-          type: 'markdown',
-          title: 'Cena',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
-    }
   ],
 }

@@ -158,6 +158,76 @@ export default {
       type: 'array',
       title: 'Lista zabiegów',
       fieldset: 'treatments',
+      hidden: ({document}) => !document.have_page,
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'treatment_annotation',
+      type: 'markdown',
+      title: 'Adnotacja pod listą',
+      fieldset: 'treatments',
+      hidden: ({document}) => !document.have_page,
+    },
+    // mentoring
+    {
+      name: 'mentoring_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'mentoring',
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'mentoring_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'mentoring',
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'mentoring_list',
+      type: 'array',
+      title: 'Etapy opieky koordynowanej',
+      fieldset: 'mentoring',
+      validation: (rule) =>
+        rule.custom((currentValue, {document}) => {
+          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          return true
+        }),
+      hidden: ({document}) => !document.have_page,
+      of: [
+        {
+          name: 'mentoring_list_element',
+          type: 'mentoring_list_element',
+          title: 'Element listy',
+          validation: (rule) =>
+            rule.custom((currentValue, {document}) => {
+              if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+              return true
+            }),
+          hidden: ({document}) => !document.have_page,
+        },
+      ],
+    },
+    // treatments
+    {
+      name: 'tests',
+      type: 'array',
+      title: 'Lista zabiegów',
+      fieldset: 'tests',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
           if (shouldShow(document) && currentValue === undefined) return 'This field is required'
@@ -177,74 +247,71 @@ export default {
         },
       ],
     },
-    // flex
+    //specialists
     {
-      name: 'flex_heading',
+      name: 'specialists_heading',
       type: 'markdown',
       title: 'Nagłówek',
-      fieldset: 'flex',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
+      fieldset: 'specialists',
       hidden: ({document}) => !document.have_page,
     },
     {
-      name: 'flex_list',
+      name: 'specialists_list',
       type: 'array',
-      title: 'Lista ikon z tekstem',
-      fieldset: 'flex',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
+      title: 'Lista specjalistów',
+      fieldset: 'specialists',
       hidden: ({document}) => !document.have_page,
       of: [
         {
-          type: 'icon_list_element',
-          title: 'Element listy',
-          validation: (rule) =>
-            rule.custom((currentValue, {document}) => {
-              if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
-              return true
-            }),
+          type: 'services_specialist',
+          title: 'Specjalisty',
         },
       ],
     },
+    // price
     {
-      name: 'flex_Cta',
-      type: 'array',
-      title: 'Przyciski pod listą',
-      fieldset: 'flex',
+      name: 'price_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'price',
       hidden: ({document}) => !document.have_page,
+      fieldset: 'price',
+    },
+    {
+      name: 'price',
+      type: 'array',
+      title: 'Cennik',
+      hidden: ({document}) => !document.have_page,
+      fieldset: 'price',
       of: [
         {
-          name: 'cta',
-          type: 'cta',
-          title: 'CTA',
-          validation: (rule) =>
-            rule.custom((currentValue, {document}) => {
-              if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
-              return true
-            }),
+          type: 'markdown',
+          title: 'Cena',
+          validation: (Rule) => Rule.required(),
         },
       ],
     },
+    // freebie
     {
-      name: 'flex_image',
+      name: 'freebie_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'freebie',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'freebie_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'freebie',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'freebie_image',
       type: 'image',
       title: 'Obrazek',
-      fieldset: 'flex',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
-      hidden: ({document}) => !document.have_page,
+      fieldset: 'freebie',
+      validation: (Rule) => Rule.required(),
     },
     //seo
     {
@@ -278,8 +345,28 @@ export default {
       options: {collapsible: true},
     },
     {
-      name: 'flex',
-      title: 'Sekcja dwukolumnowa z obrazkiem',
+      name: 'tests',
+      title: 'Badania',
+      options: {collapsible: true},
+    },
+    {
+      name: 'price',
+      title: 'Cennik pozostałych usług',
+      options: {collapsible: true},
+    },
+    {
+      name: 'mentoring',
+      title: 'Opieka koordynowana',
+      options: {collapsible: true},
+    },
+    {
+      name: 'specialists',
+      title: 'Specjaliści',
+      options: {collapsible: true},
+    },
+    {
+      name: 'freebie',
+      title: 'Darmowy e-book',
       options: {collapsible: true},
     },
     {
