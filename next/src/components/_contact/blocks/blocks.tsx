@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Blocks({ title, text, blocks }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <Markdown.h2
         children={title}
         className={`${styles.title} h3`}

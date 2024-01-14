@@ -5,7 +5,7 @@ import Form from './hero-form';
 
 export default function Hero({ title, text }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} container`}>
       <div>
         <Markdown.h1
           children={title}
