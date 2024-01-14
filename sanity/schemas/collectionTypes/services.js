@@ -178,11 +178,6 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'mentoring',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
       hidden: ({document}) => !document.have_page,
     },
     {
@@ -190,11 +185,13 @@ export default {
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'mentoring',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'mentoring_oversized',
+      type: 'boolean',
+      title: 'Czy elemnty mają być powiększone?',
+      fieldset: 'mentoring',
       hidden: ({document}) => !document.have_page,
     },
     {
@@ -202,11 +199,6 @@ export default {
       type: 'array',
       title: 'Etapy opieky koordynowanej',
       fieldset: 'mentoring',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
       hidden: ({document}) => !document.have_page,
       of: [
         {
@@ -215,7 +207,8 @@ export default {
           title: 'Element listy',
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
-              if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+              if (shouldShow(document) && currentValue === undefined)
+                return 'This field is required'
               return true
             }),
           hidden: ({document}) => !document.have_page,
@@ -228,11 +221,6 @@ export default {
       type: 'array',
       title: 'Lista zabiegów',
       fieldset: 'tests',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
       hidden: ({document}) => !document.have_page,
       of: [
         {
@@ -244,6 +232,35 @@ export default {
                 return 'This field is required'
               return true
             }),
+        },
+      ],
+    },
+    // advantages
+    {
+      name: 'advantages_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'advantages',
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'advantages_paragraph',
+      type: 'markdown',
+      title: 'Paragraf pod nagłówkiem',
+      fieldset: 'advantages',
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'advantages_list',
+      type: 'array',
+      title: 'Lista wyróżników',
+      fieldset: 'advantages',
+      hidden: ({document}) => !document.have_page,
+      of: [
+        {
+          type: 'advantages',
+          name: 'advantages',
+          title: 'Element listy',
         },
       ],
     },
@@ -287,7 +304,12 @@ export default {
         {
           type: 'markdown',
           title: 'Cena',
-          validation: (Rule) => Rule.required(),
+          validation: (rule) =>
+            rule.custom((currentValue, {document}) => {
+              if (shouldShow(document) && currentValue === undefined)
+                return 'This field is required'
+              return true
+            }),
         },
       ],
     },
@@ -297,21 +319,18 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'freebie',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'freebie_paragraph',
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'freebie',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'freebie_image',
       type: 'image',
       title: 'Obrazek',
       fieldset: 'freebie',
-      validation: (Rule) => Rule.required(),
     },
     //seo
     {
@@ -357,6 +376,11 @@ export default {
     {
       name: 'mentoring',
       title: 'Opieka koordynowana',
+      options: {collapsible: true},
+    },
+    {
+      name: 'advantages',
+      title: 'Wyróżniki',
       options: {collapsible: true},
     },
     {

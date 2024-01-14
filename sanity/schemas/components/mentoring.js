@@ -11,14 +11,9 @@ export default {
     },
     {
       name: 'text',
-      type: 'string',
+      type: 'markdown',
       title: 'Tekst',
       validation: (Rule) => Rule.required(),
     },
-    {
-      name: 'oversized',
-      type: 'boolean',
-      title: 'Czy elemnty mają być powiększone?',
-    }
   ],
 }

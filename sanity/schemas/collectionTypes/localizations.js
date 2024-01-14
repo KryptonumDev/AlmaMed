@@ -286,11 +286,6 @@ export default {
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'mentoring',
-      validation: (rule) =>
-        rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
-          return true
-        }),
       hidden: ({document}) => !document.have_page,
     },
     {

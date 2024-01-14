@@ -50,5 +50,17 @@ export default {
         },
       ],
     },
+    {
+      name: 'price',
+      type: 'array',
+      title: 'Cennik',
+      of: [
+        {
+          type: 'markdown',
+          title: 'Cena',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    }
   ],
 }

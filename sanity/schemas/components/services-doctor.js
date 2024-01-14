@@ -17,12 +17,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'image',
-      type: 'image',
-      title: 'Obraz zabiegu',
-      validation: (Rule) => Rule.required(),
-    },
-    {
       name: 'link_to_specialist',
       type: 'boolean',
       title: 'Czy linkować do specjalisty?',
