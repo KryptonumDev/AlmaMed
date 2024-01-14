@@ -17,43 +17,22 @@ const links = [
       { label: 'Pozostałe usługi', href: '/uslugi/' },
     ],
   },
-  { label: 'O nas', href: '/o-nas' },
   { label: 'Dla pacjenta', href: '/dla-pacjenta' },
   { label: 'Kontakt', href: '/kontakt' },
+  { label: 'Blog', href: 'blog' },
 ];
 
 export default function Header() {
-  const annotation = useRef(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-    if (scrollTop > 100) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
+  const [navOpen, setNavOpen] = useState(false);
 
   return (
-    <header className={`${styles.wrapper} ${isScrolled ? styles.scrolled : ''}`}>
-      <div
-        ref={annotation}
-        className={styles.annotation}
-      >
+    <header className={`${styles.wrapper}`}>
+      <div className={styles.annotation}>
         <div className={styles.part}>
           <p>Bielsk Podlaski | Boćki</p>
           <p>Godziny pracy: Pon – Pt: 8.00 – 18.00</p>
         </div>
-        <div className={styles.part}>
+        <div className={`${styles.part} ${styles.desktop}`}>
           <Link href='/kontakt'>
             <Calendar />
             Umów się do lekarza
@@ -68,34 +47,75 @@ export default function Header() {
           </a>
         </div>
       </div>
-      <nav
-        // @ts-ignore
-        style={{ '--transform': (annotation?.current?.clientHeight || 0) + 'px' }}
-        className={styles.navigation}
-      >
-        <Link className={styles.logo} href='/'>
+      <nav className={styles.navigation}>
+        <Link
+          className={styles.logo}
+          href='/'
+        >
           <Logo />
         </Link>
-        <ul>
-          {links.map((link) => (
-            <li key={link.label}>
-              <Link href={link.href}>
-                {link.label}
-                {link.sub && <ArrowUp />}
+        <div className={`${styles.mobileNav} ${navOpen ? styles.opened : ''}`}>
+          <div className={styles.flex}>
+            <Link
+              className={styles.logo}
+              href='/'
+            >
+              <Logo />
+            </Link>
+            <button
+              onClick={() => {
+                setNavOpen(!navOpen);
+              }}
+            />
+          </div>
+          <Search className={styles.mobileSearch}/>
+          <ul>
+            {links.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href}>
+                  {link.label}
+                  {link.sub && <ArrowUp />}
+                </Link>
+                {link.sub && (
+                  <ul className={styles.dropdown}>
+                    {link.sub.map((sub) => (
+                      <li key={sub.label}>
+                        <Link href={sub.href}>{sub.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+            <li className={styles.mobile}>
+              <Link href='/kontakt'>
+                <Calendar />
+                Umów się do lekarza
               </Link>
-              {link.sub && (
-                <ul className={styles.dropdown}>
-                  {link.sub.map((sub) => (
-                    <li key={sub.label}>
-                      <Link href={sub.href}>{sub.label}</Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </li>
-          ))}
-        </ul>
+            <li className={styles.mobile}>
+              <a href='tel:123456789'>
+                <Phone />
+                123 456 789
+              </a>
+            </li>
+            <li className={styles.mobile}>
+              <a href='mailto:kontakt@almamed.pl'>
+                <Letter />
+                kontakt@almamed.pl
+              </a>
+            </li>
+          </ul>
+        </div>
         <Search />
+        <button
+          onClick={() => {
+            setNavOpen(!navOpen);
+          }}
+          className={styles.navButton}
+        >
+          <span />
+        </button>
       </nav>
     </header>
   );

@@ -23,4 +23,10 @@ export interface Props {
       current: string;
     };
   }>;
+  localizations: Array<{
+    name: string;
+    slug: {
+      current: string;
+    };
+  }>;
 }

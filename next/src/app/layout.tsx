@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import SmoothScroll from '../HOCs/smooth-scroll'
 import '../assets/global.scss'
-// import Header from '@/components/_global/header'
+import Header from '@/components/_global/header'
 import Footer from '@/components/_global/footer'
 
 
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <SchemaOrganization />
       </head> */}
       <body className={`${satoshi.className} ${satoshi.variable}`}>
-        {/* <Header /> */}
+        <Header />
         <SmoothScroll>
             {children}
         </SmoothScroll>

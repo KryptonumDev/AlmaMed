@@ -3,14 +3,17 @@ import { Props } from './page-map.constants';
 import Link from 'next/link';
 import { removeMarkdownTags } from '../../../utils/remove-markdown';
 
-export default function PageMap({ categories, specialists, posts, services }: Props) {
+export default function PageMap({ categories, specialists, posts, services, localizations }: Props) {
   const structuredData = [
     {
       link: {
         name: 'Strona główna',
         href: '/',
       },
-      subLinks: [],
+      subLinks: localizations.map((el) => ({
+        name: el.name,
+        href: `/${el.slug.current}`,
+      })),
     },
     {
       link: {
@@ -83,7 +86,10 @@ export default function PageMap({ categories, specialists, posts, services }: Pr
       <h1>Mapa strony</h1>
       <div className={styles.grid}>
         {structuredData.map((el, index) => (
-          <div key={el.link.name+ index} className={styles.item}>
+          <div
+            key={el.link.name + index}
+            className={styles.item}
+          >
             <Link
               className='h4'
               href={el.link.href}
