@@ -18,10 +18,13 @@ export default function BlogSlider({ title, text, posts }: Props) {
       />
       <div className={styles.grid}>
         {posts?.map((el, index) => (
-          <Card key={el.name + index} image={el.thumbnail} title={el.name} slug={el.slug.current} date={el._updatedAt}/>
-        ))}
-        {posts?.map((el, index) => (
-          <Card key={el.name + index} image={el.thumbnail} title={el.name} slug={el.slug.current} date={el._updatedAt}/>
+          <Card
+            key={el.name + index}
+            image={el.thumbnail}
+            title={el.name}
+            slug={el.slug.current}
+            date={el._updatedAt}
+          />
         ))}
         <ButtonBig
           ctaLink={{ url: '/blog', title: 'Dowiedz się więcej' }}

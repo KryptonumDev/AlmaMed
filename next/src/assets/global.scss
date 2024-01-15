@@ -217,3 +217,27 @@ a {
   text-decoration: unset;
   color: #242424;
 }
+
+// article styles
+
+.unorderedList{
+  display: grid;
+  gap: 30px;
+
+  li{
+    display: grid;
+    grid-template-columns: 32px auto;
+    gap: 15px;
+  }
+}
+
+.orderedList{
+  display: grid;
+  gap: 30px;
+
+  li{
+    list-style: decimal;
+    margin-left: 32px;
+    padding-left: 16px;
+  }
+}
