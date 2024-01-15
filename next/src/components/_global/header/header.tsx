@@ -59,16 +59,18 @@ export default function Header() {
             <Link
               className={styles.logo}
               href='/'
+              aria-label='Link do strony głównej'
             >
               <Logo />
             </Link>
             <button
+              aria-label='Menu mobilne'
               onClick={() => {
                 setNavOpen(!navOpen);
               }}
             />
           </div>
-          <Search className={styles.mobileSearch}/>
+          <Search className={styles.mobileSearch} />
           <ul>
             {links.map((link) => (
               <li key={link.label}>
@@ -109,6 +111,7 @@ export default function Header() {
         </div>
         <Search />
         <button
+          aria-label='Menu mobilne'
           onClick={() => {
             setNavOpen(!navOpen);
           }}

@@ -46,6 +46,7 @@ export default function Localization({ title, cards, ctaLink, ctaTitle }: Props)
               allowFullScreen={false}
               loading='lazy'
               referrerPolicy='no-referrer-when-downgrade'
+              title={card.name}
             />
           </div>
         ))}
