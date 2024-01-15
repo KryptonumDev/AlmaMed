@@ -8,7 +8,7 @@ import Button from '../../ui/button';
 import CheckBox from '../../ui/check-box';
 import { useState } from 'react';
 
-export default function Form() {
+export default function Form({ id }: { id?: string}) {
   const [status, setStatus] = useState({ sending: false });
   const {
     register,
