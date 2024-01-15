@@ -19,7 +19,7 @@ const links = [
   },
   { label: 'Dla pacjenta', href: '/dla-pacjenta' },
   { label: 'Kontakt', href: '/kontakt' },
-  { label: 'Blog', href: 'blog' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 export default function Header() {

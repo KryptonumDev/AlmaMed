@@ -1,12 +1,13 @@
 import Newsletter from '@/components/_global/newsletter';
-import { sanityFetch } from '../../utils/sanity-client';
+import { sanityFetch } from '../../../../utils/sanity-client';
 import Blog from '@/components/_global/blog';
+import { notFound } from 'next/navigation';
 
-export default async function Index() {
+export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { posts, categories, global, total } = await sanityFetch<any>({
     query: `{
-      "total": count(*[_type == 'blogEntry']),
-      "posts": *[_type == 'blogEntry'][0...5]{
+      "total": count(*[_type == 'blogEntry' && count((categories[]->slug.current)[@ in [$slug]]) > 0]),
+      "posts": *[_type == 'blogEntry' && count((categories[]->slug.current)[@ in [$slug]]) > 0][0...5]{
         _updatedAt,
         brief,
         name,
@@ -64,13 +65,17 @@ export default async function Index() {
         newsletter_right_paragraph,
       }
     }`,
+    params: { slug: slug },
   });
+
+  if (!posts.length) return notFound();
+
   return (
     <>
-      <Blog 
+      <Blog
         posts={posts}
         categories={categories}
-        urlBasis='/blog'
+        urlBasis={`/blog/kategoria/${slug}`}
         total={total}
         page={1}
       />

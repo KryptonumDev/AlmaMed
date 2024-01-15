@@ -4,10 +4,27 @@
   gap: 32px;
   margin-top: 320px;
 
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+  }
+
+  .brief {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
   .categories {
     display: grid;
     gap: 32px;
     min-width: max-content;
+    height: fit-content;
+
+    @media (max-width: 840px) {
+      min-width: unset;
+    }
 
     p {
       color: var(--light-blue-500, #0376be);
@@ -17,8 +34,15 @@
       display: grid;
       gap: 24px;
 
+      @media (max-width: 840px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
       a {
         padding: 8px 12px;
+        display: block;
       }
     }
   }
@@ -32,10 +56,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
+
+  @media (max-width: 1080px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
   position: relative;
+
+  img {
+    width: 100%;
+    height: fit-content;
+  }
 
   > a {
     position: absolute;
@@ -68,5 +105,63 @@
   img {
     margin-bottom: 16px;
     border-radius: 16px;
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 32px auto 0 auto;
+  width: fit-content;
+
+  @media (max-width: 480px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'numbers numbers'
+      'left right';
+  }
+
+  .center {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    @media (max-width: 480px) {
+      grid-area: numbers;
+    }
+    @media (max-width: 340px) {
+      gap: 6px;
+    }
+
+    a {
+      color: var(--neutral-900, #202123);
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 105%;
+      letter-spacing: 0.36px;
+      padding: 2px 6px;
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .arrow {
+    height: 40px;
+
+    &.left {
+      @media (max-width: 480px) {
+        grid-area: left;
+      }
+    }
+
+    &.right {
+      @media (max-width: 480px) {
+        grid-area: right;
+        margin-left: auto;
+      }
+    }
   }
 }

@@ -16,6 +16,72 @@ export default {
       description:
         'If enabled SEO robots (such as Google) will be able to index the site in search engines.',
     },
+    {
+      name: 'book',
+      type: 'string',
+      title: 'Link do umówienia wizyty',
+      description: 'Relative or absolute link (https://)',
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (
+            value &&
+            !value.startsWith('/') &&
+            !value.startsWith('https://') &&
+            !value.startsWith('#')
+          ) {
+            return 'Incorrect URL.'
+          }
+          return true
+        }),
+    },
+    {
+      name: 'phone',
+      type: 'string',
+      title: 'Numer telefonu',
+      description: 'Numer telefonu w formacie +48 123 456 789',
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (value && !value.match(/^\+48 \d{3} \d{3} \d{3}$/)) {
+            return 'Incorrect phone number format.'
+          }
+          return true
+        }),
+    },
+    {
+      name: 'email',
+      type: 'string',
+      title: 'Adres email',
+      description: 'Adres email',
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (value && !value.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)) {
+            return 'Incorrect email format.'
+          }
+          return true
+        }),
+    },
+    // Header
+    {
+      name: 'header_links',
+      type: 'array',
+      title: 'Linki w nagłówku',
+      of: [
+        {
+          type: 'header_link',
+          name: 'header_link',
+          title: 'Link',
+        },
+      ],
+    },
+    {
+      name: 'header_text_inform',
+      type: 'array',
+      title: 'Informacja dodatkowa w nagłówku',
+      of: [{type: 'string'}],
+    },
+    {
+      name: '',
+    },
     // registration
     {
       name: 'registration_heading',
@@ -103,7 +169,6 @@ export default {
       fieldset: 'newsletter',
       validation: (Rule) => Rule.required(),
     },
-    // Formularz..?
     // metrics
     {
       name: 'patients',

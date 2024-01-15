@@ -1,7 +1,6 @@
 import styles from './article.module.scss';
 import { ImageRenderer } from './portable-text';
 export default function ImageColumn({ list }: { list: any[] }) {
-  console.log(list);
   return (
     <div className={styles.imageColumns}>
       {list.map((item: any, index: number) => (

@@ -3,12 +3,20 @@ import { Props } from './blog.constants';
 import Button from '../../ui/button';
 import Card from './blog-card';
 import Pagination from './blog-pagination';
+import Link from 'next/link';
 
-export default function Blog({ posts, categories }: Props) {
+export default function Blog({ posts, categories, urlBasis, total, page }: Props) {
   return (
     <section className={`${styles.wrapper} container`}>
       <div className={styles.categories}>
-        <h1>Blog</h1>
+        <h1>
+          <Link
+            className='h1'
+            href='/blog'
+          >
+            Blog
+          </Link>
+        </h1>
         <p className='h4'>Kategorie</p>
         <ul>
           {categories.map((el, index) => (
@@ -37,8 +45,9 @@ export default function Blog({ posts, categories }: Props) {
           ))}
         </div>
         <Pagination
-          currentPage={1}
-          itemCount={1}
+          currentPage={page}
+          itemCount={total}
+          urlBasis={urlBasis}
         />
       </div>
     </section>

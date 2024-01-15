@@ -1,4 +1,7 @@
 export interface Props {
+  page: number;
+  total: number;
+  urlBasis: string;
   posts: Array<{
     _updatedAt: string;
     name: string;
@@ -66,4 +69,5 @@ export interface CardProps {
 export interface PaginationProps {
   currentPage: number;
   itemCount: number;
+  urlBasis: string;
 }

@@ -43,6 +43,7 @@ import {
 import services_specialists from './components/services-doctor'
 import {ImageColumn, Cta} from './components/portableText'
 import PortableText from '../components/PortableText'
+import headerLink, {headerSubLink} from './components/headerLink'
 
 export const components = [
   global_Seo,
@@ -71,7 +72,9 @@ export const components = [
   services_specialists,
   ImageColumn,
   PortableText,
-  Cta
+  Cta,
+  headerSubLink,
+  headerLink
 ]
 
 export const schemaTypes = [

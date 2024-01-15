@@ -12,7 +12,7 @@ export default function Card ({image, title, date, brief, categories, slug}: Car
       <Image data={image}/>
       <p className="p">{transformDateFormat(date)}</p>
       <p className={styles.title}>{title}</p>
-      <p className="p">{brief}</p>
+      <p className={`p ${styles.brief}`}>{brief}</p>
       <ul>
         {categories.map((el, index) => (
           <li key={index}>
