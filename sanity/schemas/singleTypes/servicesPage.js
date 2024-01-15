@@ -2,7 +2,6 @@ export default {
   name: 'servicesPage',
   title: 'Usługi archiwum',
   type: 'document',
-  icon: () => '⭐️',
   fields: [
     // hero
     {

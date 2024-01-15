@@ -2,7 +2,6 @@ export default {
   name: 'global',
   title: 'Globalne',
   type: 'document',
-  icon: () => '🌍',
   fields: [
     {
       name: 'seo',
@@ -60,25 +59,31 @@ export default {
           return true
         }),
     },
+    {
+      name: 'adress',
+      type: 'string',
+      title: 'Adres',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'time',
+      type: 'string',
+      title: 'Godziny otwarcia',
+      validation: (Rule) => Rule.required(),
+    },
     // Header
-    {
-      name: 'header_links',
-      type: 'array',
-      title: 'Linki w nagłówku',
-      of: [
-        {
-          type: 'header_link',
-          name: 'header_link',
-          title: 'Link',
-        },
-      ],
-    },
-    {
-      name: 'header_text_inform',
-      type: 'array',
-      title: 'Informacja dodatkowa w nagłówku',
-      of: [{type: 'string'}],
-    },
+    // {
+    //   name: 'header_links',
+    //   type: 'array',
+    //   title: 'Linki w nagłówku',
+    //   of: [
+    //     {
+    //       type: 'header_link',
+    //       name: 'header_link',
+    //       title: 'Link',
+    //     },
+    //   ],
+    // },
     // registration
     {
       name: 'registration_heading',

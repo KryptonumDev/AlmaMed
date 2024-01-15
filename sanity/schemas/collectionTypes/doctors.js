@@ -2,7 +2,6 @@ export default {
   name: 'doctors',
   title: 'Specjaliści',
   type: 'document',
-  icon: () => '🌍',
   fields: [
     {
       type: 'markdown',
