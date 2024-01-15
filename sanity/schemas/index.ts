@@ -41,6 +41,8 @@ import {
   titleDescriptionAndImage,
 } from './components/list'
 import services_specialists from './components/services-doctor'
+import {ImageColumn, Cta} from './components/portableText'
+import PortableText from '../components/PortableText'
 
 export const components = [
   global_Seo,
@@ -66,7 +68,10 @@ export const components = [
   link,
   blocks,
   icon,
-  services_specialists
+  services_specialists,
+  ImageColumn,
+  PortableText,
+  Cta
 ]
 
 export const schemaTypes = [

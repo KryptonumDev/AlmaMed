@@ -39,10 +39,10 @@ export default {
       of: [{ type: 'reference', to: [{ type: 'blogCategory' }] }],
       validation: Rule => Rule.required(),
     },
-    // {
-    //   name: 'content',
-    //   type: 'PortableText',
-    // },
+    {
+      name: 'content',
+      type: 'PortableText',
+    },
     {
       name: 'seo',
       type: 'seo',

@@ -4,7 +4,6 @@ import Markdown from '../../ui/markdown';
 import Image from '../../ui/image';
 
 export default function Mentoring({ title, text, list, oversized = false }: Props) {
-    console.log(oversized);
   return (
     <section className={`${styles.wrapper} container`}>
       <Markdown.h2
