@@ -1,40 +1,45 @@
-
 import styles from './flex.module.scss';
 import { Props } from './flex.constants';
-import Image from '../../ui/image';
 import Markdown from '../../ui/markdown';
+import Image from '../../ui/image';
 import Button from '../../ui/button';
 
-export default function Flex({ title, image, list, links }: Props) {
+export default function Flex({ title, list }: Props) {
   return (
     <section className={`${styles.wrapper} container`}>
-      <div>
-        <Markdown.h2
-          className={`${styles.title} h3`}
-          children={title}
-        />
-        <div className={styles.list}>
-          {list.map((el, i) => (
-            <div className={styles.item} key={el.text + i}>
-              <Image data={el.icon} />
-              <p>{el.text}</p>
+      <Markdown.h2
+        className={`${styles.title} h3`}
+        children={title}
+      />
+      <div className={styles.grid}>
+        {list.map((el, index) => (
+          <div
+            className={styles.item}
+            key={index}
+          >
+            <div className={styles.image}>
+              <Image data={el.title.image} />
             </div>
-          ))}
-        </div>
-        <div className={styles.links}>
-          {links.map((el) => (
-            <Button
-              arrow={true}
-              key={el.text}
-              url={el.href}
-              type={el.theme}
-              title={el.text}
-            />
-          ))}
-        </div>
-      </div>
-      <div className={styles.image}>
-        <Image data={image} />
+            <div className={styles.content}>
+              <Markdown.h3
+                className={`${styles.itemTitle} h4`}
+                children={el.title.name + '&nbsp;–'}
+              />
+              <Markdown.p
+                className={`${styles.itemText}`}
+                children={el.paragraph}
+              />
+              {el.link_to_specialist && (
+                <Button
+                  arrow={true}
+                  url={`/specialist/${el.title.slug.current}`}
+                  title={'Poznaj mnie'}
+                  type='primary'
+                />
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

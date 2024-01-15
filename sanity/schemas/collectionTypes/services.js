@@ -215,7 +215,7 @@ export default {
         },
       ],
     },
-    // treatments
+    // tests
     {
       name: 'tests',
       type: 'array',
@@ -264,7 +264,7 @@ export default {
         },
       ],
     },
-    //specialists
+    // specialists
     {
       name: 'specialists_heading',
       type: 'markdown',

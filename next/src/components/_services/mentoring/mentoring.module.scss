@@ -5,7 +5,7 @@
     margin: 24px auto 0 auto;
   }
 
-  .title{
+  .title {
     text-align: center;
     max-width: 585px;
     margin: 0 auto;
@@ -14,8 +14,10 @@
   .grid {
     margin-top: 32px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+    justify-items: center;
+    justify-content: center;
 
     @media (max-width: 680px) {
       grid-template-columns: 1fr 1fr;
@@ -24,7 +26,6 @@
 
     .item {
       display: grid;
-      grid-template-rows: auto 1fr;
       gap: 32px;
       text-align: center;
       max-width: 212px;
@@ -56,6 +57,34 @@
 
         @media (max-width: 680px) {
           font-size: clamp(16px, calc(24vw / 7.68), 24px);
+        }
+      }
+    }
+
+    &.oversized {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      @media (max-width: 840px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .item {
+        max-width: 320px;
+
+        p {
+          font-weight: 400;
+          font-size: clamp(16px, calc(20vw/7.68), 20px);
+
+          strong {
+            color: #01261b;
+            font-size: clamp(20px, calc(20vw / 7.68), 24px);
+            font-weight: 700;
+          }
+        }
+
+        p+p{
+          margin-top: -16px;
         }
       }
     }

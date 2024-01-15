@@ -5,6 +5,10 @@ import Flex from '@/components/_services/flex';
 import Video from '@/components/_global/video';
 import BlogSlider from '@/components/_global/blog-slider';
 import Hero from '@/components/_global/hero';
+import Freebie from '@/components/_services/freebie';
+import Mentoring from '@/components/_services/mentoring';
+import Advantages from '@/components/_global/advantages';
+import Tests from '@/components/_services/tests';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -49,10 +53,57 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           }
         }
       },
+      // Advantages
+      advantages_heading,
+      advantages_paragraph,
+      advantages_list[]{
+        title,
+        text,
+      },
+      // freebie
+      freebie_heading,
+      freebie_paragraph,
+      freebie_image{
+        asset->{
+          url,
+          altText,
+          metadata{
+            lqip,
+            dimensions{
+              aspectRatio,
+              width,
+              height
+            }
+          }
+        }
+      },
       // treatments
       treatments_heading,
       treatments_paragraph,
-      treatments_list[]{
+      treatments_list[],
+      // mentoring
+      mentoring_heading,
+      mentoring_paragraph,
+      mentoring_oversized,
+      mentoring_list[]{
+        text,
+        image{
+          asset->{
+            url,
+            altText,
+            metadata{
+              lqip,
+              dimensions{
+                aspectRatio,
+                width,
+                height
+              }
+            }
+          }
+        }
+      },
+      //tests
+      tests[]{
         title,
         paragraph,
         image{
@@ -74,40 +125,26 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         benefits[],
         list[],
       },
-      // flex
-      flex_heading,
-      flex_list[]{
-        text,
-        icon{
-          asset ->{
-            url,
-            altText,
-            metadata{
-              lqip,
-              dimensions{
-                aspectRatio,
-                width,
-                height
+      // specialists
+      specialists_heading,
+      specialists_list[]{
+        paragraph,
+        link_to_specialist,
+        title -> {
+          name,
+          slug,
+          image{
+            asset->{
+              url,
+              altText,
+              metadata{
+                lqip,
+                dimensions{
+                  aspectRatio,
+                  width,
+                  height
+                }
               }
-            }
-          }
-        }
-      },
-      flex_Cta[]{
-        href,
-        text,
-        theme,  
-      },
-      flex_image{
-        asset->{
-          url,
-          altText,
-          metadata{
-            lqip,
-            dimensions{
-              aspectRatio,
-              width,
-              height
             }
           }
         }
@@ -170,11 +207,37 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         text={page.treatments_paragraph}
         list={page.treatments_list}
       />
+      {page.mentoring_heading && page.mentoring_list && (
+        <Mentoring
+          title={page.mentoring_heading}
+          text={page.mentoring_paragraph}
+          list={page.mentoring_list}
+          oversized={page.mentoring_oversized}
+        />
+      )}
+      {page?.tests?.map((test: any) => (
+        <Tests
+          key={test.title}
+          title={test.title}
+          text={test.paragraph}
+          image={test.image}
+          benefits={test.benefits}
+          subTitle={test.sub_title}
+          price={test.price}
+          list={test.list}
+        />
+      ))}
+      {page.advantages_heading && page.advantages_list && (
+        <Advantages
+          title={page.advantages_heading}
+          text={page.advantages_paragraph}
+          advantages={page.advantages_list}
+          small={true}
+        />
+      )}
       <Flex
-        title={page.flex_heading}
-        list={page.flex_list}
-        image={page.flex_image}
-        links={page.flex_Cta}
+        title={page.specialists_heading}
+        list={page.specialists_list}
       />
       <Video
         title={global.registration_heading}
@@ -187,6 +250,13 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         text={global.blog_paragraph}
         posts={posts}
       />
+      {page.freebie_heading && page.freebie_image && (
+        <Freebie
+          title={page.freebie_heading}
+          text={page.freebie_paragraph}
+          image={page.freebie_image}
+        />
+      )}
     </>
   );
 }

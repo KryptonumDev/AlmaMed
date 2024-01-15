@@ -1,10 +1,9 @@
-
 import styles from './advantages.module.scss';
 import { Props } from './advantages.constants';
 import { Certificate } from './advantages.icons';
 import Markdown from '../../ui/markdown';
 
-export default function Advantages({ title, text, advantages }: Props) {
+export default function Advantages({ title, text, advantages, small = false }: Props) {
   return (
     <section className={`${styles.wrapper} container`}>
       <div className={styles.flex}>
@@ -15,12 +14,14 @@ export default function Advantages({ title, text, advantages }: Props) {
           />
           <Markdown.p children={text} />
         </div>
-        <div className={styles.certificate}>
-          <Certificate />
-          <p>
-            Posiadamy <strong>Certyfikat Jakości Ministra Zdrowia</strong>
-          </p>
-        </div>
+        {!small && (
+          <div className={styles.certificate}>
+            <Certificate />
+            <p>
+              Posiadamy <strong>Certyfikat Jakości Ministra Zdrowia</strong>
+            </p>
+          </div>
+        )}
       </div>
       <div className={styles.grid}>
         {advantages?.map((advantage) => (

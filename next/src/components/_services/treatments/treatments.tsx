@@ -2,9 +2,6 @@
 import styles from './treatments.module.scss';
 import { Props } from './treatments.constants';
 import Markdown from '../../ui/markdown';
-import { removeMarkdownTags } from '../../../utils/remove-markdown';
-import { TreatmentPart } from './treatments-part';
-import { slugify } from '../../../utils/slugify';
 
 export default function Treatments({ title, text, list }: Props) {
   return (
@@ -20,28 +17,15 @@ export default function Treatments({ title, text, list }: Props) {
         />
         <div className={styles.grid}>
           {list.map((item, i) => (
-            <a
-              key={item.title + i}
+            <p
+              key={item + i}
               className={styles.item}
-              href={`#${slugify(item.title)}`}
             >
-              {removeMarkdownTags(item.title)}
-            </a>
+              {item}
+            </p>
           ))}
         </div>
       </section>
-      {list.map((item, i) => (
-        <TreatmentPart
-          key={item.title + i}
-          title={item.title}
-          text={item.paragraph}
-          image={item.image}
-          subTitle={item.sub_title}
-          price={item.price}
-          benefits={item.benefits}
-          list={item.list}
-        />
-      ))}
     </>
   );
 }
