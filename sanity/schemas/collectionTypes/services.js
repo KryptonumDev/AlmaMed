@@ -332,6 +332,12 @@ export default {
       title: 'Obrazek',
       fieldset: 'freebie',
     },
+    {
+      name: 'freebie_mailerlite_id',
+      type: 'string',
+      title: 'Mailerlite ID grupy',
+      fieldset: 'freebie',
+    },
     //seo
     {
       name: 'seo',

@@ -181,6 +181,14 @@ export default {
       group: 'freebie',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'freebie_mailerlite_id',
+      type: 'string',
+      title: 'Mailerlite ID grupy',
+      fieldset: 'freebie',
+      group: 'freebie',
+      validation: (Rule) => Rule.required(),
+    },
     // faq
     {
       name: 'faq_heading',

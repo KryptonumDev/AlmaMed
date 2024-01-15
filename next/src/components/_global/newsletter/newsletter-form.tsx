@@ -17,34 +17,34 @@ export default function Form() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = ({name, email}) => {
+  const onSubmit: SubmitHandler<Inputs> = ({ name, email }) => {
     setStatus({ sending: true });
-    
+
     let data = {
       email: email,
       groups: ['110453455895660047'],
-      fields: { name }
+      fields: { name },
     };
 
     fetch('/api/newsletter', {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-      .then(response => response.json())
-      .then(response => {
+      .then((response) => response.json())
+      .then((response) => {
         if (response.success) {
-          setStatus(prevStatus => ({ ...prevStatus, success: true }));
+          setStatus((prevStatus) => ({ ...prevStatus, success: true }));
           reset();
         } else {
-          setStatus(prevStatus => ({ ...prevStatus, success: false }));
+          setStatus((prevStatus) => ({ ...prevStatus, success: false }));
         }
       })
       .catch(() => {
-        setStatus(prevStatus => ({ ...prevStatus, success: false }));
-      })
+        setStatus((prevStatus) => ({ ...prevStatus, success: false }));
+      });
   };
 
   return (

@@ -4,7 +4,7 @@ import Image from '../../ui/image';
 import Markdown from '../../ui/markdown';
 import Form from '../../_global/newsletter/newsletter-form';
 
-export default function Freebie({ title, text, image }: Props) {
+export default function Freebie({ title, text, image, id }: Props) {
   return (
     <section className={`${styles.wrapper} container`}>
       <div>
@@ -16,7 +16,7 @@ export default function Freebie({ title, text, image }: Props) {
           className={styles.text}
           children={text}
         />
-        <Form />
+        <Form id={id}/>
       </div>
       <Image data={image} />
     </section>

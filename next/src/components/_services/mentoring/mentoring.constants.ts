@@ -1,7 +1,7 @@
 export interface Props {
   title: string;
   text: string;
-  oversized: boolean;
+  oversized?: boolean;
   list: Array<{
     text: string;
     image: {

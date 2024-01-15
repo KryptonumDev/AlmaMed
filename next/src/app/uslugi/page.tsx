@@ -146,6 +146,7 @@ export default async function Index() {
         // freebie
         freebie_heading,
         freebie_paragraph,
+        freebie_mailerlite_id,
         freebie_image{
           asset->{
             url,
@@ -228,6 +229,7 @@ export default async function Index() {
         title={page.freebie_heading}
         text={page.freebie_paragraph}
         image={page.freebie_image}
+        id={page.freebie_mailerlite_id}
       />
       <Faq
         title={page.faq_heading}

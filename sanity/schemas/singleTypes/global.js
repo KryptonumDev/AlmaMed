@@ -79,9 +79,6 @@ export default {
       title: 'Informacja dodatkowa w nagłówku',
       of: [{type: 'string'}],
     },
-    {
-      name: '',
-    },
     // registration
     {
       name: 'registration_heading',

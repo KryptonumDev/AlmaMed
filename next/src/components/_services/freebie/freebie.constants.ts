@@ -1,6 +1,7 @@
 export interface Props {
   title: string;
   text: string;
+  id: string;
   image: {
     image: {
       asset: {
