@@ -6,16 +6,45 @@ import { Inputs } from './newsletter.constants';
 import Input from '../../ui/input';
 import Button from '../../ui/button';
 import CheckBox from '../../ui/check-box';
+import { useState } from 'react';
 
 export default function Form() {
+  const [status, setStatus] = useState({ sending: false });
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = () => {
-    // console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = ({name, email}) => {
+    setStatus({ sending: true });
+    
+    let data = {
+      email: email,
+      groups: ['110453455895660047'],
+      fields: { name }
+    };
+
+    fetch('/api/newsletter', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.success) {
+          setStatus(prevStatus => ({ ...prevStatus, success: true }));
+          reset();
+        } else {
+          setStatus(prevStatus => ({ ...prevStatus, success: false }));
+        }
+      })
+      .catch(() => {
+        setStatus(prevStatus => ({ ...prevStatus, success: false }));
+      })
   };
 
   return (
