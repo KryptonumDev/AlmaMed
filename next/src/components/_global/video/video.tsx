@@ -12,13 +12,13 @@ export default function Video({ title, text, video, steps }: Props) {
       />
       <Markdown.p className={styles.text} children={text} />
       <div className={styles.grid}>
-        {/* <iframe
+        <iframe
           className={styles.video}
-          src={video}
+          src={video.asset.url}
           allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
           allowFullScreen
-        /> */}
-        <div/>
+          loading='lazy'
+        />
         <div className={styles.list}>
           {steps.map((el) => (
             <Markdown.p

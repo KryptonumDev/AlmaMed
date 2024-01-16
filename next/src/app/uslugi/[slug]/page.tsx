@@ -158,7 +158,11 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       registration_heading,
       registration_steps[],
       registration_paragraph,
-      registration_video
+      registration_video{
+        asset->{
+          url
+        }
+      }
     },
     "posts": *[_type == 'blogEntry'][0...1]{
       _updatedAt,

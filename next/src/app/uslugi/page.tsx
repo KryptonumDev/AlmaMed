@@ -177,7 +177,11 @@ export default async function Index() {
         registration_heading,
         registration_steps[],
         registration_paragraph,
-        registration_video
+        registration_video{
+          asset->{
+            url
+          }
+        }
       }[0],
     }`,
   });

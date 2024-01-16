@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaqProps } from './faq.constants';
 import styles from './faq.module.scss';
 import { useState } from 'react';
+import Markdown from '@/components/ui/markdown';
 
 export default function List({ list }: FaqProps) {
   const [opened, setOpened] = useState(0);
@@ -33,8 +34,11 @@ export default function List({ list }: FaqProps) {
             initial={i === 0 ? { height: 'auto', marginBottom: '24px' } : { height: 0, marginBottom: 0 }}
             animate={opened === i ? { height: 'auto', marginBottom: '24px' } : { height: 0, marginBottom: 0 }}
             exit={{ height: 0, marginBottom: '0' }}
-            dangerouslySetInnerHTML={{ __html: el.answer }}
-          />
+          >
+            <Markdown.p
+              children={el.answer}
+            />
+            </motion.div>
         </details>
       ))}
     </div>

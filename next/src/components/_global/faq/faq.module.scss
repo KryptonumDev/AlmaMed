@@ -3,7 +3,7 @@
   grid-template-columns: 793fr 381fr;
   gap: 32px;
 
-  &.fullWidth{
+  &.fullWidth {
     grid-template-columns: 1fr;
   }
 
@@ -30,6 +30,7 @@
     display: grid;
     grid-template-rows: 1fr auto;
     gap: 32px;
+    height: fit-content;
 
     @media (max-width: 1024px) {
       grid-template-rows: unset;
@@ -63,10 +64,10 @@
     margin-top: 42px;
     border-bottom: 1px solid var(--light-blue-600, #025e98);
 
-    &.opened{
-      summary{
-        .plus{
-          &::after{
+    &.opened {
+      summary {
+        .plus {
+          &::after {
             transform: translate(-50%, -50%) rotate(0deg);
           }
         }
@@ -74,13 +75,13 @@
     }
 
     summary {
-      padding-bottom: 12px;
+      padding-bottom: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 24px;
 
-      .plus{
+      .plus {
         display: block;
         width: 36px;
         height: 36px;
@@ -91,7 +92,7 @@
         min-width: 35px;
 
         &::before,
-        &::after{
+        &::after {
           content: '';
           position: absolute;
           top: 50%;
@@ -103,7 +104,7 @@
           transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
         }
 
-        &::after{
+        &::after {
           transform: translate(-50%, -50%) rotate(90deg);
         }
       }
@@ -114,6 +115,11 @@
     }
     .answer {
       overflow: hidden;
+
+      ul,
+      ol {
+        margin: 20px 0;
+      }
     }
   }
 }
