@@ -20,24 +20,6 @@ export default function Slider({ title, specialists }: Props) {
             profession={specialist.profession}
           />
         ))}
-        {specialists.map((specialist, index) => (
-          <Card
-            key={specialist.name + index}
-            name={specialist.name}
-            image={specialist.image}
-            slug={specialist.slug?.current}
-            profession={specialist.profession}
-          />
-        ))}
-        {specialists.map((specialist, index) => (
-          <Card
-            key={specialist.name + index}
-            name={specialist.name}
-            image={specialist.image}
-            slug={specialist.slug?.current}
-            profession={specialist.profession}
-          />
-        ))}
       </div>
     </section>
   );

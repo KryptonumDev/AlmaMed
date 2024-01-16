@@ -82,6 +82,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       treatments_heading,
       treatments_paragraph,
       treatments_list[],
+      treatment_annotation,
       // mentoring
       mentoring_heading,
       mentoring_paragraph,
@@ -207,6 +208,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         title={page.treatments_heading}
         text={page.treatments_paragraph}
         list={page.treatments_list}
+        annotation={page.treatment_annotation}
       />
       {page.mentoring_heading && page.mentoring_list && (
         <Mentoring

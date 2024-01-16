@@ -6,23 +6,28 @@ import { Background, Blob, Kryptonum } from './footer.icons';
 const links = [
   {
     name: 'Usługi',
+    link: '/uslugi',
     links: [
       { name: 'Poradnia rodzinna', link: '/uslugi/poradnia-rodzinna' },
       { name: 'Opieka koordynowana', link: '/uslugi/opieka-koordynowana' },
       { name: 'Medycyna estetyczna', link: '/uslugi/medycyna-estetyczna' },
-      { name: 'Pozostałe usługi', link: '/uslugi/' },
+      { name: 'Fizjoterapia', link: '/uslugi/fizjoterapia' },
+      { name: 'Polityka prywatności', link: '/polityka-prywatnosci' },
     ],
   },
   {
-    name: 'O nas',
+    name: 'Specjaliści',
+    link: '/specjalisci',
     links: [
-      {
-        name: 'Nasz personel',
-        link: '/specjalisci',
-      },
       {
         name: 'Dla pacjenta',
         link: '/dla-pacjenta',
+        bold: true,
+      },
+      {
+        name: 'Blog',
+        link: '/dla-pacjenta',
+        bold: true,
       },
       {
         name: 'Mapa strony',
@@ -32,10 +37,12 @@ const links = [
   },
   {
     name: 'Kontakt',
+    link: '/kontakt',
     links: [
       {
-        name: 'Formularz kontaktowy',
-        link: '/kontakt',
+        name: 'Wyszukiwarka',
+        link: '/wyszukiwarka',
+        bold: true,
       },
       {
         name: 'Przychodnia Bocki',
@@ -78,7 +85,7 @@ export default function Footer() {
               {link.links.map((sub, index) => (
                 <li key={index}>
                   <Link
-                    className='p'
+                    className={`p ${sub.bold ? 'bold' : ''}`}
                     href={sub.link}
                   >
                     {sub.name}

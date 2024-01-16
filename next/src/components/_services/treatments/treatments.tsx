@@ -1,9 +1,8 @@
-
 import styles from './treatments.module.scss';
 import { Props } from './treatments.constants';
 import Markdown from '../../ui/markdown';
 
-export default function Treatments({ title, text, list }: Props) {
+export default function Treatments({ title, text, list, annotation }: Props) {
   return (
     <>
       <section className={`${styles.wrapper} container`}>
@@ -25,6 +24,10 @@ export default function Treatments({ title, text, list }: Props) {
             </p>
           ))}
         </div>
+        <Markdown.p
+          children={annotation}
+          className={`${styles.annotation}`}
+        />
       </section>
     </>
   );

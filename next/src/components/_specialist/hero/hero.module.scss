@@ -27,6 +27,7 @@
   .list {
     display: grid;
     gap: 12px;
+    height: fit-content;
 
     .item {
       border-radius: 12px;

@@ -1,69 +1,86 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: 800fr 380fr;
-  gap: clamp(15px, calc(15vw / 7.68), 87px);
-  margin-top: 240px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 200px;
+  margin-bottom: -200px;
 
-  @media (max-width: 940px) {
-    grid-template-columns: 1fr;
+  .blob {
+    position: absolute;
+    z-index: -1;
+    top: 920px;
+    left: 50%;
+    transform: translateY(-100%) translateX(-50%);
+    width: 1826px;
+    height: 1841px;
   }
 
-  .image {
-    position: relative;
-    border-radius: 16px;
-    max-width: 100%;
-    height: 300px;
-
-    img {
-      border-radius: 16px;
-      inset: 0;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      max-width: none;
-      position: absolute;
-      object-fit: cover;
-    }
-  }
-
-  h1 {
-    margin-top: 45px;
-    margin-bottom: 35px;
-  }
-
-  .portableText {
+  .wrap {
     display: grid;
-    gap: 35px;
-    margin-top: 45px;
+    grid-template-columns: 800fr 380fr;
+    gap: clamp(15px, calc(15vw / 7.68), 87px);
+    margin-top: 240px;
 
-    blockquote {
-      border-radius: 16px;
-      border: 1px solid var(--neutral-900, #202123);
-      background: var(--neutral-200, #efefef);
-      padding: 35px;
+    @media (max-width: 940px) {
+      grid-template-columns: 1fr;
     }
 
-    .imageColumns {
-      display: grid;
-      gap: 32px;
-      grid-template-columns: 1fr 1fr;
-
-      @media (max-width: 640px) {
-        grid-template-columns: 1fr;
-      }
+    .image {
+      position: relative;
+      border-radius: 16px;
+      max-width: 100%;
+      height: 300px;
 
       img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 32px;
+        border-radius: 16px;
+        inset: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        position: absolute;
+        object-fit: cover;
       }
     }
 
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 35px 45px;
+    h1 {
+      margin-top: 45px;
+      margin-bottom: 35px;
+    }
+
+    .portableText {
+      display: grid;
+      gap: 35px;
+      margin-top: 45px;
+
+      blockquote {
+        border-radius: 16px;
+        border: 1px solid var(--neutral-900, #202123);
+        background: var(--neutral-200, #efefef);
+        padding: 35px;
+      }
+
+      .imageColumns {
+        display: grid;
+        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+
+        @media (max-width: 640px) {
+          grid-template-columns: 1fr;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 32px;
+        }
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 35px 45px;
+      }
     }
   }
 }

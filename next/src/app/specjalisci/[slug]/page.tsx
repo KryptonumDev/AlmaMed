@@ -4,8 +4,8 @@ import Flex from '@/components/_specialist/flex';
 import Comments from '@/components/_global/comments';
 import Slider from '@/components/_specialist/slider';
 
-export default async function Index() {
-  const { page, global, specialists } = await sanityFetch<any>({
+export default async function Index({ params: { slug } }: { params: { slug: string } }) {
+  const { specialists } = await sanityFetch<any>({
     query: `{
       "specialists": *[_type == 'doctors' && slug.current == $slug][0]{
         name,
@@ -86,7 +86,7 @@ export default async function Index() {
       }
     }`,
     params: {
-      slug: 'adam-boruch',
+      slug: slug,
     },
   });
 
@@ -106,14 +106,18 @@ export default async function Index() {
           reverse={index % 2 === 0}
         />
       ))}
-      <Comments
-        title='## **Poznaj opinie** moich pacjentów'
-        comments={specialists.comments}
-      />
-      <Slider
-        title='## Podobni **specjaliści**'
-        specialists={specialists.similar}
-      />
+      {specialists.comments?.length > 0 && (
+        <Comments
+          title='## **Poznaj opinie** moich pacjentów'
+          comments={specialists.comments}
+        />
+      )}
+      {specialists.similar?.length > 0 && (
+        <Slider
+          title='## Podobni **specjaliści**'
+          specialists={specialists.similar}
+        />
+      )}
     </>
   );
 }

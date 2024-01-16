@@ -3,7 +3,7 @@
   position: relative;
   overflow: hidden;
 
-  >svg{
+  > svg {
     z-index: -1;
     height: auto;
     position: absolute;
@@ -53,19 +53,20 @@
           margin-bottom: 12px;
         }
 
-        p {}
+        p {
+        }
       }
     }
 
     .copyright {
       grid-area: copyright;
 
-      >p {
+      > p {
         display: flex;
         align-items: center;
         gap: 8px;
 
-        a{
+        a {
           height: 20px;
         }
       }
@@ -85,7 +86,7 @@
 
       @media (max-width: 480px) {
         flex-direction: column;
-        gap: 32px;  
+        gap: 32px;
       }
 
       ul {
@@ -96,10 +97,6 @@
         li {
           margin-top: 16px;
 
-          @media (max-width: 864px) {
-            margin-bottom: auto;
-          }
-
           &:first-child {
             margin-top: 0;
             margin-bottom: 8px;
@@ -109,12 +106,12 @@
             margin-top: auto;
 
             @media (max-width: 864px) {
-              margin-top: 80px;
-              margin-bottom: 0;
+              padding-top: 80px;
+              display: block;
             }
 
             @media (max-width: 480px) {
-              margin-top: 48px;
+              padding-top: 48px;
             }
 
             a {
