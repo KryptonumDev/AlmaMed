@@ -113,7 +113,7 @@ export default function Form({
       />
       <CheckBox
         register={register('agreement', { required: true })}
-        label='Akceptuję politykę prywatności'
+        label='Akceptuję <a href="/polityka-prywatnosci">politykę prywatności</a>'
         errors={errors}
       />
       <Button

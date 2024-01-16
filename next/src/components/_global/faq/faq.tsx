@@ -5,6 +5,8 @@ import ButtonBig from '../../ui/button-big';
 import List from './faq-list';
 
 export default function Faq({ list, title, text, cta }: Props) {
+  if(!list?.length) return null;
+
   return (
     <section className={`${styles.wrapper} container ${!text && !cta ? styles.fullWidth : ''}`}>
       <div className={styles.faq}>

@@ -16,7 +16,7 @@
 
 *:focus-visible {
   outline: 1px dashed var(--navy-600, currentColor);
-  outline-offset: 8px;
+  outline-offset: 4px;
 }
 
 p + p {
@@ -48,6 +48,11 @@ button {
   font-size: 16px;
   line-height: 160%;
   letter-spacing: 0.24px;
+
+  strong {
+    font-weight: 700;
+    color: #242424;
+  }
 }
 
 h1,

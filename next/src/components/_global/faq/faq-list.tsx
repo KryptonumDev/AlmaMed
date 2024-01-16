@@ -18,6 +18,7 @@ export default function List({ list }: FaqProps) {
         <details
           key={i}
           open
+          className={opened === i ? styles.opened : ''}
           data-opened={opened === i}
         >
           <summary
@@ -25,6 +26,7 @@ export default function List({ list }: FaqProps) {
             tabIndex={opened === i ? -1 : 0}
           >
             <p>{el.question}</p>
+            <span className={styles.plus}/>
           </summary>
           <motion.div
             className={styles.answer}

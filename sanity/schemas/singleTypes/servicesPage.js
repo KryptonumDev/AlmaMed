@@ -240,7 +240,6 @@ export default {
       title: 'Lista pytań',
       fieldset: 'faq',
       group: 'faq',
-      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'faq_list_element',

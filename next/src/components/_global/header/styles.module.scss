@@ -142,6 +142,10 @@
             }
           }
 
+          svg{
+            transform: rotate(180deg);
+          }
+
           &:hover,
           &:focus-within {
             .dropdown {
@@ -151,7 +155,7 @@
 
             a {
               svg {
-                transform: rotate(180deg);
+                transform: rotate(0deg);
               }
             }
           }

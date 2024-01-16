@@ -62,8 +62,51 @@
   details {
     margin-top: 42px;
     border-bottom: 1px solid var(--light-blue-600, #025e98);
+
+    &.opened{
+      summary{
+        .plus{
+          &::after{
+            transform: translate(-50%, -50%) rotate(0deg);
+          }
+        }
+      }
+    }
+
     summary {
       padding-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+
+      .plus{
+        display: block;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid var(--light-blue-600, #025e98);
+        position: relative;
+
+        min-width: 35px;
+
+        &::before,
+        &::after{
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 10px;
+          height: 2px;
+          background: var(--light-blue-600, #025e98);
+          transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+
+        &::after{
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+      }
 
       p {
         color: var(--light-blue-600, #025e98);
