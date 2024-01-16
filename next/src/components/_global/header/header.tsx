@@ -4,16 +4,16 @@ import Link from 'next/link';
 import { ArrowUp, Calendar, Letter, Phone } from './header.icons';
 import { Logo } from '../../ui/logo';
 import Search from './header-search';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 const links = [
   {
     label: 'Usługi',
     href: '/uslugi',
     sub: [
-      { label: 'Medycyna rodzinna', href: '/uslugi/' },
-      { label: 'Medycyna specjalistyczna', href: '/uslugi/' },
-      { label: 'Opieka koordynowana', href: '/uslugi/' },
+      { label: 'Poradnia rodzinna', href: '/uslugi/poradnia-rodzinna' },
+      { label: 'Opieka koordynowana', href: '/uslugi/opieka-koordynowana' },
+      { label: 'Medycyna estetyczna', href: '/uslugi/medycyna-estetyczna' },
       { label: 'Pozostałe usługi', href: '/uslugi/' },
     ],
   },

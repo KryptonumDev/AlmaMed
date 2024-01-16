@@ -1,4 +1,3 @@
-
 import styles from './styles.module.scss';
 import { Logo } from '../../ui/logo';
 import Link from 'next/link';
@@ -6,24 +5,12 @@ import { Background, Blob, Kryptonum } from './footer.icons';
 
 const links = [
   {
-    name: 'Dla Pacjenta',
+    name: 'Usługi',
     links: [
-      {
-        name: 'Przychodnia rodzinna',
-        link: '#',
-      },
-      {
-        name: 'Przychodnia specjalistyczna',
-        link: '#',
-      },
-      {
-        name: 'Pozostałe usługi',
-        link: '#',
-      },
-      {
-        name: 'Polityka prywatności',
-        link: '#',
-      },
+      { name: 'Poradnia rodzinna', link: '/uslugi/poradnia-rodzinna' },
+      { name: 'Opieka koordynowana', link: '/uslugi/opieka-koordynowana' },
+      { name: 'Medycyna estetyczna', link: '/uslugi/medycyna-estetyczna' },
+      { name: 'Pozostałe usługi', link: '/uslugi/' },
     ],
   },
   {
@@ -31,19 +18,15 @@ const links = [
     links: [
       {
         name: 'Nasz personel',
-        link: '#',
+        link: '/specjalisci',
       },
       {
-        name: 'Specjaliści',
-        link: '#',
-      },
-      {
-        name: 'Opieka koordynowana',
-        link: '#',
+        name: 'Dla pacjenta',
+        link: '/dla-pacjenta',
       },
       {
         name: 'Mapa strony',
-        link: '#',
+        link: '/mapa-strony',
       },
     ],
   },
@@ -52,11 +35,11 @@ const links = [
     links: [
       {
         name: 'Formularz kontaktowy',
-        link: '#',
+        link: '/kontakt',
       },
       {
         name: 'Przychodnia Bocki',
-        link: '#',
+        link: '/nzoz-alma-med-sp-z-o-o-bocki',
       },
     ],
   },
@@ -66,7 +49,7 @@ export default function Footer() {
   return (
     <footer className={styles.wrapper}>
       {/* <Blob/> */}
-      <Background/>
+      <Background />
       <div className={`container ${styles.container}`}>
         <div className={styles.information}>
           <Logo className={styles.logo} />
@@ -82,8 +65,9 @@ export default function Footer() {
               href='https://kryptonum.eu/pl'
               target='_blank'
               rel='noopener noreferrer'
+              aria-label='Link do strony Kryptonum'
             >
-              <Kryptonum/>
+              <Kryptonum />
             </a>
           </p>
         </div>

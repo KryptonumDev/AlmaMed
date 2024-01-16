@@ -15,15 +15,17 @@ export default function Tests({ title, text, image, benefits, subTitle, price, l
         children={text}
         className={`${styles.text}`}
       />
-      <div className={styles.benefits}>
-        {benefits.map((item, i) => (
-          <Markdown.p
-            key={item + i}
-            children={item}
-            className={`${styles.benefit}`}
-          />
-        ))}
-      </div>
+      {benefits && (
+        <div className={styles.benefits}>
+          {benefits?.map((item, i) => (
+            <Markdown.p
+              key={item + i}
+              children={item}
+              className={`${styles.benefit}`}
+            />
+          ))}
+        </div>
+      )}
       <Image data={image} />
       {subTitle && (
         <Markdown.h3
@@ -45,21 +47,25 @@ export default function Tests({ title, text, image, benefits, subTitle, price, l
           </div>
         ))}
       </div>
-      <Markdown.h3
-        children={'Cennik'}
-        className={`${styles.subTitle} ${styles.left} h4`}
-      />
-      <div className={styles.price}>
-        {price.map((item, i) => (
-          <div
-            key={item + i}
-            className={`${styles.item}`}
-          >
-            <Wallet />
-            <p>{item}</p>
+      {price && (
+        <>
+          <Markdown.h3
+            children={'Cennik'}
+            className={`${styles.subTitle} ${styles.left} h4`}
+          />
+          <div className={styles.price}>
+            {price?.map((item, i) => (
+              <div
+                key={item + i}
+                className={`${styles.item}`}
+              >
+                <Wallet />
+                <p>{item}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </section>
   );
 }
