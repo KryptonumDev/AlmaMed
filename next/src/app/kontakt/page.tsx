@@ -6,12 +6,13 @@ import Blocks from '@/components/_contact/blocks';
 import Hero from '@/components/_contact/hero';
 
 export default async function Index() {
-  const { page, global, posts } = await sanityFetch<any>({
+  const { page, global, posts, localizations } = await sanityFetch<any>({
     query: `{
     "page": *[_id == "Contact"][0]{
       // Hero
       hero_Heading,
       hero_Paragraph,
+      contact_subjects[],
       // Localization
       localizations_heading,
       localizations[]->{
@@ -71,6 +72,7 @@ export default async function Index() {
       },
       newsletter_right_heading,
       newsletter_right_paragraph,
+      newsletter_mailerlite_id,
     },
     "posts": *[_type == 'blogEntry'][0]{
       _updatedAt,
@@ -93,6 +95,9 @@ export default async function Index() {
         }
       }
     },
+    "localizations": *[_type == "localizations"]{
+      name
+    }
   }`,
   });
 
@@ -101,6 +106,8 @@ export default async function Index() {
       <Hero
         title={page.hero_Heading}
         text={page.hero_Paragraph}
+        formSubjects={page.contact_subjects}
+        localizations={localizations}
       />
       <Localization
         title={page.localizations_heading}
@@ -119,6 +126,7 @@ export default async function Index() {
         title={global.newsletter_right_heading}
         text={global.newsletter_right_paragraph}
         post={posts}
+        id={global.newsletter_mailerlite_id}
       />
     </>
   );

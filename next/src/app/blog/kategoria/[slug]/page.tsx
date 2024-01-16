@@ -63,6 +63,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         },
         newsletter_right_heading,
         newsletter_right_paragraph,
+        newsletter_mailerlite_id,
       }
     }`,
     params: { slug: slug },
@@ -85,6 +86,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         link={global.newsletter_left_cta}
         title={global.newsletter_right_heading}
         text={global.newsletter_right_paragraph}
+        id={global.newsletter_mailerlite_id}
       />
     </>
   );

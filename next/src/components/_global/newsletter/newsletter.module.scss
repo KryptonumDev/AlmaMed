@@ -31,15 +31,15 @@
     }
   }
 
-  .post{
+  .post {
     position: relative;
     border-radius: 32px;
-    border: 1px solid var(--light-blue-500, #0376BE);
-    background: var(--light-blue-100, #F8FCFF);
+    border: 1px solid var(--light-blue-500, #0376be);
+    background: var(--light-blue-100, #f8fcff);
     padding: clamp(16px, calc(32vw / 7.68), 32px);
     box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
 
-    >a{
+    > a {
       display: block;
       position: absolute;
       inset: 0;
@@ -47,7 +47,7 @@
       z-index: 1;
     }
 
-    img{
+    img {
       border-radius: 16px;
       width: 100%;
       max-width: 100%;
@@ -62,6 +62,7 @@
     background: var(--neutral-100, #fff);
     box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
     padding: 32px clamp(12px, calc(32vw / 7.68), 32px);
+    position: relative;
 
     h2 {
       margin-bottom: 24px;
@@ -78,12 +79,50 @@
 .form {
   max-width: 400px;
   margin-top: 32px;
+  display: grid;
+  gap: 24px;
 
   button {
-    margin-top: 32px;
+    margin-top: 16px;
   }
+}
 
-  input {
-    margin-bottom: 16px;
+.success {
+  position: absolute;
+  inset: -1px;
+  z-index: 10;
+  border-radius: 32px;
+  background: var(--green-100, #f8fffd);
+  box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
+
+  padding: 36px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+
+  h2 {
+    max-width: 484px;
+  }
+}
+
+.failed {
+  position: absolute;
+  inset: -1px;
+  z-index: 10;
+  border-radius: 32px;
+  background: var(--error-100, #f7e5e5);
+  box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
+
+  padding: 36px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+
+  h2 {
+    max-width: 484px;
   }
 }

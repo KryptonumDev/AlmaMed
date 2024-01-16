@@ -3,4 +3,5 @@ export interface Props {
   label: string;
   errors: any;
   textarea?: boolean;
+  rows?: number;
 }

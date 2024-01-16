@@ -8,7 +8,12 @@
   }
 
   .text {
-    max-width: clamp(422px, calc(422vw / 7.68), 585px);
+    columns: 2;
+    column-gap: 12px;
+
+    @media (max-width: 640px) {
+      columns: unset;
+    }
   }
 
   .grid {

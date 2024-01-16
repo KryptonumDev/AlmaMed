@@ -1,6 +1,6 @@
 .primary {
   border-radius: 12px;
-  background-color: var(--navy-600, #1F2E60);
+  background-color: var(--navy-600, #1f2e60);
   padding: 12px 30px 14px 36px;
   display: flex;
   align-items: center;
@@ -9,7 +9,8 @@
   color: var(--neutral-100, #fff);
   width: fit-content;
   border: none;
-  transition: background-color .3s cubic-bezier(0.785, 0.135, 0.15, 0.86), box-shadow .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: background-color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    box-shadow 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   cursor: pointer;
   text-align: center;
 
@@ -18,11 +19,11 @@
   }
 
   &:hover {
-    background-color: var(--light-blue-500, #0376BE);
+    background-color: var(--light-blue-500, #0376be);
   }
 
   &:active {
-    background-color: var(--light-blue-800, #012F4C);
+    background-color: var(--light-blue-800, #012f4c);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
   }
 }
@@ -46,5 +47,13 @@
     path {
       fill: var(--navy-800, #101730);
     }
+  }
+}
+
+.button {
+  &:disabled {
+    background-color: var(--neutral-600, #7f868d) !important;
+    box-shadow: unset !important;
+    cursor: not-allowed;
   }
 }

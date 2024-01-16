@@ -199,5 +199,3 @@ export default async function Index() {
     </>
   );
 }
-// ├ ○ /dla-pacjenta                        91.1 kB         226 kB
-// ├ ○ /dla-pacjenta                        414 B          94.5 kB

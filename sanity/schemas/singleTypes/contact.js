@@ -20,6 +20,20 @@ export default {
       group: 'hero',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'contact_subjects',
+      type: 'array',
+      title: 'Tematy wiadomości w formualrzu kontaktowym',
+      fieldset: 'hero',
+      group: 'hero',
+      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: 'string',
+          title: 'Temat',
+        },
+      ],
+    },
     // localizations
     {
       name: 'localizations_heading',

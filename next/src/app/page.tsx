@@ -145,6 +145,7 @@ export default async function Index() {
       },
       newsletter_right_heading,
       newsletter_right_paragraph,
+      newsletter_mailerlite_id,
     },
     "posts": *[_type == 'blogEntry'][0...1]{
       _updatedAt,
@@ -207,6 +208,7 @@ export default async function Index() {
         link={global.newsletter_left_cta}
         title={global.newsletter_right_heading}
         text={global.newsletter_right_paragraph}
+        id={global.newsletter_mailerlite_id}
       />
       <Prevention
         title={page.prevention_heading}

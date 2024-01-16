@@ -80,6 +80,7 @@ export default async function Index() {
         link={global.newsletter_left_cta}
         title={global.newsletter_right_heading}
         text={global.newsletter_right_paragraph}
+        id={global.newsletter_mailerlite_id}
       />
     </>
   );

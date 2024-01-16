@@ -16,7 +16,11 @@ export default function Freebie({ title, text, image, id }: Props) {
           className={styles.text}
           children={text}
         />
-        <Form id={id}/>
+        <Form
+          successTitle='<strong>Dziękujemy</strong> za pobranie naszego e-booka!'
+          successText={`Możesz teraz sprawdzić swoją skrzynkę pocztową, na którą go wysłaliśmy.`}
+          id={id}
+        />
       </div>
       <Image data={image} />
     </section>

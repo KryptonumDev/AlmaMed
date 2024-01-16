@@ -3,21 +3,24 @@ import { Props } from './hero.constants';
 import Markdown from '@/components/ui/markdown';
 import Form from './hero-form';
 
-export default function Hero({ title, text }: Props) {
+export default function Hero({ title, text, formSubjects, localizations }: Props) {
   return (
-    <section className={`${styles.wrapper} container`}>
-      <div>
-        <Markdown.h1
-          children={title}
-          className={`h3 ${styles.title}`}
-        />
-        <Markdown.p
-          children={text}
-          className={`${styles.text}`}
-        />
+    <section className={`${styles.wrapper}`}>
+      <Blob className={styles.blob} />
+      <div className={`${styles.content} container`}>
+        <div>
+          <Markdown.h1
+            children={title}
+            className={`h3 ${styles.title}`}
+          />
+          <Markdown.p
+            children={text}
+            className={`${styles.text}`}
+          />
+        </div>
+        <Form formSubjects={formSubjects} localizations={localizations}/>
+        <Hearth className={styles.svg} />
       </div>
-      <Form />
-      <Hearth className={styles.svg} />
     </section>
   );
 }
@@ -42,6 +45,25 @@ const Hearth = ({ className }: { className: string }) => (
       clipRule='evenodd'
       d='M112.574 153.617L162.276 184.447C166.391 186.995 171.379 187.716 176.043 186.434C180.711 185.15 184.63 181.98 186.863 177.686L213.813 125.778C222.262 109.498 216.75 89.4535 201.161 79.7837L201.143 79.7735C193.46 75.008 184.139 73.6614 175.422 76.0584C166.705 78.4554 159.379 84.3796 155.213 92.4034L151.927 98.7332L145.867 94.9731C138.184 90.2076 128.863 88.861 120.146 91.258C111.429 93.655 104.103 99.5792 99.9367 107.603L99.9266 107.621C91.4778 123.901 96.9897 143.945 112.574 153.617Z'
       fill='#BE0303'
+    />
+  </svg>
+);
+
+const Blob = ({ className }: { className: string }) => (
+  <svg
+    width='1826'
+    height='1841'
+    viewBox='0 0 1826 1841'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className={className}
+  >
+    <path
+      id='Vector'
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M239.765 279.376C441.955 83.1011 724.538 -45.8312 999.249 17.026C1266.59 78.1962 1407.5 340.139 1544.26 577.862C1692.7 835.876 1912.96 1119.68 1789.41 1390.46C1666.36 1660.15 1290.22 1583.97 1002.23 1654.22C723.313 1722.26 429.869 1949.67 199.49 1778.31C-31.2718 1606.66 -1.9823 1268.95 5.74211 981.466C12.7134 722.011 53.5445 460.148 239.765 279.376Z'
+      fill='#F9F9F9'
     />
   </svg>
 );

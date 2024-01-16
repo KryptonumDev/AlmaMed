@@ -7,7 +7,7 @@ import Markdown from '../../ui/markdown';
 import Link from 'next/link';
 import { transformDateFormat } from '../../../utils/date-formatter';
 
-export default function Newsletter({ content, title, text, icon, link, post }: Props) {
+export default function Newsletter({ content, title, text, icon, link, post, id }: Props) {
   return (
     <section className={`${styles.wrapper} container`}>
       {post ? (
@@ -46,7 +46,12 @@ export default function Newsletter({ content, title, text, icon, link, post }: P
           children={title}
         />
         <Markdown.p children={text} />
-        <Form />
+        <Form
+          successTitle='<strong>Dziękujemy</strong> za zapis do newslettera!'
+          successText={`Na Twój adres e-mailowy wysłaliśmy link z prośbą o potwierdzenie subskrypcji.
+Zapisz się do naszego newslettera, aby nie przegapić informacji o zdrowiu!`}
+          id={id}
+        />
       </div>
     </section>
   );

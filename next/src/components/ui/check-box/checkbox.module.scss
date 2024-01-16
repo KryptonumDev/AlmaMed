@@ -4,21 +4,56 @@
   gap: 8px;
   grid-template-columns: 32px 1fr;
 
+  &.errored {
+    .checkMark {
+      border: 1px solid var(--error-600, #b46767);
+    }
+  }
+
+  .error {
+    color: var(--error-600, #b46767);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.24px;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+
   .input {
-    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    pointer-events: none;
   }
 
   .checkMark {
     border-radius: 12px;
-    border: 1px solid var(--navy-600, #1F2E60);
+    border: 1px solid var(--navy-600, #1f2e60);
     width: 32px;
     height: 32px;
     display: block;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
   }
 
   input:checked ~ .checkMark {
-    background: var(--navy-600, #1F2E60);
-    border: 1px solid var(--navy-600, #1F2E60);
-  }
+    border: 1px solid var(--light-blue-500, #0376be);
+    background: var(--light-blue-500, #0376be);
 
+    svg {
+      opacity: 1;
+    }
+  }
 }

@@ -186,6 +186,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       },
       newsletter_right_heading,
       newsletter_right_paragraph,
+      newsletter_mailerlite_id,
     },
     "posts": *[_type == 'blogEntry'][0...1]{
       _updatedAt,
@@ -261,6 +262,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         link={global.newsletter_left_cta}
         title={global.newsletter_right_heading}
         text={global.newsletter_right_paragraph}
+        id={global.newsletter_mailerlite_id}
       />
       <Prevention
         title={page.prevention_heading}

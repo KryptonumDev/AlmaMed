@@ -171,6 +171,13 @@ export default {
       fieldset: 'newsletter',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'newsletter_mailerlite_id',
+      type: 'string',
+      title: 'Mailerlite ID grupy',
+      fieldset: 'newsletter',
+      validation: (Rule) => Rule.required(),
+    },
     // metrics
     {
       name: 'patients',

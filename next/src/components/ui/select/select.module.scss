@@ -1,0 +1,14 @@
+.wrapper{
+  position: relative;
+
+  .error {
+    color: var(--error-600, #b46767);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.24px;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+}

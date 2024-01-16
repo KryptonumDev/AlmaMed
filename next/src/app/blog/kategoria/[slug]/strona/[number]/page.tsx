@@ -63,6 +63,7 @@ export default async function Index({ params: { slug, number } }: { params: { sl
         },
         newsletter_right_heading,
         newsletter_right_paragraph,
+        newsletter_mailerlite_id,
       }
     }`,
     params: { slug: slug, before: (Number(number) - 1) * 6, after: Number(number) * 6 },
@@ -85,6 +86,7 @@ export default async function Index({ params: { slug, number } }: { params: { sl
         link={global.newsletter_left_cta}
         title={global.newsletter_right_heading}
         text={global.newsletter_right_paragraph}
+        id={global.newsletter_mailerlite_id}
       />
     </>
   );
