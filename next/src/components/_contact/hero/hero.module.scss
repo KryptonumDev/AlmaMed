@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 484fr 690fr;
     gap: 32px;
-    margin-top: 240px;
+    padding-top: 240px;
     position: relative;
 
     @media (max-width: 768px) {
@@ -27,9 +27,9 @@
   .blob {
     position: absolute;
     z-index: -1;
-    bottom: 0;
+    top: 920px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateY(-100%) translateX(-50%);
     width: 1826px;
     height: 1841px;
   }
@@ -73,7 +73,7 @@
   flex-direction: column;
   gap: 24px;
 
-  h2{
+  h2 {
     max-width: 484px;
   }
 }

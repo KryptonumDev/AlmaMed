@@ -1,4 +1,18 @@
 .wrapper {
+  padding-top: 240px;
+  position: relative;
+  overflow: hidden;
+
+  .blob {
+    position: absolute;
+    z-index: -1;
+    top: 920px;
+    left: 50%;
+    transform: translateY(-100%) translateX(-50%);
+    width: 1826px;
+    height: 1841px;
+  }
+  
   .content {
     margin-top: 176px;
     display: grid;

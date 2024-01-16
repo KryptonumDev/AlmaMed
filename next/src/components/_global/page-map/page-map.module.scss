@@ -1,8 +1,21 @@
 .wrapper {
+  position: relative;
+  overflow: hidden;
+
   h1 {
-    margin-top: 250px;
-    margin-bottom: 180px;
+    margin-top: 240px;
+    margin-bottom: clamp(64px, calc(120vw/7.68), 180px);
     color: var(--navy-500, #273a78);
+  }
+
+  .blob {
+    position: absolute;
+    z-index: -1;
+    top: 920px;
+    left: 50%;
+    transform: translateY(-100%) translateX(-50%);
+    width: 1826px;
+    height: 1841px;
   }
 
   .grid {

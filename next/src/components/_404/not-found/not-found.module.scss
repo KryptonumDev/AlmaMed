@@ -1,50 +1,106 @@
-.wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 685px;
+.wrapper {
   position: relative;
+  overflow: hidden;
+  padding-bottom: 100px;
+  margin-bottom: -100px;
 
-  h1{
-    color: #0F215F;
-    font-size: 161px;
-    font-weight: 700;
-    line-height: 105%;
-    letter-spacing: 2.415px;
+  .blob {
+    position: absolute;
+    z-index: 0;
+    top: 550px;
+    left: 50%;
+    transform: translateY(-100%) translateX(-50%);
+    width: 1826px;
+    height: 1841px;
+
+    @media (max-width: 840px) {
+      top: 420px;
+    }
   }
 
-  p{
-    &:nth-child(2){
-      margin-top: 24px;
-      margin-bottom: 24px;
-    }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 685px;
+    position: relative;
+    margin-top: 240px;
 
-    &:nth-child(3){
+    h1 {
+      color: #0f215f;
+      font-size: 161px;
       font-weight: 700;
-      margin-bottom: 32px;
-      margin-top: 0;
+      line-height: 105%;
+      letter-spacing: 2.415px;
+      position: relative;
+      z-index: 2;
+
+      @media (max-width: 840px) {
+        font-size: 76px;
+      }
     }
-  }
 
-  .red{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-  }
+    p {
+      position: relative;
+      z-index: 2;
+      &:nth-child(2) {
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
 
-  .green{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
+      &:nth-child(3) {
+        font-weight: 700;
+        margin-bottom: 32px;
+        margin-top: 0;
+      }
+    }
 
-  .yellow{
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
+    .red {
+      position: absolute;
+      bottom: -80px;
+      right: 0;
+      z-index: -1;
+    }
+
+    .green {
+      position: absolute;
+      top: 90px;
+      left: -30px;
+      z-index: 0;
+
+      @media (max-width: 840px) {
+        top: -50px;
+        left: -175px;
+      }
+
+      @media (max-width: 480px) {
+        top: -40px;
+        left: -125px;
+        transform-origin: center;
+        transform: scale(0.8);
+      }
+    }
+
+    .yellow {
+      position: absolute;
+      top: -30px;
+      right: -100px;
+      z-index: -1;
+
+      @media (max-width: 840px) {
+        top: -100px;
+        right: -200px;
+        transform-origin: center;
+        transform: scale(0.8);
+      }
+
+      @media (max-width: 480px) {
+        top: 0px;
+        right: -200px;
+        transform-origin: center;
+        transform: scale(0.6);
+      }
+    }
   }
 }
