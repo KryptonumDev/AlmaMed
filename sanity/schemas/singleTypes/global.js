@@ -101,8 +101,8 @@ export default {
     },
     {
       name: 'registration_video',
-      type: 'string',
-      title: 'Link do video oEmbed',
+      type: 'file',
+      title: 'Video',
       fieldset: 'registration',
       validation: (Rule) => Rule.required(),
     },
