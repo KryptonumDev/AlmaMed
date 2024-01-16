@@ -1,6 +1,6 @@
 export interface Props {
-  title: string;
-  cards: Array<{
+  title?: string;
+  cards?: Array<{
     name: string;
     address: string;
     phone: string;

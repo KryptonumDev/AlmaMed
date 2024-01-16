@@ -29,4 +29,5 @@ export interface Props {
       current: string;
     };
   }>;
+  search: string; 
 }

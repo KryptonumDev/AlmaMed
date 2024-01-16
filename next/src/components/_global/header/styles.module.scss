@@ -305,11 +305,12 @@
     }
   }
 
-  > svg {
+  > a {
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
+    height: 24px;
   }
 }
 
