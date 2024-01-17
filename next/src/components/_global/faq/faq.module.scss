@@ -66,6 +66,7 @@
 
     &.opened {
       summary {
+        cursor: unset;
         .plus {
           &::after {
             transform: translate(-50%, -50%) rotate(0deg);
@@ -80,6 +81,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
+      cursor: pointer;
 
       .plus {
         display: block;
@@ -111,6 +113,12 @@
 
       p {
         color: var(--light-blue-600, #025e98);
+        transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+      }
+
+      &:hover{
+        p{
+        }
       }
     }
     .answer {

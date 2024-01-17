@@ -39,12 +39,12 @@ export default function TestLocalizations({ title, text, cards }: Props) {
                     );
                   case 'link':
                     return (
-                      <div className={styles.link}>
+                      <div key={el.href + i} className={styles.link}>
                         <Image data={el.icon} />
                         <Link
                           key={el.href + i}
                           href={el.href}
-                          className={`${styles.cardLink}`}
+                          className={`anim-link ${styles.cardLink}`}
                         >
                           {el.content}
                         </Link>
@@ -52,7 +52,7 @@ export default function TestLocalizations({ title, text, cards }: Props) {
                     );
                   case 'list':
                     return (
-                      <div className={styles.list}>
+                      <div key={ i} className={styles.list}>
                         {el.list.map((el, i) => (
                           <p className={styles.listItem} key={el + i}>
                             <CheckCircle />

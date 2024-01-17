@@ -59,7 +59,9 @@ export default function Footer() {
       <Background />
       <div className={`container ${styles.container}`}>
         <div className={styles.information}>
-          <Logo className={styles.logo} />
+          <Link href='/'>
+            <Logo className={styles.logo} />
+          </Link>
           <div className={styles.content}>
             <h3 className='h5'>Centrum Medyczne Alma Med</h3>
             <p className='p'>W trosce o dobre zdrowie Naszych Pacjentów</p>
@@ -85,7 +87,7 @@ export default function Footer() {
               {link.links.map((sub, index) => (
                 <li key={index}>
                   <Link
-                    className={`p ${sub.bold ? 'bold' : ''}`}
+                    className={`p anim-link ${sub.bold ? 'bold' : ''}`}
                     href={sub.link}
                   >
                     {sub.name}

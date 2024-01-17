@@ -37,7 +37,7 @@ export default function Blocks({ title, text, blocks }: Props) {
                       <Link
                         key={el.href + i}
                         href={el.href}
-                        className={`${styles.cardLink}`}
+                        className={`${styles.cardLink} anim-link`}
                       >
                         {el.content}
                       </Link>

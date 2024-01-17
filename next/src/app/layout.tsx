@@ -37,7 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${satoshi.className} ${satoshi.variable}`}>
         <Header />
         <SmoothScroll>
+          <main>
             {children}
+            </main>
         </SmoothScroll>
         <Footer />
       </body>

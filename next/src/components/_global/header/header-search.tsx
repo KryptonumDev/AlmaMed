@@ -27,7 +27,6 @@ export default function Search({ className }: { className?: string }) {
   return (
     <label className={`${styles.search} ${className}`}>
       <input
-        id='search'
         type='text'
         value={search}
         onChange={(e) => setSearch(e.target.value)}

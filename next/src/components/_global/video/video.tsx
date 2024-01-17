@@ -15,7 +15,7 @@ export default function Video({ title, text, video, steps }: Props) {
         <iframe
           className={styles.video}
           src={video.asset.url}
-          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allow='accelerometer; encrypted-media; gyroscope; picture-in-picture'
           allowFullScreen
           loading='lazy'
         />

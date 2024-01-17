@@ -13,8 +13,10 @@
   &.primary {
     border-radius: 32px;
     border: 2px solid var(--light-blue-500, #0376be);
-    background: var(--light-blue-500, #0376be);
+    background-color: var(--light-blue-500, #0376be);
     box-shadow: 2px 2px 4px 0px rgba(39, 58, 120, 0.15);
+    transition: border 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+      box-shadow 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), background-color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
     span {
       color: var(--neutral-100, #fff);
@@ -25,6 +27,16 @@
         fill: var(--neutral-100, #fff);
       }
     }
+
+    &:hover {
+      border: 2px solid var(--light-blue-300, #5faad8);
+      background-color: var(--light-blue-300, #5faad8);
+    }
+
+    &:active {
+      border: 2px solid var(--light-blue-500, #0376be);
+      background: var(--light-blue-600, #025e98);
+    }
   }
 
   &.secondary {
@@ -32,6 +44,8 @@
     border: 2px solid var(--neutral-900, #202123);
     background: var(--neutral-900, #202123);
     box-shadow: 2px 2px 4px 0px rgba(39, 58, 120, 0.15);
+    transition: border 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+      box-shadow 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), background-color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
     span {
       color: var(--yellow-500, #f9bc41);
@@ -42,6 +56,16 @@
         fill: var(--yellow-500, #f9bc41);
       }
     }
+
+    &:hover {
+      background-color: var(--neutral-800, #404346);
+      border: 2px solid var(--neutral-900, #404346);
+    }
+
+    &:active {
+      background-color: var(--neutral-800, #404346);
+      border: 2px solid var(--neutral-900, #404346);
+    }
   }
 
   &.tertiary {
@@ -49,6 +73,8 @@
     border: 2px solid var(--yellow-400, #fac967);
     background: var(--yellow-400, #fac967);
     box-shadow: 2px 2px 4px 0px rgba(39, 58, 120, 0.15);
+    transition: border 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+      box-shadow 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), background-color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
     span {
       color: var(--neutral-900, #202123);
@@ -58,6 +84,14 @@
       path {
         fill: var(--neutral-900, #202123);
       }
+    }
+
+    &:hover {
+      background-color: var(--yellow-300, #fbd78d);
+    }
+
+    &:active {
+      background-color: var(--yellow-600, #cb9934);
     }
   }
 

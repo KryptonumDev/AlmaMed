@@ -34,15 +34,24 @@ export default function Header() {
           <p>Godziny pracy: Pon – Pt: 8.00 – 18.00</p>
         </div>
         <div className={`${styles.part} ${styles.desktop}`}>
-          <Link href='/kontakt'>
+          <Link
+            className='anim-link'
+            href='/kontakt'
+          >
             <Calendar />
             Umów się do lekarza
           </Link>
-          <a href='tel:123456789'>
+          <a
+            className='anim-link'
+            href='tel:123456789'
+          >
             <Phone />
             123 456 789
           </a>
-          <a href='mailto:kontakt@almamed.pl'>
+          <a
+            className='anim-link'
+            href='mailto:kontakt@almamed.pl'
+          >
             <Letter />
             kontakt@almamed.pl
           </a>
@@ -75,7 +84,10 @@ export default function Header() {
           <ul>
             {links.map((link) => (
               <li key={link.label}>
-                <Link href={link.href}>
+                <Link
+                  className='anim-link'
+                  href={link.href}
+                >
                   {link.label}
                   {link.sub && <ArrowUp />}
                 </Link>
@@ -83,7 +95,12 @@ export default function Header() {
                   <ul className={styles.dropdown}>
                     {link.sub.map((sub) => (
                       <li key={sub.label}>
-                        <Link href={sub.href}>{sub.label}</Link>
+                        <Link
+                          className='anim-link'
+                          href={sub.href}
+                        >
+                          {sub.label}
+                        </Link>
                       </li>
                     ))}
                   </ul>

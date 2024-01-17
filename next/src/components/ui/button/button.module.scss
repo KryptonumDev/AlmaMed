@@ -31,6 +31,7 @@
 .secondary {
   border-radius: 12px;
   border: 1px solid var(--navy-800, #101730);
+  color: 1px solid var(--navy-800, #101730);
   padding: 12px 30px 14px 36px;
   display: flex;
   align-items: center;
@@ -38,6 +39,8 @@
   gap: 8px;
   width: fit-content;
   text-align: center;
+  transition: border 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86), color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    box-shadow 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   @media (max-width: 420px) {
     width: 100%;
@@ -46,6 +49,29 @@
   svg {
     path {
       fill: var(--navy-800, #101730);
+      transition: fill 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+  }
+
+  &:hover {
+    border-color: 1px solid var(--light-blue-500, #0376be);
+    color: var(--light-blue-500, #0376be);
+
+    svg {
+      path {
+        fill: var(--light-blue-500, #0376be);
+      }
+    }
+  }
+
+  &:active {
+    border: 1px solid var(--light-blue-800, #012f4c);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.15) inset;
+
+    svg {
+      path {
+        fill: var(--light-blue-800, #012F4C);
+      }
     }
   }
 }

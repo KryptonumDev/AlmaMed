@@ -32,6 +32,7 @@ export default function Hero({ title, text, list, cta, image }: Props) {
                 url={link.href}
                 title={link.text}
                 type={link.theme}
+                arrow={true}
               />
             ))}
           </div>
