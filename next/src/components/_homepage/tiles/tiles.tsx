@@ -22,7 +22,19 @@ export default function Tiles({ title, text, tiles }: Props) {
             key={tile.name + i}
             className={styles.item}
             title={tile.name}
-            color={tile.color}
+            color={(() => {
+              switch (i) {
+                case 0:
+                case 6:
+                case 7:
+                  return 'blue';
+                case 1:
+                case 3:
+                  return 'green';
+                default:
+                  return 'yellow';
+              }
+            })()}
             icon={tile.icon}
             havePage={tile.have_page}
             slug={tile.slug}
