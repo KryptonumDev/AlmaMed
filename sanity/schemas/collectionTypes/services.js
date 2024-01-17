@@ -34,21 +34,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'color',
-      type: 'string',
-      title: 'Color usługi',
-      options: {
-        list: [
-          {title: 'Zielony', value: 'green'},
-          {title: 'Niebieski', value: 'blue'},
-          {title: 'Żółty', value: 'yellow'},
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      validation: (Rule) => Rule.required(),
-    },
-    {
       name: 'have_page',
       type: 'boolean',
       title: 'Czy ma podstronę?',
@@ -213,6 +198,13 @@ export default {
           hidden: ({document}) => !document.have_page,
         },
       ],
+    },
+    {
+      name: 'mentoring_Cta',
+      type: 'cta',
+      title: 'Przycisk pod listą',
+      fieldset: 'mentoring',
+      hidden: ({document}) => !document.have_page,
     },
     // tests
     {

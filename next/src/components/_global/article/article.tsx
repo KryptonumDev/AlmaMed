@@ -12,38 +12,42 @@ export default function Article({ brief, name, content, thumbnail }: Props) {
     .map((el: any) => el.children[0].text);
 
   return (
-    <section className={`${styles.wrapper}`}>
-    <Blob className={styles.blob} />
-      <div className={`${styles.wrap} container`}>
-        <div className={styles.content}>
-          <div className={styles.image}>
-            <Image data={thumbnail} />
-          </div>
-          <Markdown.h1
-            className='h3'
-            children={name}
-          />
-          <p>{brief}</p>
-          <PortableTextComponent data={content} />
-        </div>
-        <div className={styles.quickLinks}>
-          <div className={styles.quickLinksHeading}>
-            <p className='p'>Spis treści:</p>
-          </div>
-          <div className={styles.quickLinksList}>
-            {titles?.map((title: string, index: number) => (
-              <Link
-                key={title + index}
-                href={`#${slugify(title)}`}
-                className={`p`}
-              >
-                {title}
-              </Link>
-            ))}
-          </div>
-        </div>
+    <>
+      <div className={styles.blobWrap}>
+        <Blob className={styles.blob} />
       </div>
-    </section>
+      <section className={`${styles.wrapper}`}>
+        <div className={`${styles.wrap} container`}>
+          <div className={styles.content}>
+            <div className={styles.image}>
+              <Image data={thumbnail} />
+            </div>
+            <Markdown.h1
+              className='h3'
+              children={name}
+            />
+            <p>{brief}</p>
+            <PortableTextComponent data={content} />
+          </div>
+          <div className={styles.quickLinks}>
+            <div className={styles.quickLinksHeading}>
+              <p className='p'>Spis treści:</p>
+            </div>
+            <div className={styles.quickLinksList}>
+              {titles?.map((title: string, index: number) => (
+                <Link
+                  key={title + index}
+                  href={`#${slugify(title)}`}
+                  className={`p`}
+                >
+                  {title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 

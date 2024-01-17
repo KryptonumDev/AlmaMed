@@ -1,10 +1,9 @@
-
 import styles from './tiles.module.scss';
 import { Props } from './tiles.constants';
 import Markdown from '../../ui/markdown';
 import Tile from '../../ui/tile';
 
-export default function Tiles({ title, text, tiles }: Props) {
+export default function Tiles({ title, text, tiles, altColors = false }: Props) {
   return (
     <section className={`${styles.wrapper} container`}>
       <div>
@@ -23,7 +22,20 @@ export default function Tiles({ title, text, tiles }: Props) {
             key={tile.name + i}
             className={styles.item}
             title={tile.name}
-            color={tile.color}
+            color={(() => {
+              switch (i) {
+                case 0:
+                case 4:
+                  return 'blue';
+                case 1:
+                case altColors ? null : 2:
+                case 5:
+                case 6:
+                  return 'green';
+                default:
+                  return 'yellow';
+              }
+            })()}
             icon={tile.icon}
             havePage={tile.have_page}
             slug={tile.slug}

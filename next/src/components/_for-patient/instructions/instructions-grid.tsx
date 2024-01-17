@@ -6,7 +6,7 @@ import styles from './instructions.module.scss';
 
 export default function Grid({ list }: GridProps) {
   const [enabled, setEnabled] = useState(0);
-  
+
   return (
     <div className={styles.grid}>
       <div className={styles.buttons}>
@@ -22,7 +22,7 @@ export default function Grid({ list }: GridProps) {
           </button>
         ))}
       </div>
-      <div className={styles.steps}>
+      <div className={`${styles.steps} ${enabled % 2 === 0 ? styles.green : styles.yellow}`}>
         {list[enabled].steps.map((el, i) => (
           <div key={el.text + i}>
             <p>

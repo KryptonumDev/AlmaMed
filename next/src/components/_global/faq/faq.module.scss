@@ -31,10 +31,13 @@
     grid-template-rows: 1fr auto;
     gap: 32px;
     height: fit-content;
+    position: sticky;
+    top: 40px;
 
     @media (max-width: 1024px) {
       grid-template-rows: unset;
       grid-template-columns: 1fr 1fr;
+      position: unset;
     }
 
     @media (max-width: 580px) {

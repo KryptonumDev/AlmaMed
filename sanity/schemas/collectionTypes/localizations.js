@@ -312,6 +312,13 @@ export default {
         },
       ],
     },
+    {
+      name: 'mentoring_Cta',
+      type: 'cta',
+      title: 'Przycisk pod listą',
+      fieldset: 'mentoring',
+      hidden: ({document}) => !document.have_page,
+    },
     // prevention
     {
       name: 'prevention_heading',

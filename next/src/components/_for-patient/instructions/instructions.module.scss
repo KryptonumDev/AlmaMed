@@ -76,13 +76,13 @@
           }
         }
 
-        &:nth-child(1) {
+        &:nth-child(2n-1) {
           border-radius: 16px;
           border: 1px solid var(--green-500, #03be86);
           background: var(--green-100, #f8fffd);
         }
 
-        &:nth-child(2) {
+        &:nth-child(2n) {
           border-radius: 16px;
           border: 1px solid var(--yellow-500, #f9bc41);
           background: var(--yellow-100, #fffdf8);
@@ -94,6 +94,20 @@
       display: grid;
       gap: 12px;
       height: fit-content;
+
+      &.green {
+        div {
+          border: 1px solid var(--green-500, #03be86);
+          background: var(--green-100, #f8fffd);
+        }
+      }
+
+      &.yellow {
+        div {
+          border: 1px solid var(--yellow-500, #f9bc41);
+          background: var(--yellow-100, #fffdf8);
+        }
+      }
 
       div {
         padding: 20px 14px 20px 24px;

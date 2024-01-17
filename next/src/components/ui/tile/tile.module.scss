@@ -1,6 +1,5 @@
 .wrapper {
   border-radius: 32px;
-  box-shadow: 2px 2px 4px 0px rgba(39, 58, 120, 0.15);
   min-height: 224px;
   display: flex;
   flex-direction: column;
@@ -13,7 +12,6 @@
   background: var(--light-blue-100, #f8fcff);
 
   &.linked {
-    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0) inset;
     position: relative;
 
     .link {

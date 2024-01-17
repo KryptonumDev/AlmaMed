@@ -125,6 +125,13 @@ export default {
         },
       ],
     },
+    {
+      name: 'mentoring_Cta',
+      type: 'cta',
+      title: 'Przycisk pod listą',
+      fieldset: 'mentoring',
+      group: 'mentoring',
+    },
     // types of services
     {
       name: 'services_types',

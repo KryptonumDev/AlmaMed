@@ -17,7 +17,7 @@ export default function Freebie({ title, text, image, id }: Props) {
           children={text}
         />
         <Form
-          successTitle='<strong>Dziękujemy</strong> za pobranie naszego e-booka!'
+          successTitle='<strong>Dziękujemy</strong> za pobranie naszego <br/>e-booka!'
           successText={`Możesz teraz sprawdzić swoją skrzynkę pocztową, na którą go wysłaliśmy.`}
           id={id}
         />

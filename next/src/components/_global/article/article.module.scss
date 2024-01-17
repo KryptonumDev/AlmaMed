@@ -1,8 +1,8 @@
-.wrapper {
-  position: relative;
+.blobWrap{
+  position: absolute;
   overflow: hidden;
-  padding-bottom: 200px;
-  margin-bottom: -200px;
+  height: 1000px;
+  width: 100%;
 
   .blob {
     position: absolute;
@@ -13,6 +13,11 @@
     width: 1826px;
     height: 1841px;
   }
+  
+}
+
+.wrapper {
+  position: relative;
 
   .wrap {
     display: grid;
@@ -87,7 +92,7 @@
 
 .quickLinks {
   position: sticky;
-  top: 120px;
+  top: 40px;
   padding: 18px 16px 24px 39px;
 
   height: fit-content;
@@ -129,6 +134,12 @@
       padding-left: 33px;
       color: var(--light-blue-600, #025e98);
       text-decoration: underline;
+      font-weight: 500;
+      transition: color .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+      &:hover{
+        color: var(--light-blue-800);
+      }
 
       &:before {
         position: absolute;

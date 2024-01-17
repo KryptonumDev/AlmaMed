@@ -2,6 +2,11 @@ export interface Props {
   title: string;
   text: string;
   oversized?: boolean;
+  cta: {
+    href: string;
+    text: string;
+    theme: 'primary' | 'secondary';
+  }
   list: Array<{
     text: string;
     image: {

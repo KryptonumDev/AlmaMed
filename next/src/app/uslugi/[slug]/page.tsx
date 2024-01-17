@@ -104,6 +104,11 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           }
         }
       },
+      mentoring_Cta{
+        href,
+        text,
+        theme,  
+      },
       //tests
       tests[]{
         title,
@@ -220,6 +225,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           text={page.mentoring_paragraph}
           list={page.mentoring_list}
           oversized={page.mentoring_oversized}
+          cta={page.mentoring_Cta}
         />
       )}
       {page?.tests?.map((test: any) => (

@@ -2,8 +2,9 @@ import styles from './mentoring.module.scss';
 import { Props } from './mentoring.constants';
 import Markdown from '../../ui/markdown';
 import Image from '../../ui/image';
+import Button from '@/components/ui/button';
 
-export default function Mentoring({ title, text, list, oversized = false }: Props) {
+export default function Mentoring({ title, text, list, oversized = false, cta }: Props) {
   return (
     <section className={`${styles.wrapper} container`}>
       <Markdown.h2
@@ -25,6 +26,14 @@ export default function Mentoring({ title, text, list, oversized = false }: Prop
           </div>
         ))}
       </div>
+      {cta && (
+        <Button
+          url={cta.href}
+          title={cta.text}
+          arrow={true}
+          type={cta.theme}
+        />
+      )}
     </section>
   );
 }

@@ -89,7 +89,7 @@ export default function Form({
           required: { value: true, message: 'To pole jest wymagane' },
           pattern: { value: regex.phone, message: '' },
         })}
-        label='nr. telefonu'
+        label='Nr. telefonu'
         errors={errors}
       />
       <Select
@@ -113,7 +113,7 @@ export default function Form({
       />
       <CheckBox
         register={register('agreement', { required: true })}
-        label='Akceptuję <a href="/polityka-prywatnosci">politykę prywatności</a>'
+        label='Akceptuję <a class="anim-link" href="/polityka-prywatnosci">politykę prywatności</a>'
         errors={errors}
       />
       <Button

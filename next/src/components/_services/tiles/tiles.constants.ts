@@ -1,6 +1,7 @@
 export interface Props {
   title: string;
   text: string;
+  altColors?: boolean;
   tiles: Array<{
     name: string;
     color: 'yellow' | 'blue' | 'green';

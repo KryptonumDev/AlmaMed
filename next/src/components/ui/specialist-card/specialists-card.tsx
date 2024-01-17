@@ -13,8 +13,10 @@ export default function Card({ slug, name, image, profession }: CardProps) {
         <Image data={image} />
       </div>
       <div className={styles.content}>
-        <p className={styles.title}>{removeMarkdownTags(name)}</p>
-        <p>{profession}</p>
+        <div>
+          <p className={styles.title}>{removeMarkdownTags(name)}</p>
+          <p>{profession}</p>
+        </div>
         <Button
           type='secondary'
           url={`/specjalisci/${slug}`}

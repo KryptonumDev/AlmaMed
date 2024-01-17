@@ -57,7 +57,6 @@ export default async function Index() {
       tiles_paragraph,
       tiles_list[]->{
         name,
-        color,
         slug,
         have_page,
         icon{

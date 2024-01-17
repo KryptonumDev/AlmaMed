@@ -56,7 +56,6 @@ export default async function Index() {
         tiles_paragraph,
         tiles_list[]->{
           name,
-          color,
           slug,
           have_page,
           icon{
@@ -94,12 +93,16 @@ export default async function Index() {
             }
           }
         },
+        mentoring_Cta{
+          href, 
+          text,
+          theme,  
+        },
         // types of services
         services_types[]{
           title,
           paragraph,
           list[]-> {
-            color, 
             name,
             slug,
             have_page,
@@ -204,6 +207,7 @@ export default async function Index() {
         title={page.mentoring_heading}
         text={page.mentoring_paragraph}
         list={page.mentoring_list}
+        cta={page.mentoring_Cta}
       />
       {page.services_types.map((el: any, i: number) => (
         <Tiles
@@ -211,6 +215,7 @@ export default async function Index() {
           title={el.title}
           text={el.paragraph}
           tiles={el.list}
+          altColors={true}
         />
       ))}
       <Cta

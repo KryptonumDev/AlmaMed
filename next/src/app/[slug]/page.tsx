@@ -98,6 +98,11 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           }
         }
       },
+      mentoring_Cta{
+        href,
+        text,
+        theme,  
+      },
       // one image section
       one_image_heading,
       one_image_paragraph,
@@ -255,6 +260,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         title={page.mentoring_heading}
         text={page.mentoring_paragraph}
         list={page.mentoring_list}
+        cta={page.mentoring_Cta}
       />
       <Newsletter
         icon={global.newsletter_left_icon}
