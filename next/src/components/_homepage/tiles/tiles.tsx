@@ -25,7 +25,7 @@ export default function Tiles({ title, text, tiles }: Props) {
             color={(() => {
               switch (i) {
                 case 0:
-                case 6:
+                case 5:
                 case 7:
                   return 'blue';
                 case 1:
