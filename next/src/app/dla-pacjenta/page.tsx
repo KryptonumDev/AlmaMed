@@ -127,6 +127,7 @@ export default async function Index() {
       instructions_list[]{
         title,
         steps[]{
+          title,
           text,
           image {
             asset->{

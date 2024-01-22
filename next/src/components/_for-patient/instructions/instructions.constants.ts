@@ -4,6 +4,7 @@ export interface Props {
   list: Array<{
     title: string;
     steps: Array<{
+      title: string;
       text: string;
       image: {
         url: string;
@@ -26,6 +27,7 @@ export interface GridProps {
     title: string;
     steps: Array<{
       text: string;
+      title: string;
       image: {
         url: string;
         altText: string;

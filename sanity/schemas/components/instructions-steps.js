@@ -3,6 +3,12 @@ export default {
   name: 'instruction_step',
   fields: [
     {
+      name: 'title',
+      type: 'string',
+      title: 'Gruby tekst po lewej',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'text',
       type: 'markdown',
       title: 'Treść kroku',

@@ -26,7 +26,7 @@ export default function Grid({ list }: GridProps) {
         {list[enabled].steps.map((el, i) => (
           <div key={el.text + i}>
             <p>
-              <strong>Krok {i + 1}</strong>
+              <strong>{el.title}</strong>
               <span>{el.text}</span>
             </p>
             {el.image && <Image data={el.image} />}
