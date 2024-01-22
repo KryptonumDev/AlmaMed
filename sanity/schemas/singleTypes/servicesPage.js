@@ -1,6 +1,6 @@
 export default {
   name: 'servicesPage',
-  title: 'Usługi archiwum',
+  title: 'Usługi',
   type: 'document',
   fields: [
     // hero

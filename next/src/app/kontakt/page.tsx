@@ -4,6 +4,7 @@ import Faq from '@/components/_global/faq';
 import Localization from '@/components/_global/localization';
 import Blocks from '@/components/_contact/blocks';
 import Hero from '@/components/_contact/hero';
+import Seo from '@/components/ui/seo';
 
 export default async function Index() {
   const { page, global, posts, localizations } = await sanityFetch<any>({
@@ -130,4 +131,26 @@ export default async function Index() {
       />
     </>
   );
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_id == "Contact"][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

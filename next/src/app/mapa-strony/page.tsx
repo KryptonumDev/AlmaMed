@@ -1,5 +1,6 @@
 import PageMap from '@/components/_global/page-map';
 import { sanityFetch } from '../../utils/sanity-client';
+import Seo from '@/components/ui/seo';
 
 export default async function Index() {
   const { categories, services, posts, specialists, localizations } = await sanityFetch<any>({
@@ -28,4 +29,26 @@ export default async function Index() {
   });
 
   return <PageMap categories={categories} services={services} posts={posts} specialists={specialists} localizations={localizations}/>;
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_id == "Sitemap"][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

@@ -1,6 +1,7 @@
 import Article from '@/components/_global/article';
 import { sanityFetch } from '../../../utils/sanity-client';
 import { notFound } from 'next/navigation';
+import Seo from '@/components/ui/seo';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page } = await sanityFetch<any>({
@@ -39,4 +40,27 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       thumbnail={page.thumbnail}
     />
   );
+}
+
+export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_type == "blogEntry" && slug.current == $slug][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+    params: { slug: slug },
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

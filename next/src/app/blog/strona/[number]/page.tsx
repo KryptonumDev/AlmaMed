@@ -2,6 +2,7 @@ import Newsletter from '@/components/_global/newsletter';
 import { sanityFetch } from '../../../../utils/sanity-client';
 import Blog from '@/components/_global/blog';
 import { notFound } from 'next/navigation';
+import Seo from '@/components/ui/seo';
 
 export default async function Index({ params: { number } }: { params: { number: string } }) {
   const { posts, categories, global, total } = await sanityFetch<any>({
@@ -92,4 +93,26 @@ export default async function Index({ params: { number } }: { params: { number: 
       />
     </>
   );
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_id == "Blog"][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

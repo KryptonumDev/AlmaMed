@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation';
 import Mentoring from '@/components/_services/mentoring';
 import OneImage from '@/components/_localization/one-image';
 import TwoImage from '@/components/_localization/two-image';
+import Seo from '@/components/ui/seo';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -284,4 +285,27 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       />
     </>
   );
+}
+
+export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_type == "localizations" && slug.current == $slug][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+    params: { slug: slug },
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

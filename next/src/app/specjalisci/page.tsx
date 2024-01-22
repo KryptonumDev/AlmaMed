@@ -5,6 +5,7 @@ import Advantages from '@/components/_global/advantages';
 import Comments from '@/components/_global/comments';
 import Specialists from '@/components/_global/specialists';
 import Hero from '@/components/_global/hero';
+import Seo from '@/components/ui/seo';
 
 export default async function Index() {
   const { page, global, specialists } = await sanityFetch<any>({
@@ -137,4 +138,26 @@ export default async function Index() {
       />
     </>
   );
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_id == "Personal"][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

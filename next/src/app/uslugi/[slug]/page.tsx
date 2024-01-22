@@ -9,6 +9,7 @@ import Freebie from '@/components/_services/freebie';
 import Mentoring from '@/components/_services/mentoring';
 import Advantages from '@/components/_global/advantages';
 import Tests from '@/components/_services/tests';
+import Seo from '@/components/ui/seo';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -273,4 +274,27 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       )}
     </>
   );
+}
+
+export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_type == "services" && slug.current == $slug][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+    params: { slug: slug },
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

@@ -3,6 +3,7 @@ import { sanityFetch } from '../../../utils/sanity-client';
 import Flex from '@/components/_specialist/flex';
 import Comments from '@/components/_global/comments';
 import Slider from '@/components/_specialist/slider';
+import Seo from '@/components/ui/seo';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { specialists } = await sanityFetch<any>({
@@ -120,4 +121,27 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       )}
     </>
   );
+}
+
+export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_type == "doctors" && slug.current == $slug][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+    params: { slug: slug },
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

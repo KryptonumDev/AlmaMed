@@ -8,6 +8,7 @@ import Newsletter from '@/components/_global/newsletter';
 import Scoring from '@/components/_global/scoring';
 import { sanityFetch } from '../utils/sanity-client';
 import Prevention from '@/components/_homepage/prevention';
+import Seo from '@/components/ui/seo';
 
 export default async function Index() {
   const { page, global, posts } = await sanityFetch<any>({
@@ -170,7 +171,6 @@ export default async function Index() {
   }`,
   });
 
-
   return (
     <>
       <Hero
@@ -228,4 +228,26 @@ export default async function Index() {
       />
     </>
   );
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await sanityFetch<any>({
+    query: `
+    {
+      "page": *[_id == "IndexPage"][0]{
+        seo {
+          title,
+          description,
+        },
+      },
+    }
+    `,
+  });
+  return Seo({
+    title: seo?.title,
+    description: seo?.description,
+    path: '/',
+  });
 }

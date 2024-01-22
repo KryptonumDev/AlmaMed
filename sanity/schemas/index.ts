@@ -6,8 +6,11 @@ import PrivacyPolicy from './singleTypes/privacyPolicy'
 import personal from './singleTypes/personal'
 import forPatient from './singleTypes/forPatient'
 import contact from './singleTypes/contact'
+import Blog from './singleTypes/blog'
+import Search from './singleTypes/search'
+import Sitemap from './singleTypes/sitemap'
 
-export const singleTypes = [IndexPage, servicesPage, PrivacyPolicy, personal, forPatient, contact]
+export const singleTypes = [IndexPage, servicesPage, personal, forPatient, Blog, contact, PrivacyPolicy, Search, Sitemap]
 
 // Collection Types
 import localizations from './collectionTypes/localizations'
@@ -17,7 +20,7 @@ import categories from './collectionTypes/blogCategory'
 import doctors from './collectionTypes/doctors'
 import comments from './collectionTypes/comments'
 
-export const collectionTypes = [localizations, services, posts, categories, doctors, comments]
+export const collectionTypes = [localizations, services, doctors, posts, categories, comments]
 
 // Components
 import cta from './components/cta'
