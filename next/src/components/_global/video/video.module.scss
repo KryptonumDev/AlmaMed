@@ -1,3 +1,17 @@
+.wrap {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+
+  > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: translate(-50%, -10%);
+  }
+}
+
 .wrapper {
   .title {
     max-width: 585px;
@@ -15,7 +29,7 @@
     display: grid;
     grid-template-columns: 893fr 277fr;
     gap: 32px;
-    margin-top: clamp(32px, calc(32vw/7.68), 64px);
+    margin-top: clamp(32px, calc(32vw / 7.68), 64px);
 
     iframe {
       width: 100%;
@@ -54,7 +68,7 @@
 
       counter-increment: name;
 
-      &::before{
+      &::before {
         content: '0' counter(name);
         position: absolute;
         left: 28px;

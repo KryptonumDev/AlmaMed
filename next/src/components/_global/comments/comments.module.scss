@@ -1,3 +1,17 @@
+.wrap{
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+
+  >svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: translate(-50%, -10%);
+  }
+}
+
 .wrapper {
   .title {
     margin-bottom: 24px;
