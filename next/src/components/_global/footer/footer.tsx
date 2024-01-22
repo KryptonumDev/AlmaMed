@@ -55,7 +55,6 @@ const links = [
 export default function Footer() {
   return (
     <footer className={styles.wrapper}>
-      {/* <Blob/> */}
       <Background />
       <div className={`container ${styles.container}`}>
         <div className={styles.information}>

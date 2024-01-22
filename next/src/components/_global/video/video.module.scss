@@ -1,7 +1,9 @@
 .wrap {
   position: relative;
   max-width: 1920px;
-  margin: 0 auto;
+  overflow: hidden;
+  padding: 500px 0;
+  margin: -500px auto;
 
   > svg {
     position: absolute;
