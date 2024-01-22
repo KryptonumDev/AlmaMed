@@ -1,11 +1,15 @@
-.wrap{
-  position: relative;
-  max-width: 1920px;
+.wrap {
   overflow: hidden;
   padding: 500px 0;
-  margin: -500px auto;
+  margin: -500px 0;
+}
 
-  >svg{
+.background {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+
+  > svg {
     position: absolute;
     top: 0;
     right: 0;
@@ -40,7 +44,7 @@
     justify-content: space-between;
     flex-direction: column;
     border-radius: 32px;
-    background: var(--neutral-100, #FFF);
+    background: var(--neutral-100, #fff);
     box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
 
     h3 {
@@ -57,9 +61,10 @@
     }
 
     .content {
-      padding: 32px clamp(12px, calc(36vw/7.68), 36px) clamp(20px, calc(24vw/7.68), 24px) clamp(12px, calc(36vw/7.68), 36px);
+      padding: 32px clamp(12px, calc(36vw / 7.68), 36px) clamp(20px, calc(24vw / 7.68), 24px)
+        clamp(12px, calc(36vw / 7.68), 36px);
 
-      >p {
+      > p {
         display: flex;
         align-items: center;
         gap: 8px;
@@ -91,24 +96,25 @@
           margin-left: 4px;
           padding: 6px 18px;
           border-radius: 12px;
-          border: 1px solid var(--light-blue-600, #025E98);
+          border: 1px solid var(--light-blue-600, #025e98);
           background-color: transparent;
           cursor: pointer;
 
-          color: var(--light-blue-600, #025E98);
+          color: var(--light-blue-600, #025e98);
           font-size: 14px;
           font-weight: 500;
           line-height: 120%;
           letter-spacing: 0.28px;
-          transition: background-color .2s cubic-bezier(0.785, 0.135, 0.15, 0.86), color .2s cubic-bezier(0.785, 0.135, 0.15, 0.86), border .2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+          transition: background-color 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+            color 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
           &:hover {
-            background-color: var(--neutral-200, #EFEFEF);
+            background-color: var(--neutral-200, #efefef);
           }
 
-          &:active{
-            color: var(--light-blue-800, #012F4C);
-            border: 1px solid var(--light-blue-800, #012F4C);
+          &:active {
+            color: var(--light-blue-800, #012f4c);
+            border: 1px solid var(--light-blue-800, #012f4c);
           }
         }
       }
@@ -117,34 +123,34 @@
 }
 
 .cta {
-  padding: 32px clamp(20px, calc(20vw/7.68), 40px);
+  padding: 32px clamp(20px, calc(20vw / 7.68), 40px);
   border-radius: 32px;
-  background: var(--yellow-500, #F9BC41);
+  background: var(--yellow-500, #f9bc41);
   box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 32px;
 
-  @media(max-width: 540px) {
+  @media (max-width: 540px) {
     display: grid;
     gap: 32px;
   }
 
-  >.text {
+  > .text {
     max-width: 600px;
 
-    strong{
+    strong {
       font-weight: 700;
       color: unset;
     }
 
-    @media(max-width: 540px) {
+    @media (max-width: 540px) {
       font-size: 16px;
       padding-right: 10px;
     }
 
-    @media(max-width: 320px) {
+    @media (max-width: 320px) {
       padding-right: 0;
     }
   }

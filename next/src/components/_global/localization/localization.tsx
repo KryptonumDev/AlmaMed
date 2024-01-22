@@ -7,71 +7,73 @@ import Markdown from '../../ui/markdown';
 export default function Localization({ title, cards, ctaLink, ctaTitle }: Props) {
   return (
     <section className={`${styles.wrap}`}>
-      <Blob />
-      <div className={`${styles.wrapper} container`}>
-        {title && (
-          <Markdown.h2
-            className='h3'
-            children={title}
-          />
-        )}
-        {cards && (
-          <div className={styles.grid}>
-            {cards?.map((card) => (
-              <div
-                key={card.name}
-                className={styles.item}
-              >
-                <div className={styles.content}>
-                  <Markdown.h3
-                    className='h4'
-                    children={card.name}
+      <div className={styles.background}>
+        <Blob />
+        <div className={`${styles.wrapper} container`}>
+          {title && (
+            <Markdown.h2
+              className='h3'
+              children={title}
+            />
+          )}
+          {cards && (
+            <div className={styles.grid}>
+              {cards?.map((card) => (
+                <div
+                  key={card.name}
+                  className={styles.item}
+                >
+                  <div className={styles.content}>
+                    <Markdown.h3
+                      className='h4'
+                      children={card.name}
+                    />
+                    <p>
+                      <MapDot />
+                      <span>{card.address}</span>
+                      <button>Skopiuj</button>
+                    </p>
+                    <p>
+                      <Phone />
+                      <span>{card.phone}</span>
+                      <button>Skopiuj</button>
+                    </p>
+                    <p>
+                      <Letter />
+                      <span>{card.email}</span>
+                      <button>Skopiuj</button>
+                    </p>
+                  </div>
+                  <iframe
+                    src={card.map}
+                    width='587'
+                    height='388'
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading='lazy'
+                    referrerPolicy='no-referrer-when-downgrade'
+                    title={card.name}
                   />
-                  <p>
-                    <MapDot />
-                    <span>{card.address}</span>
-                    <button>Skopiuj</button>
-                  </p>
-                  <p>
-                    <Phone />
-                    <span>{card.phone}</span>
-                    <button>Skopiuj</button>
-                  </p>
-                  <p>
-                    <Letter />
-                    <span>{card.email}</span>
-                    <button>Skopiuj</button>
-                  </p>
                 </div>
-                <iframe
-                  src={card.map}
-                  width='587'
-                  height='388'
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading='lazy'
-                  referrerPolicy='no-referrer-when-downgrade'
-                  title={card.name}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-        {ctaLink && ctaTitle && (
-          <div className={styles.cta}>
-            <Markdown.p
-              className={`h4 ${styles.text}`}
-              children={ctaTitle}
-            />
-            <ButtonBig
-              ctaLink={{
-                url: ctaLink?.href,
-                title: ctaLink?.text,
-              }}
-              type='secondary'
-            />
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+          {ctaLink && ctaTitle && (
+            <div className={styles.cta}>
+              <Markdown.p
+                className={`h4 ${styles.text}`}
+                children={ctaTitle}
+              />
+              <ButtonBig
+                ctaLink={{
+                  url: ctaLink?.href,
+                  title: ctaLink?.text,
+                }}
+                type='secondary'
+              />
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

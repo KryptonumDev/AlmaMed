@@ -6,28 +6,30 @@ import Card from './comments-card';
 export default function Comments({ title, text, comments }: Props) {
   return (
     <section className={`${styles.wrap}`}>
-      <Blob />
-      <div className={`${styles.wrapper} container`}>
-        <Markdown.h2
-          className={`${styles.title} h3`}
-          children={title}
-        />
-        {text && (
-          <Markdown.p
-            className={styles.text}
-            children={text}
+      <div className={styles.background}>
+        <Blob />
+        <div className={`${styles.wrapper} container`}>
+          <Markdown.h2
+            className={`${styles.title} h3`}
+            children={title}
           />
-        )}
-        <div className={styles.grid}>
-          {comments.map((comment, index) => (
-            <Card
-              long={`comment-${index + 1}`}
-              text={comment.text}
-              name={comment.name}
-              rating={comment.rating}
-              key={comment.name + index}
+          {text && (
+            <Markdown.p
+              className={styles.text}
+              children={text}
             />
-          ))}
+          )}
+          <div className={styles.grid}>
+            {comments.map((comment, index) => (
+              <Card
+                long={`comment-${index + 1}`}
+                text={comment.text}
+                name={comment.name}
+                rating={comment.rating}
+                key={comment.name + index}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import Markdown from '../../ui/markdown';
 export default function Video({ title, text, video, steps }: Props) {
   return (
     <section className={`${styles.wrap}`}>
+      <div className={styles.background}>
       <Blob />
       <div className={`${styles.wrapper} container`}>
         <Markdown.h2
@@ -33,6 +34,7 @@ export default function Video({ title, text, video, steps }: Props) {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
