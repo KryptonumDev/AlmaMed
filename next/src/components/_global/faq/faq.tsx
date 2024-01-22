@@ -5,7 +5,12 @@ import ButtonBig from '../../ui/button-big';
 import List from './faq-list';
 
 export default function Faq({ list, title, text, cta }: Props) {
-  if(!list?.length) return null;
+  if (!list?.length) return null;
+
+  const formattedList = list.map((item) => ({
+    question: item.question,
+    answer: <Markdown.p children={item.answer} />,
+  }));
 
   return (
     <section className={`${styles.wrapper} container ${!text && !cta ? styles.fullWidth : ''}`}>
@@ -14,7 +19,7 @@ export default function Faq({ list, title, text, cta }: Props) {
           className={`${styles.title} h3`}
           children={title}
         />
-        <List list={list} />
+        <List list={formattedList} />
       </div>
       {text && cta && (
         <div className={styles.column}>
