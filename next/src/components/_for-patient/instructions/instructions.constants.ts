@@ -26,7 +26,7 @@ export interface GridProps {
   list: Array<{
     title: string;
     steps: Array<{
-      text: string;
+      text: React.ReactNode;
       title: string;
       image: {
         url: string;

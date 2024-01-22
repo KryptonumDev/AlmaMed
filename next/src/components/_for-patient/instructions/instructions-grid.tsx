@@ -24,11 +24,11 @@ export default function Grid({ list }: GridProps) {
       </div>
       <div className={`${styles.steps} ${enabled % 2 === 0 ? styles.green : styles.yellow}`}>
         {list[enabled].steps.map((el, i) => (
-          <div key={el.text + i}>
-            <p>
+          <div key={el.title + i}>
+            <div className={styles.flex}>
               <strong>{el.title}</strong>
-              <span>{el.text}</span>
-            </p>
+              {el.text}
+            </div>
             {el.image && <Image data={el.image} />}
           </div>
         ))}

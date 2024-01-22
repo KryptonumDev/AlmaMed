@@ -96,30 +96,35 @@
       height: fit-content;
 
       &.green {
-        div {
+        >div {
           border: 1px solid var(--green-500, #03be86);
           background: var(--green-100, #f8fffd);
         }
       }
 
       &.yellow {
-        div {
+        >div {
           border: 1px solid var(--yellow-500, #f9bc41);
           background: var(--yellow-100, #fffdf8);
         }
       }
 
-      div {
+      >div {
         padding: 20px 14px 20px 24px;
         border-radius: 16px;
         border: 1px solid var(--green-500, #03be86);
         background: var(--green-100, #f8fffd);
 
-        p {
+        .flex {
           display: grid;
           grid-template-columns: auto 1fr;
           align-items: center;
           gap: 16px;
+          
+          a{
+            text-decoration: underline;
+            font-weight: 500;
+          }
         }
 
         strong {
