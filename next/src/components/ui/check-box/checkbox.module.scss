@@ -57,8 +57,9 @@
   }
 
   input:focus-visible ~ .checkMark {
-    outline: 1px dashed var(--navy-600, currentColor);
-    outline-offset: 8px;
+    outline: 3px dashed var(--navy-600, currentColor);
+    outline-offset: 4px;
+    border-radius: 4px;
   }
 
   input:checked ~ .checkMark {

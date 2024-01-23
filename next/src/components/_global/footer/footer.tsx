@@ -82,7 +82,14 @@ export default function Footer() {
         <div className={styles.links}>
           {links.map((link, index) => (
             <ul key={index}>
-              <li className='p bold'>{link.name}</li>
+              <li className='p bold'>
+                <Link
+                  className={`p anim-link bold`}
+                  href={link.link}
+                >
+                  {link.name}
+                </Link>
+              </li>
               {link.links.map((sub, index) => (
                 <li key={index}>
                   <Link

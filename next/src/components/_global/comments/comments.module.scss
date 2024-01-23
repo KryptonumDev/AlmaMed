@@ -60,19 +60,36 @@
 
     &.comment-1 {
       grid-area: first;
+      .flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     &.comment-2 {
       grid-area: second;
+      .flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     &.comment-3 {
       grid-area: third;
+      .flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       @media (max-width: 1024px) and (min-width: 641px) {
         padding: 48px;
         border: 1px solid #03be86;
         background: #f8fffd;
+        
+        .flex {
+          flex-direction: row;
+          align-items: center;
+        }
 
         p {
           color: #242424;
@@ -88,6 +105,13 @@
 
     &.comment-4 {
       grid-area: fourth;
+
+      @media (max-width: 1240px) {
+        .flex {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
 
       @media (min-width: 1025px) {
         padding: clamp(32px, calc(48vw / 7.68), 48px);
@@ -107,6 +131,13 @@
     }
     &.comment-5 {
       grid-area: fifth;
+
+      @media (max-width: 1240px) {
+        .flex {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
 
       @media (min-width: 1025px) {
         padding: 48px;

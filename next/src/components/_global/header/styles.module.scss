@@ -15,6 +15,20 @@
     transform: unset;
   }
 
+  .hiddenLink {
+    opacity: 0;
+    position: fixed;
+    left: 0;
+    top: 12px;
+    padding: 24px;
+    background: var(--yellow-500, #f9bc41);
+    pointer-events: none;
+
+    &:focus-visible {
+      opacity: 1;
+    }
+  }
+
   .annotation {
     transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     margin-bottom: 20px;
@@ -32,10 +46,10 @@
     .part {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 32px;
+      gap: 12px 16px;
 
       @media (max-width: 1240px) {
-        &.desktop{
+        &.desktop {
           display: none;
         }
       }
@@ -100,7 +114,7 @@
         display: flex;
         gap: 48px;
 
-        .mobile{
+        .mobile {
           display: none;
         }
 
@@ -132,7 +146,7 @@
             transition: opacity 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
           }
 
-          svg{
+          svg {
             transform: rotate(180deg);
           }
 
@@ -163,9 +177,7 @@
         max-width: 320px;
         border-radius: 0px 0px 32px 0px;
         background: var(--light-blue-100, #f8fcff);
-        box-shadow:
-          0px 2px 8px 0px rgba(92, 145, 178, 0.25),
-          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         padding: 24px 15px 48px 15px;
 
         transform: translateX(-100%);
@@ -175,14 +187,14 @@
           transform: translateX(0%);
         }
 
-        .mobile{
+        .mobile {
           display: block !important;
 
-          svg{
+          svg {
             display: block;
           }
 
-          a{
+          a {
             font-size: 16px !important;
           }
         }
@@ -263,14 +275,14 @@
   max-width: 267px;
   width: 100%;
 
-  &.mobileSearch{
+  &.mobileSearch {
     display: none;
   }
 
   @media (max-width: 480px) {
     display: none;
 
-    &.mobileSearch{
+    &.mobileSearch {
       display: block;
       margin-bottom: 32px;
     }

@@ -32,7 +32,7 @@ export default function Flex({ title, list }: Props) {
               {el.link_to_specialist && (
                 <Button
                   arrow={true}
-                  url={`/specialist/${el.title.slug.current}`}
+                  url={`/specjalisci/${el.title.slug.current}`}
                   title={'Poznaj mnie'}
                   type='primary'
                 />

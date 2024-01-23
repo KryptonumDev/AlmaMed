@@ -15,8 +15,9 @@
 }
 
 *:focus-visible {
-  outline: 1px dashed var(--navy-600, currentColor);
+  outline: 3px dashed var(--navy-600, currentColor);
   outline-offset: 4px;
+  border-radius: 4px;
 }
 
 p + p {
@@ -25,7 +26,7 @@ p + p {
 
 strong {
   font-weight: unset;
-  color: var(--light-blue-500, #0376be);
+  color: var(--light-blue-500, #0376be) !important;
 }
 
 p,
@@ -46,7 +47,7 @@ button {
 p{
   strong {
     font-weight: 700;
-    color: #242424;
+    color: #242424 !important;
   }
 }
 

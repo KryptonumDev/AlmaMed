@@ -1,4 +1,6 @@
 .wrapper {
+  position: relative;
+  z-index: 3;
   .title {
     max-width: 580px;
     text-align: center;

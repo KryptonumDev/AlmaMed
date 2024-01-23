@@ -20,6 +20,8 @@
       display: block;
       user-select: none;
       -webkit-user-drag: none;
+      border-radius: 32px;
+      z-index: 2;
     }
 
     svg{

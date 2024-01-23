@@ -3,6 +3,7 @@ import { Props } from './localization.constants';
 import { Letter, MapDot, Phone } from './localization.icons';
 import ButtonBig from '../../ui/button-big';
 import Markdown from '../../ui/markdown';
+import { CopyToClipboard } from './localizations-copy';
 
 export default function Localization({ title, cards, ctaLink, ctaTitle }: Props) {
   return (
@@ -28,21 +29,18 @@ export default function Localization({ title, cards, ctaLink, ctaTitle }: Props)
                       className='h4'
                       children={card.name}
                     />
-                    <p>
-                      <MapDot />
-                      <span>{card.address}</span>
-                      <button>Skopiuj</button>
-                    </p>
-                    <p>
-                      <Phone />
-                      <span>{card.phone}</span>
-                      <button>Skopiuj</button>
-                    </p>
-                    <p>
-                      <Letter />
-                      <span>{card.email}</span>
-                      <button>Skopiuj</button>
-                    </p>
+                    <CopyToClipboard
+                      icon={<MapDot />}
+                      text={card.address}
+                    />
+                    <CopyToClipboard
+                      icon={<Phone />}
+                      text={card.phone}
+                    />
+                    <CopyToClipboard
+                      icon={<Letter />}
+                      text={card.email}
+                    />
                   </div>
                   <iframe
                     src={card.map}

@@ -21,6 +21,7 @@ export default function Image({ data, ...props }: Props) {
           ? undefined
           : 'blur'
       }
+      quality={90}
       {...props}
     />
   );
