@@ -18,7 +18,7 @@ export default async function Index({ searchParams: { wyszukiwanie } }: { search
       name,
       slug
     },
-    "specialists": *[_type == 'doctors']{
+    "specialists": *[_type == 'doctors'] | order(order asc){
       name,
       slug
     },

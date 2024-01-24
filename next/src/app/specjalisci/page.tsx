@@ -83,7 +83,7 @@ export default async function Index() {
         averageRating,
         percentTakenCalls,
       }[0],
-      "specialists": *[_type == 'doctors']{
+      "specialists": *[_type == 'doctors'] | order(order asc){
         name,
         profession,
         slug,

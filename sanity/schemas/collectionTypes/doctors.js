@@ -4,6 +4,12 @@ export default {
   type: 'document',
   fields: [
     {
+      type: 'number',
+      name: 'order',
+      title: 'Index kolejności',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       type: 'markdown',
       name: 'name',
       title: 'Imię i nazwisko',

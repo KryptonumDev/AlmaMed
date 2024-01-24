@@ -17,7 +17,7 @@ export default async function Index() {
       name,
       slug
     },
-    "specialists": *[_type == 'doctors']{
+    "specialists": *[_type == 'doctors'] | order(order asc){
       name,
       slug
     },
