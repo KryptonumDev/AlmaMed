@@ -3,6 +3,7 @@ export interface Props {
   color: 'blue' | 'green' | 'yellow';
   className?: string;
   havePage: boolean;
+  altLink: string;
   slug?: {
     current?: string;
   };

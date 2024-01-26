@@ -3,7 +3,7 @@ import { Props } from './tile.constants';
 import Image from '../image';
 import Link from 'next/link';
 
-export default function Tile({ color, title, icon, className, havePage, slug }: Props) {
+export default function Tile({ color, title, icon, className, havePage, slug, altLink }: Props) {
   return (
     <div className={`${styles.wrapper} ${styles[color]} ${className} ${havePage ? styles.linked : ''}`}>
       {havePage && (
@@ -13,9 +13,16 @@ export default function Tile({ color, title, icon, className, havePage, slug }: 
           className={styles.link}
         />
       )}
+      {altLink && (
+        <Link
+          aria-label={title}
+          href={altLink}
+          className={styles.link}
+        />
+      )}
       <Image data={icon} />
       <p>{title}</p>
-      {havePage && (
+      {(havePage || altLink) && (
         <svg
           width='40'
           height='40'

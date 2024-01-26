@@ -59,6 +59,7 @@ export default async function Index() {
           name,
           slug,
           have_page,
+          link_to_description,
           icon{
             asset->{
               url,

@@ -22,7 +22,7 @@ export default {
       },
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -68,7 +68,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -80,7 +80,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -111,7 +111,7 @@ export default {
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
               if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
+                return 'To pole jest wymagane'
               return true
             }),
         },
@@ -125,7 +125,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -138,7 +138,7 @@ export default {
       fieldset: 'one_image',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -150,7 +150,7 @@ export default {
       fieldset: 'one_image',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -162,7 +162,7 @@ export default {
       fieldset: 'one_image',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -175,7 +175,7 @@ export default {
       fieldset: 'two_image',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -187,7 +187,7 @@ export default {
       fieldset: 'two_image',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -199,7 +199,7 @@ export default {
       fieldset: 'two_image',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -211,7 +211,7 @@ export default {
       fieldset: 'two_image',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -224,7 +224,7 @@ export default {
       fieldset: 'localizations',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -250,7 +250,7 @@ export default {
       fieldset: 'localizations',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -262,7 +262,7 @@ export default {
       fieldset: 'localizations',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -275,7 +275,7 @@ export default {
       fieldset: 'mentoring',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -294,7 +294,7 @@ export default {
       fieldset: 'mentoring',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -306,7 +306,7 @@ export default {
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
               if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
+                return 'To pole jest wymagane'
               return true
             }),
         },
@@ -327,7 +327,7 @@ export default {
       fieldset: 'prevention',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -339,7 +339,7 @@ export default {
       fieldset: 'prevention',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -351,7 +351,7 @@ export default {
       fieldset: 'prevention',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -363,7 +363,7 @@ export default {
       fieldset: 'prevention',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,

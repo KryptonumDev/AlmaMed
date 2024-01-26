@@ -42,7 +42,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         theme,  
       },
       hero_background {
-        asset->{
+        asset->{  
           url,
           altText,
           metadata{

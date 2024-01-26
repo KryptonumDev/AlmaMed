@@ -19,6 +19,7 @@ export default function Tiles({ title, text, tiles, altColors = false }: Props) 
       <div className={styles.grid}>
         {tiles.map((tile, i) => (
           <Tile
+            altLink={tile.link_to_description}
             key={tile.name + i}
             className={styles.item}
             title={tile.name}

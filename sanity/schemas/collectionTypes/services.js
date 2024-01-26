@@ -22,7 +22,7 @@ export default {
       },
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -39,6 +39,25 @@ export default {
       title: 'Czy ma podstronę?',
       initialValue: false,
     },
+    {
+      name: 'link_to_description',
+      type: 'string',
+      title: 'Link do opisu',
+      description: 'Tylko jeśli usługa nie ma podstrony',
+      validation: (rule) =>
+        rule.custom((value, {document}) => {
+          if (
+            !shouldShow(document) &&
+            value &&
+            !value.startsWith('/') &&
+            !value.startsWith('https://') &&
+            !value.startsWith('#')
+          )
+            return 'Niepoprawny URL'
+          return true
+        }),
+      hidden: ({document}) => document.have_page,
+    },
 
     //  Dane podstrony
 
@@ -50,7 +69,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -62,7 +81,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -92,8 +111,7 @@ export default {
           title: 'CTA',
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
-              if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
+              if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
               return true
             }),
         },
@@ -107,7 +125,7 @@ export default {
       fieldset: 'hero',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -120,7 +138,7 @@ export default {
       fieldset: 'treatments',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -132,7 +150,7 @@ export default {
       fieldset: 'treatments',
       validation: (rule) =>
         rule.custom((currentValue, {document}) => {
-          if (shouldShow(document) && currentValue === undefined) return 'This field is required'
+          if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
           return true
         }),
       hidden: ({document}) => !document.have_page,
@@ -191,8 +209,7 @@ export default {
           title: 'Element listy',
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
-              if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
+              if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
               return true
             }),
           hidden: ({document}) => !document.have_page,
@@ -219,8 +236,7 @@ export default {
           title: 'Zabieg',
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
-              if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
+              if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
               return true
             }),
         },
@@ -297,8 +313,7 @@ export default {
           title: 'Cena',
           validation: (rule) =>
             rule.custom((currentValue, {document}) => {
-              if (shouldShow(document) && currentValue === undefined)
-                return 'This field is required'
+              if (shouldShow(document) && currentValue === undefined) return 'To pole jest wymagane'
               return true
             }),
         },
@@ -310,24 +325,28 @@ export default {
       type: 'markdown',
       title: 'Nagłówek',
       fieldset: 'freebie',
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'freebie_paragraph',
       type: 'markdown',
       title: 'Paragraf pod nagłówkiem',
       fieldset: 'freebie',
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'freebie_image',
       type: 'image',
       title: 'Obrazek',
       fieldset: 'freebie',
+      hidden: ({document}) => !document.have_page,
     },
     {
       name: 'freebie_mailerlite_id',
       type: 'string',
       title: 'Mailerlite ID grupy',
       fieldset: 'freebie',
+      hidden: ({document}) => !document.have_page,
     },
     //seo
     {

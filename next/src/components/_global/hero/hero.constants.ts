@@ -37,7 +37,7 @@ export interface Props {
       };
     };
   };
-  imageAlternative: {
+  imageAlternative?: {
     asset: {
       url: string;
       altText: string;
@@ -68,7 +68,7 @@ export interface ImageProps {
       };
     };
   };
-  imageTwo: {
+  imageTwo?: {
     asset: {
       url: string;
       altText: string;

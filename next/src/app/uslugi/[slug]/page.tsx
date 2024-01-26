@@ -10,6 +10,7 @@ import Mentoring from '@/components/_services/mentoring';
 import Advantages from '@/components/_global/advantages';
 import Tests from '@/components/_services/tests';
 import Seo from '@/components/ui/seo';
+import Price from '@/components/_global/price';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -133,6 +134,9 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         benefits[],
         list[],
       },
+      // price
+      price_heading,
+      price[],
       // specialists
       specialists_heading,
       specialists_list[]{
@@ -253,6 +257,12 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         title={page.specialists_heading}
         list={page.specialists_list}
       />
+      {page.price?.length && (
+        <Price
+          title={page.price_heading}
+          price={page.price}
+        />
+      )}
       <Video
         title={global.registration_heading}
         text={global.registration_paragraph}

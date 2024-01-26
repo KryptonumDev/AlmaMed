@@ -1,10 +1,8 @@
-'use client';
-
 import { ImageProps } from './hero.constants';
 
 export default function Images({ imageOne, imageTwo }: ImageProps) {
   // chose randomly one of the images
-  const image = Math.random() > 0.5 ? imageOne : imageTwo;
+  const image = Math.random() > 0.5 ? imageOne : imageTwo ?? imageOne;
 
   return (
     <image
