@@ -39,6 +39,20 @@ export default async function Index() {
         text,
         theme,  
       },
+      hero_background_alternative{
+        asset->{
+          url,
+          altText,
+          metadata{
+            lqip,
+            dimensions{
+              aspectRatio,
+              width,
+              height
+            }
+          }
+        }
+      },
       hero_background {
         asset->{
           url,
@@ -179,6 +193,7 @@ export default async function Index() {
         list={page.hero_icons_list}
         cta={page.hero_Cta}
         image={page.hero_background}
+        imageAlternative={page.hero_background_alternative}
       />
       <Tiles
         title={page.tiles_heading}

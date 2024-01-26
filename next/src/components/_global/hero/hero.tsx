@@ -3,8 +3,10 @@ import { Props } from './hero.constants';
 import Button from '../../ui/button';
 import Image from '../../ui/image';
 import Markdown from '../../ui/markdown';
+import Images from './hero-image';
 
-export default function Hero({ title, text, list, cta, image }: Props) {
+export default function Hero({ title, text, list, cta, image, imageAlternative }: Props) {
+  
   return (
     <section className={styles.wrapper}>
       <div className={`${styles.wrap} container`}>
@@ -56,14 +58,8 @@ export default function Hero({ title, text, list, cta, image }: Props) {
           <clipPath id='cp'>
             <use href='#Vector' />
           </clipPath>
-          <image
-            clipPath='url(#cp)'
-            href={image.asset.url}
-            width={image.asset.metadata.dimensions.width + 'px'}
-            height={image.asset.metadata.dimensions.height}
-            x='55%'
-            y='55%'
-          />
+          
+          <Images imageOne={image} imageTwo={imageAlternative}/>
         </svg>
       </div>
     </section>

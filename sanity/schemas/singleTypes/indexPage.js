@@ -51,7 +51,15 @@ export default {
     {
       name: 'hero_background',
       type: 'image',
-      title: 'Obrazek w tle',
+      title: 'Obrazek w tle 1',
+      fieldset: 'hero',
+      group: 'hero',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'hero_background_alternative',
+      type: 'image',
+      title: 'Obrazek w tle 2',
       fieldset: 'hero',
       group: 'hero',
       validation: (Rule) => Rule.required(),
