@@ -22,6 +22,7 @@ export default function Tiles({ title, text, tiles }: Props) {
             key={tile.name + i}
             className={styles.item}
             title={tile.name}
+            altLink={tile.link_to_description}
             color={(() => {
               switch (i) {
                 case 0:

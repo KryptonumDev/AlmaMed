@@ -29,7 +29,7 @@ export default function Search({ className }: { className?: string }) {
         onChange={(e) => setSearch(e.target.value)}
         placeholder='Szukaj'
       />
-      <Link href={search.length > 0 ? `/wyszukiwarka?wyszukiwanie=${search}` : `/wyszukiwarka`}>
+      <Link aria-label='Wyszukiwarka' href={search.length > 0 ? `/wyszukiwarka?wyszukiwanie=${search}` : `/wyszukiwarka`}>
         <Lens />
       </Link>
     </label>

@@ -5,6 +5,7 @@ export interface Props {
     name: string;
     color: 'yellow' | 'blue' | 'green';
     have_page: boolean;
+    link_to_description?: string;
     slug?: {
       current?: string;
     };

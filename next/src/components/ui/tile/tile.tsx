@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Tile({ color, title, icon, className, havePage, slug, altLink }: Props) {
   return (
-    <div className={`${styles.wrapper} ${styles[color]} ${className} ${havePage ? styles.linked : ''}`}>
+    <div className={`${styles.wrapper} ${styles[color]} ${className} ${(havePage|| altLink) ? styles.linked : ''}`}>
       {havePage && (
         <Link
           aria-label={title}

@@ -6,7 +6,7 @@ import Image from '@/components/ui/image';
 
 export default function TestLocalizations({ title, text, cards }: Props) {
   return (
-    <section className={`${styles.wrapper} container`}>
+    <section id='gdzie-wykonac-badania' className={`${styles.wrapper} container`}>
       <div>
         <Markdown.h2
           children={title}

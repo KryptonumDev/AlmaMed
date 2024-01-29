@@ -3,10 +3,15 @@ import { Props } from './tests.constants';
 import Markdown from '../../ui/markdown';
 import Image from '../../ui/image';
 import { Wallet } from './tests.icons';
+import { removeMarkdownTags } from '../../../utils/remove-markdown';
+import { slugify } from '../../../utils/slugify';
 
 export default function Tests({ title, text, image, benefits, subTitle, price, list }: Props) {
   return (
-    <section className={`${styles.part} container`}>
+    <section
+      id={slugify(removeMarkdownTags(title))}
+      className={`${styles.part} container`}
+    >
       <Markdown.h2
         children={title}
         className={`h3 ${styles.title}`}
