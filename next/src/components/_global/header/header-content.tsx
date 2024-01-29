@@ -78,6 +78,7 @@ export default function HeaderContent({
       <nav className={styles.navigation}>
         <Link
           className={styles.logo}
+          aria-label='Strona główna'
           href='/'
         >
           <Logo />

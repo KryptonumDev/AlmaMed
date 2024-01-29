@@ -58,7 +58,7 @@ export default function Footer() {
       <Background />
       <div className={`container ${styles.container}`}>
         <div className={styles.information}>
-          <Link href='/'>
+          <Link aria-label='Strona główna' href='/'>
             <Logo className={styles.logo} />
           </Link>
           <div className={styles.content}>

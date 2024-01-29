@@ -30,6 +30,11 @@
     .information {
       grid-area: information;
 
+      >a{
+        display: block;
+        margin-bottom: 24px;
+      }
+
       @media (max-width: 864px) {
         display: flex;
         flex-direction: row-reverse;
@@ -43,7 +48,6 @@
       .logo {
         width: 187px;
         height: fit-content;
-        margin-bottom: 24px;
       }
 
       .content {
