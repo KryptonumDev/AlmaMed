@@ -147,7 +147,9 @@
           }
 
           svg {
-            transform: rotate(180deg);
+            @media (min-width: 1241px) {
+              transform: rotate(180deg);
+            }
           }
 
           &:hover,

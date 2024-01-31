@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowUp, Calendar, Letter, Phone } from './header.icons';
 import { Logo } from '../../ui/logo';
 import Search from './header-search';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const links = [
   {
@@ -106,6 +106,7 @@ export default function HeaderContent({
                 <Link
                   className='anim-link'
                   href={link.href}
+                  onClick={() => {setNavOpen(false)}}
                 >
                   {link.label}
                   {link.sub && <ArrowUp />}
@@ -115,6 +116,9 @@ export default function HeaderContent({
                     {link.sub.map((sub) => (
                       <li key={sub.label}>
                         <Link
+                          onClick={() => {
+                            setNavOpen(false);
+                          }}
                           className='anim-link'
                           href={sub.href}
                         >
@@ -127,19 +131,19 @@ export default function HeaderContent({
               </li>
             ))}
             <li className={styles.mobile}>
-              <Link href='/kontakt'>
+              <Link onClick={() => {setNavOpen(false)}} href='/kontakt'>
                 <Calendar />
                 Umów się do lekarza
               </Link>
             </li>
             <li className={styles.mobile}>
-              <a href='tel:123456789'>
+              <a onClick={() => {setNavOpen(false)}} href='tel:123456789'>
                 <Phone />
                 123 456 789
               </a>
             </li>
             <li className={styles.mobile}>
-              <a href='mailto:kontakt@almamed.pl'>
+              <a onClick={() => {setNavOpen(false)}} href='mailto:kontakt@almamed.pl'>
                 <Letter />
                 kontakt@almamed.pl
               </a>
