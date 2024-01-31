@@ -117,7 +117,6 @@
 
         .flex {
           display: grid;
-          grid-template-columns: auto 1fr;
           align-items: center;
           gap: 16px;
           
@@ -128,7 +127,7 @@
         }
 
         strong {
-          color: var(--neutral-900, #202123);
+          color: var(--neutral-900, #202123) !important;
           font-size: clamp(16px, calc(24vw / 7.68), 24px);
           font-weight: 700;
           line-height: 125%;
