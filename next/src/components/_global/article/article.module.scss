@@ -1,4 +1,4 @@
-.blobWrap{
+.blobWrap {
   position: absolute;
   overflow: hidden;
   height: 1000px;
@@ -13,7 +13,6 @@
     width: 1826px;
     height: 1841px;
   }
-  
 }
 
 .wrapper {
@@ -27,6 +26,12 @@
 
     @media (max-width: 940px) {
       grid-template-columns: 1fr;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
     }
 
     .image {
@@ -135,9 +140,9 @@
       color: var(--light-blue-600, #025e98);
       text-decoration: underline;
       font-weight: 500;
-      transition: color .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+      transition: color 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
-      &:hover{
+      &:hover {
         color: var(--light-blue-800);
       }
 
