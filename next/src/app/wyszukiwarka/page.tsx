@@ -4,7 +4,7 @@ import Localization from '@/components/_global/localization';
 import Seo from '@/components/ui/seo';
 
 export default async function Index({ searchParams: { wyszukiwanie } }: { searchParams: { wyszukiwanie: string } }) {
-  const { categories, services, posts, specialists, localizations } = await sanityFetch<any>({
+  const { categories, services, posts, specialists, localizations, subServices } = await sanityFetch<any>({
     query: `{
     "categories": *[_type == 'blogCategory']{
       name,
@@ -26,6 +26,10 @@ export default async function Index({ searchParams: { wyszukiwanie } }: { search
       name,
       slug
     }
+    "subServices": *[_type == 'services' && have_page == false]{
+      name,
+      link_to_description,
+    }
   }`,
   });
 
@@ -38,6 +42,7 @@ export default async function Index({ searchParams: { wyszukiwanie } }: { search
         posts={posts}
         specialists={specialists}
         localizations={localizations}
+        subServices={subServices}
       />
       <Localization
         ctaTitle='### Masz pytanie lub **potrzebujesz pomocy**? Skontaktuj się z nami – nasi specjaliści pomogą Ci najszybciej, jak to możliwe.'

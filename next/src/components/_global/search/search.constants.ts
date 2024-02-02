@@ -29,5 +29,9 @@ export interface Props {
       current: string;
     };
   }>;
+  subServices: Array<{
+    name: string;
+    link_to_description: string;
+  }>;
   search: string; 
 }

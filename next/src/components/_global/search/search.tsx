@@ -5,13 +5,22 @@ import Button from '@/components/ui/button';
 import { removeMarkdownTags } from '../../../utils/remove-markdown';
 import { useMemo } from 'react';
 
-export default function SearchComponent({ categories, specialists, posts, services, localizations, search }: Props) {
+export default function SearchComponent({
+  categories,
+  specialists,
+  posts,
+  services,
+  localizations,
+  search,
+  subServices,
+}: Props) {
   const searchArray = [
     ...categories.map((item) => ({ ...item, type: 'Kategoria' })),
     ...specialists.map((item) => ({ ...item, type: 'Specjalista' })),
     ...posts.map((item) => ({ ...item, type: 'Artykuł' })),
     ...services.map((item) => ({ ...item, type: 'Usługa' })),
     ...localizations.map((item) => ({ ...item, type: 'Lokalizacja' })),
+    ...subServices.map((item) => ({ name: item.name, slug: { current: item.link_to_description }, type: 'Usługa' })),
     {
       name: 'Strona główna',
       slug: {
@@ -90,7 +99,7 @@ export default function SearchComponent({ categories, specialists, posts, servic
   };
 
   const filteredResults = useMemo(() => {
-    if(!search) return [];
+    if (!search) return [];
 
     return searchArray.filter(
       (item) =>
