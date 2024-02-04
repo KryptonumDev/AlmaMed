@@ -26,7 +26,7 @@ const links = [
       },
       {
         name: 'Blog',
-        link: '/dla-pacjenta',
+        link: '/blog',
         bold: true,
       },
       {
