@@ -6,31 +6,31 @@ import Seo from '@/components/ui/seo';
 export default async function Index({ searchParams: { wyszukiwanie } }: { searchParams: { wyszukiwanie: string } }) {
   const { categories, services, posts, specialists, localizations, subServices } = await sanityFetch<any>({
     query: `{
-    "categories": *[_type == 'blogCategory']{
-      name,
-      slug
-    },
-    "services": *[_type == 'services' && have_page == true]{
-      name,
-      slug
-    },
-    "posts": *[_type == 'blogEntry']{
-      name,
-      slug
-    },
-    "specialists": *[_type == 'doctors'] | order(order asc){
-      name,
-      slug
-    },
-    "localizations": *[_type == "localizations" && have_page == true]{
-      name,
-      slug
-    }
-    "subServices": *[_type == 'services' && have_page == false]{
-      name,
-      link_to_description,
-    }
-  }`,
+      "categories": *[_type == 'blogCategory']{
+        name,
+        slug
+      },
+      "services": *[_type == 'services' && have_page == true]{
+        name,
+        slug
+      },
+      "posts": *[_type == 'blogEntry']{
+        name,
+        slug
+      },
+      "specialists": *[_type == 'doctors'] | order(order asc){
+        name,
+        slug
+      },
+      "localizations": *[_type == "localizations" && have_page == true]{
+        name,
+        slug
+      },
+      "subServices": *[_type == 'services' && have_page == false]{
+        name,
+        link_to_description,
+      }
+    }`,
   });
 
   return (
@@ -60,14 +60,14 @@ export async function generateMetadata() {
     page: { seo },
   } = await sanityFetch<any>({
     query: `
-    {
-      "page": *[_id == "Search"][0]{
-        seo {
-          title,
-          description,
+      {
+        "page": *[_id == "Search"][0]{
+          seo {
+            title,
+            description,
+          },
         },
-      },
-    }
+      }
     `,
   });
   return Seo({
