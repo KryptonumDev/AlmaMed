@@ -38,7 +38,6 @@ export async function POST(request: Request) {
       html: body,
       text: body,
     });
-    console.log(answer);
     return NextResponse.json({ success: true }, { headers });
   } catch (error) {
     console.error(error);

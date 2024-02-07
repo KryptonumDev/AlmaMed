@@ -4,7 +4,6 @@ import Markdown from '../../ui/markdown';
 import Tile from '../../ui/tile';
 
 export default function Tiles({ title, text, tiles, altColors = false }: Props) {
-  console.log(tiles);
   return (
     <section className={`${styles.wrapper} container`}>
       <div>
