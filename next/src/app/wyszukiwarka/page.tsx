@@ -60,14 +60,14 @@ export async function generateMetadata() {
     page: { seo },
   } = await sanityFetch<any>({
     query: `
-    {
-      "page": *[_id == "Search"][0]{
-        seo {
-          title,
-          description,
+      {
+        "page": *[_id == "Search"][0]{
+          seo {
+            title,
+            description,
+          },
         },
-      },
-    }
+      }
     `,
   });
   return Seo({
