@@ -40,6 +40,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'shortName',
+      type: 'string',
+      title: 'Krótka nazwa',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'book',
       type: 'string',
       title: 'Link do umówienia wizyty',

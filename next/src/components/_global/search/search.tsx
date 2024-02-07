@@ -15,18 +15,19 @@ export default function SearchComponent({
   subServices,
 }: Props) {
   const searchArray = [
-    ...categories.map((item) => ({ ...item, type: 'Kategoria' })),
-    ...specialists.map((item) => ({ ...item, type: 'Specjalista' })),
-    ...posts.map((item) => ({ ...item, type: 'Artykuł' })),
-    ...services.map((item) => ({ ...item, type: 'Usługa' })),
-    ...localizations.map((item) => ({ ...item, type: 'Lokalizacja' })),
-    ...subServices.map((item) => ({ name: item.name, slug: { current: item.link_to_description }, type: 'Usługa' })),
+    ...categories.map((item) => ({ ...item, type: 'Kategoria', sub: false })),
+    ...specialists.map((item) => ({ ...item, type: 'Specjalista', sub: false })),
+    ...posts.map((item) => ({ ...item, type: 'Artykuł', sub: false })),
+    ...services.map((item) => ({ ...item, type: 'Usługa', sub: false })),
+    ...localizations.map((item) => ({ ...item, type: 'Lokalizacja', sub: false })),
+    ...subServices.map((item) => ({ name: item.name, slug: { current: item.link_to_description }, type: 'Usługa', sub: true })),
     {
       name: 'Strona główna',
       slug: {
         current: '/',
       },
       type: 'Strona',
+      sub: false
     },
     {
       name: 'Specjaliści',
@@ -34,6 +35,7 @@ export default function SearchComponent({
         current: '/specjalisci',
       },
       type: 'Strona',
+      sub: false
     },
     {
       name: 'Usługi',
@@ -41,6 +43,7 @@ export default function SearchComponent({
         current: '/uslugi',
       },
       type: 'Strona',
+      sub: false
     },
     {
       name: 'Blog',
@@ -48,6 +51,7 @@ export default function SearchComponent({
         current: '/blog',
       },
       type: 'Strona',
+      sub: false
     },
     {
       name: 'Kontakt',
@@ -55,6 +59,7 @@ export default function SearchComponent({
         current: '/kontakt',
       },
       type: 'Strona',
+      sub: false
     },
     {
       name: 'Dla pacjenta',
@@ -62,6 +67,7 @@ export default function SearchComponent({
         current: '/dla-pacjenta',
       },
       type: 'Strona',
+      sub: false
     },
     {
       name: 'Polityka prywatności',
@@ -69,10 +75,11 @@ export default function SearchComponent({
         current: '/polityka-prywatnosci',
       },
       type: 'Strona',
+      sub: false
     },
   ];
 
-  const urlCreator = (url: string, type: string) => {
+  const urlCreator = (url: string, type: string, sub: boolean) => {
     let newUrl = url;
 
     switch (type) {
@@ -86,7 +93,10 @@ export default function SearchComponent({
         newUrl = `/blog/${url}`;
         break;
       case 'Usługa':
-        newUrl = `/uslugi/${url}`;
+        if(sub)
+          newUrl = `${url}`;
+        else
+          newUrl = `/uslugi/${url}`;
         break;
       case 'Lokalizacja':
         newUrl = `/${url}`;
@@ -139,7 +149,7 @@ export default function SearchComponent({
                 <span>{item.type}</span>
               </div>
               <Button
-                url={urlCreator(item.slug.current, item.type)}
+                url={urlCreator(item.slug.current, item.type, item.sub)}
                 type='secondary'
                 arrow={true}
                 title='Przejdź do strony'

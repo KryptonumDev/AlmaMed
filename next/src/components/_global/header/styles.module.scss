@@ -46,9 +46,12 @@
     .part {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 12px 16px;
 
       @media (max-width: 1240px) {
+        justify-content: space-evenly;
+        width: 100%;
         &.desktop {
           display: none;
         }
@@ -61,13 +64,31 @@
       }
 
       a,
-      p {
+      p,
+      button {
         color: var(--neutral-900, #202123);
         font-size: 16px;
         line-height: 160%;
         letter-spacing: 0.24px;
         margin-top: 0;
         letter-spacing: 0.3px;
+      }
+    }
+  }
+
+  .addresses {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &.active {
+        font-weight: 700;
+        cursor: default;
       }
     }
   }
@@ -259,6 +280,7 @@
               opacity: 1;
               padding: 0;
               gap: 24px;
+              background-color: transparent;
 
               a {
                 font-weight: 400;

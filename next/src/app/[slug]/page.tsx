@@ -194,7 +194,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       newsletter_right_paragraph,
       newsletter_mailerlite_id,
     },
-    "posts": *[_type == 'blogEntry'][0...1]{
+    "posts": *[_type == 'blogEntry'][0...2]{
       _updatedAt,
       name,
       slug{

@@ -11,6 +11,7 @@ import Advantages from '@/components/_global/advantages';
 import Tests from '@/components/_services/tests';
 import Seo from '@/components/ui/seo';
 import Price from '@/components/_global/price';
+import Faq from '@/components/_global/faq';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -137,6 +138,17 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
       // price
       price_heading,
       price[],
+      // faq
+      faq_heading,
+      faq_paragraph,
+      faq_Cta{
+        href,
+        text,
+      },
+      faq_list[]{
+        answer,
+        question
+      },
       // specialists
       specialists_heading,
       specialists_list[]{
@@ -174,7 +186,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         }
       }
     },
-    "posts": *[_type == 'blogEntry'][0...1]{
+    "posts": *[_type == 'blogEntry'][0...2]{
       _updatedAt,
       brief,
       name,
@@ -269,6 +281,14 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         video={global.registration_video}
         steps={global.registration_steps}
       />
+      {page.faq_heading && page.faq_list && (
+        <Faq
+          title={page.faq_heading}
+          text={page.faq_paragraph}
+          cta={page.faq_Cta}
+          list={page.faq_list}
+        />
+      )}
       <BlogSlider
         title={global.blog_heading}
         text={global.blog_paragraph}

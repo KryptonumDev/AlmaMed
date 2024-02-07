@@ -319,6 +319,42 @@ export default {
         },
       ],
     },
+    // faq
+    {
+      name: 'faq_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'faq',
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'faq_list',
+      type: 'array',
+      title: 'Lista pytań',
+      fieldset: 'faq',
+      hidden: ({document}) => !document.have_page,
+      of: [
+        {
+          type: 'faq_list_element',
+          title: 'FAQ',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    },
+    {
+      name: 'faq_paragraph',
+      type: 'markdown',
+      title: 'Paragraf po prewej od FAQ',
+      fieldset: 'faq',
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'faq_Cta',
+      type: 'bigCta',
+      title: 'Przycisk pod paragrafem',
+      fieldset: 'faq',
+      hidden: ({document}) => !document.have_page,
+    },
     // freebie
     {
       name: 'freebie_heading',
@@ -402,6 +438,11 @@ export default {
     {
       name: 'specialists',
       title: 'Specjaliści',
+      options: {collapsible: true},
+    },
+    {
+      name: 'faq',
+      title: 'FAQ',
       options: {collapsible: true},
     },
     {

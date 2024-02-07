@@ -25,7 +25,7 @@ export default async function Index({ searchParams: { wyszukiwanie } }: { search
     "localizations": *[_type == "localizations" && have_page == true]{
       name,
       slug
-    }
+    },
     "subServices": *[_type == 'services' && have_page == false]{
       name,
       link_to_description,

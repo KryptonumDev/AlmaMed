@@ -9,7 +9,7 @@ export default function Localization({ title, cards, ctaLink, ctaTitle }: Props)
   return (
     <section className={`${styles.wrap}`}>
       <div className={styles.background}>
-        <Blob />
+        {cards && <Blob />}
         <div className={`${styles.wrapper} container`}>
           {title && (
             <Markdown.h2

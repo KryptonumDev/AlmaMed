@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowUp, Calendar, Letter, Phone } from './header.icons';
 import { Logo } from '../../ui/logo';
 import Search from './header-search';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const links = [
   {
@@ -24,19 +24,18 @@ const links = [
 ];
 
 export default function HeaderContent({
-  book,
-  phone,
-  email,
-  adress,
-  time,
+  addresses,
 }: {
-  book: string;
-  phone: string;
-  email: string;
-  adress: string;
-  time: string;
+  addresses: Array<{
+    book: string;
+    phone: string;
+    email: string;
+    time: string;
+    shortName: string;
+  }>;
 }) {
   const [navOpen, setNavOpen] = useState(false);
+  const [activeAddress, setActiveAddress] = useState(0);
 
   return (
     <header className={`${styles.wrapper}`}>
@@ -48,30 +47,45 @@ export default function HeaderContent({
       </a>
       <div className={styles.annotation}>
         <div className={styles.part}>
-          <p>{adress}</p>
-          <p>{time}</p>
+          <p className={styles.addresses}>
+            {addresses.map((el, i) => (
+              <>
+                {i > 0 && <span>|</span>}
+                <button
+                  className={i === activeAddress ? styles.active : 'underline'}
+                  key={el.shortName}
+                  onClick={() => {
+                    setActiveAddress(i);
+                  }}
+                >
+                  {el.shortName}
+                </button>
+              </>
+            ))}
+          </p>
+          <p>{addresses[activeAddress].time}</p>
         </div>
         <div className={`${styles.part} ${styles.desktop}`}>
           <a
             className='anim-link'
-            href={book}
+            href={addresses[activeAddress].book}
           >
             <Calendar />
             Umów się do lekarza
           </a>
           <a
             className='anim-link'
-            href={`tel:${phone}`}
+            href={`tel:${addresses[activeAddress].phone}`}
           >
             <Phone />
-            {phone}
+            {addresses[activeAddress].phone}
           </a>
           <a
             className='anim-link'
-            href={`mailto:${email}`}
+            href={`mailto:${addresses[activeAddress].email}`}
           >
             <Letter />
-            {email}
+            {addresses[activeAddress].email}
           </a>
         </div>
       </div>
@@ -106,7 +120,9 @@ export default function HeaderContent({
                 <Link
                   className='anim-link'
                   href={link.href}
-                  onClick={() => {setNavOpen(false)}}
+                  onClick={() => {
+                    setNavOpen(false);
+                  }}
                 >
                   {link.label}
                   {link.sub && <ArrowUp />}
@@ -130,22 +146,53 @@ export default function HeaderContent({
                 )}
               </li>
             ))}
+            <li className={`${styles.addresses} ${styles.mobile}`}>
+              {addresses.map((el, i) => (
+                <>
+                  {i > 0 && <span>|</span>}
+                  <button
+                    className={i === activeAddress ? styles.active : 'underline'}
+                    key={el.shortName}
+                    onClick={() => {
+                      setActiveAddress(i);
+                    }}
+                  >
+                    {el.shortName}
+                  </button>
+                </>
+              ))}
+            </li>
             <li className={styles.mobile}>
-              <Link onClick={() => {setNavOpen(false)}} href='/kontakt'>
+              <Link
+                onClick={() => {
+                  setNavOpen(false);
+                }}
+                href={addresses[activeAddress].book}
+              >
                 <Calendar />
                 Umów się do lekarza
               </Link>
             </li>
             <li className={styles.mobile}>
-              <a onClick={() => {setNavOpen(false)}} href='tel:123456789'>
+              <a
+                onClick={() => {
+                  setNavOpen(false);
+                }}
+                href={`tel:${addresses[activeAddress].phone}`}
+              >
                 <Phone />
-                123 456 789
+                {addresses[activeAddress].phone}
               </a>
             </li>
             <li className={styles.mobile}>
-              <a onClick={() => {setNavOpen(false)}} href='mailto:kontakt@almamed.pl'>
+              <a
+                onClick={() => {
+                  setNavOpen(false);
+                }}
+                href={`mailto:${addresses[activeAddress].email}`}
+              >
                 <Letter />
-                kontakt@almamed.pl
+                {addresses[activeAddress].email}
               </a>
             </li>
           </ul>
