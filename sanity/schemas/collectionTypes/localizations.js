@@ -40,15 +40,41 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'book',
       type: 'string',
+      title: 'Link do umówienia wizyty',
+      description: 'Relative or absolute link (https://)',
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (
+            value &&
+            !value.startsWith('/') &&
+            !value.startsWith('https://') &&
+            !value.startsWith('#')
+          ) {
+            return 'Incorrect URL.'
+          }
+          return true
+        }),
+    },
+    {
       name: 'phone',
-      title: 'Telefon',
+      type: 'string',
+      title: 'Numer telefonu',
+      description: 'Numer telefonu w formacie +48 123 456 789',
       validation: (Rule) => Rule.required(),
     },
     {
-      type: 'email',
       name: 'email',
-      title: 'Email',
+      type: 'string',
+      title: 'Adres email',
+      description: 'Adres email',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'time',
+      type: 'string',
+      title: 'Godziny otwarcia',
       validation: (Rule) => Rule.required(),
     },
     {
