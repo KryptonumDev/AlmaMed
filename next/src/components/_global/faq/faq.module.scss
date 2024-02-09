@@ -116,11 +116,11 @@
 
       p {
         color: var(--light-blue-600, #025e98);
-        transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
       }
 
-      &:hover{
-        p{
+      &:hover {
+        p {
         }
       }
     }
@@ -130,6 +130,17 @@
       ul,
       ol {
         margin: 20px 0;
+      }
+
+      ul {
+        list-style: initial;
+        margin: 32px 0;
+        li {
+          display: list-item !important;
+          list-style: initial;
+          margin-left: 32px;
+          padding-left: 16px;
+        }
       }
     }
   }
