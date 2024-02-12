@@ -99,7 +99,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         image={specialists.image}
         education={specialists.education}
       />
-      {specialists.flex?.map((item: any, index: number) => (
+      {specialists?.flex?.map((item: any, index: number) => (
         <Flex
           key={index}
           content={item.content}
@@ -107,13 +107,13 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           reverse={index % 2 === 0}
         />
       ))}
-      {specialists.comments?.length > 0 && (
+      {specialists?.comments?.length > 0 && (
         <Comments
           title='## **Poznaj opinie** moich pacjentów'
           comments={specialists.comments}
         />
       )}
-      {specialists.similar?.length > 0 && (
+      {specialists?.similar?.length > 0 && (
         <Slider
           title='## Podobni **specjaliści**'
           specialists={specialists.similar}

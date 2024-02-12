@@ -21,17 +21,19 @@ export default function Hero({ name, profession, image, education }: Props) {
             className={styles.image}
             data={image}
           />
-          <div className={styles.list}>
-            {education.map((item, index) => (
-              <div
-                className={styles.item}
-                key={index}
-              >
-                <Image data={item.icon} />
-                <Markdown.p children={item.text} />
-              </div>
-            ))}
-          </div>
+          {education?.length > 0 && (
+            <div className={styles.list}>
+              {education?.map((item, index) => (
+                <div
+                  className={styles.item}
+                  key={index}
+                >
+                  <Image data={item.icon} />
+                  <Markdown.p children={item.text} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
