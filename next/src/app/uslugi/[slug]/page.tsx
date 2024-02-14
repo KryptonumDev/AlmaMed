@@ -12,6 +12,7 @@ import Tests from '@/components/_services/tests';
 import Seo from '@/components/ui/seo';
 import Price from '@/components/_global/price';
 import Faq from '@/components/_global/faq';
+import AdvantagesCards from '@/components/_services/advantages-cards/advantages-cards';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -52,6 +53,26 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
               aspectRatio,
               width,
               height
+            }
+          }
+        }
+      },
+      // Advantages Cards
+      advantages_cards_heading,
+      advantages_cards[]{
+        title,
+        link,
+        icon{
+          asset->{
+            url,
+            altText,
+            metadata{
+              lqip,
+              dimensions{
+                aspectRatio,
+                width,
+                height
+              }
             }
           }
         }
@@ -230,6 +251,12 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         cta={page.hero_Cta}
         image={page.hero_background}
       />
+      {page.advantages_cards_heading && page.advantages_cards && (
+        <AdvantagesCards
+          title={page.advantages_cards_heading}
+          advantages={page.advantages_cards}
+        />
+      )}
       <Treatments
         title={page.treatments_heading}
         text={page.treatments_paragraph}

@@ -130,6 +130,27 @@ export default {
         }),
       hidden: ({document}) => !document.have_page,
     },
+    // advantages cards
+    {
+      name: 'advantages_cards_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'advantages_cards',
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'advantages_cards',
+      type: 'array',
+      title: 'Karty wyróżników',
+      fieldset: 'advantages_cards',
+      hidden: ({document}) => !document.have_page,
+      of: [
+        {
+          type: 'advantageCard',
+          title: 'Karta wyróżnika',
+        },
+      ],
+    },
     // treatments
     {
       name: 'treatments_heading',
@@ -398,6 +419,11 @@ export default {
     {
       name: 'hero',
       title: 'Sekcja powitalna',
+      options: {collapsible: true},
+    },
+    {
+      name: 'advantages_cards',
+      title: 'Kolorowe karty wyróżników',
       options: {collapsible: true},
     },
     {

@@ -47,6 +47,7 @@ import services_specialists from './components/services-doctor'
 import {ImageColumn, Cta} from './components/portableText'
 import PortableText from '../components/PortableText'
 import headerLink, {headerSubLink} from './components/headerLink'
+import advantageCard from './components/advantageCard'
 
 export const components = [
   global_Seo,
@@ -77,7 +78,8 @@ export const components = [
   PortableText,
   Cta,
   headerSubLink,
-  headerLink
+  headerLink,
+  advantageCard
 ]
 
 export const schemaTypes = [
