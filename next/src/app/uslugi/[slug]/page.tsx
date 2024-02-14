@@ -13,6 +13,7 @@ import Seo from '@/components/ui/seo';
 import Price from '@/components/_global/price';
 import Faq from '@/components/_global/faq';
 import AdvantagesCards from '@/components/_services/advantages-cards/advantages-cards';
+import Certificate from '@/components/_services/certificate';
 
 export default async function Index({ params: { slug } }: { params: { slug: string } }) {
   const { page, global, posts } = await sanityFetch<any>({
@@ -73,6 +74,22 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
                 width,
                 height
               }
+            }
+          }
+        }
+      },
+      // certificate
+      certificate_heading,
+      certificate_image{
+        asset->{
+          url,
+          altText,
+          metadata{
+            lqip,
+            dimensions{
+              aspectRatio,
+              width,
+              height
             }
           }
         }
@@ -263,6 +280,12 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
         list={page.treatments_list}
         annotation={page.treatment_annotation}
       />
+      {page.certificate_heading && page.certificate_image && (
+        <Certificate
+          title={page.certificate_heading}
+          image={page.certificate_image}
+        />
+      )}
       {page.mentoring_heading && page.mentoring_list && (
         <Mentoring
           title={page.mentoring_heading}

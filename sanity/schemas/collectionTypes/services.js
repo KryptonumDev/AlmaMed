@@ -195,6 +195,21 @@ export default {
       fieldset: 'treatments',
       hidden: ({document}) => !document.have_page,
     },
+    // certificate
+    {
+      name: 'certificate_heading',
+      type: 'markdown',
+      title: 'Nagłówek',
+      fieldset: 'certificate',
+      hidden: ({document}) => !document.have_page,
+    },
+    {
+      name: 'certificate_image',
+      type: 'image',
+      title: 'Obrazek',
+      fieldset: 'certificate',
+      hidden: ({document}) => !document.have_page,
+    },
     // mentoring
     {
       name: 'mentoring_heading',
@@ -424,6 +439,11 @@ export default {
     {
       name: 'advantages_cards',
       title: 'Kolorowe karty wyróżników',
+      options: {collapsible: true},
+    },
+    {
+      name: 'certificate',
+      title: 'Wyróżniony Certyfikat',
       options: {collapsible: true},
     },
     {
