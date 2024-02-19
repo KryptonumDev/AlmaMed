@@ -81,12 +81,12 @@ export default function Form({
       />
       <CheckBox
         register={register('agreement', { required: true })}
-        label='Akceptuję <a class="anim-link" href="/polityka-prywatnosci">politykę prywatności</a>'
+        label='Akceptuję <a class="anim-link" href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">politykę prywatności</a>'
         errors={errors}
       />
       <Button
         arrow={true}
-        title='Zapisuje się'
+        title='Zapisuję się'
         type='primary'
       />
       <AnimatePresence mode='wait'>
