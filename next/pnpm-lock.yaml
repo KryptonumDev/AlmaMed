@@ -17,6 +17,9 @@ dependencies:
   '@studio-freight/lenis':
     specifier: ^1.0.29
     version: 1.0.29
+  fathom-client:
+    specifier: ^3.6.0
+    version: 3.6.0
   framer-motion:
     specifier: ^10.17.12
     version: 10.17.12(react-dom@18.2.0)(react@18.2.0)
@@ -3561,6 +3564,10 @@ packages:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
     dependencies:
       reusify: 1.0.4
+
+  /fathom-client@3.6.0:
+    resolution: {integrity: sha512-/mrgmVvpw4HqDCcqUfPulERhONKgnJGL74RAxfqKDuRQ+7w9lKoTHMzqBWE7WNBvmsgZEthQWJFOWOEjv+T3gA==}
+    dev: false
 
   /figures@5.0.0:
     resolution: {integrity: sha512-ej8ksPF4x6e5wvK9yevct0UCXh8TTFlWGVLlgjZuoBH1HwjIfKE/IdL5mq89sFA7zELi1VhKpmtDnrs7zWyeyg==}

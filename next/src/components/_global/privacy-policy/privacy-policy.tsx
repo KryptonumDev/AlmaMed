@@ -8,39 +8,45 @@ export default function PrivacyPolicy({ title, text }: Props) {
   const titles = getTitles(text);
 
   return (
-    <section className={styles.wrapper}>
-      <Blob className={styles.blob} />
-      <div className='container'>
-        <Markdown.h1
-          children={title}
-          className={styles.heading}
-        />
-        <div className={styles.content}>
-          <div className={styles.text}>
-            <Markdown.p
-              withAnchors={true}
-              children={text}
-            />
-          </div>
-          <div className={styles.quickLinks}>
-            <div className={styles.quickLinksHeading}>
-              <p className='p'>Spis treści:</p>
+    <>
+      <section className={styles.wrapper}>
+        <Blob className={styles.blob} />
+        <div className='container'>
+          <Markdown.h1
+            children={title}
+            className={styles.heading}
+          />
+        </div>
+      </section>
+      <section>
+        <div className='container'>
+          <div className={styles.content}>
+            <div className={styles.text}>
+              <Markdown.p
+                withAnchors={true}
+                children={text}
+              />
             </div>
-            <div className={styles.quickLinksList}>
-              {titles?.map((title, index) => (
-                <Link
-                  key={title.text + index}
-                  href={`#${slugify(title.text)}`}
-                  className={`p`}
-                >
-                  {title.text}
-                </Link>
-              ))}
+            <div className={styles.quickLinks}>
+              <div className={styles.quickLinksHeading}>
+                <p className='p'>Spis treści:</p>
+              </div>
+              <div className={styles.quickLinksList}>
+                {titles?.map((title, index) => (
+                  <Link
+                    key={title.text + index}
+                    href={`#${slugify(title.text)}`}
+                    className={`p`}
+                  >
+                    {title.text}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
