@@ -6,7 +6,6 @@ import { slugify } from '../../../utils/slugify';
 
 export default function PrivacyPolicy({ title, text }: Props) {
   const titles = getTitles(text);
-
   return (
     <>
       <section className={styles.wrapper}>
@@ -27,20 +26,27 @@ export default function PrivacyPolicy({ title, text }: Props) {
                 children={text}
               />
             </div>
-            <div className={styles.quickLinks}>
-              <div className={styles.quickLinksHeading}>
-                <p className='p'>Spis treści:</p>
-              </div>
-              <div className={styles.quickLinksList}>
-                {titles?.map((title, index) => (
-                  <Link
-                    key={title.text + index}
-                    href={`#${slugify(title.text)}`}
-                    className={`p`}
-                  >
-                    {title.text}
-                  </Link>
-                ))}
+            <div
+              className={styles.quickLinks}
+            >
+              <div
+              data-lenis-prevent
+              className={styles.quickLinksContent}
+              >
+                <div className={styles.quickLinksHeading}>
+                  <p className='p'>Spis treści:</p>
+                </div>
+                <div className={styles.quickLinksList}>
+                  {titles?.map((title, index) => (
+                    <Link
+                      key={title.text + index}
+                      href={`#${slugify(title.text)}`}
+                      className={`p ${index >= 9 ? styles.more : ''}`}
+                    >
+                      {title.text}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

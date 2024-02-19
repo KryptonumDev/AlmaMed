@@ -4,6 +4,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { slugify } from '../../utils/slugify';
+import reactNodeToString from "react-node-to-string"
 
 const LinkRenderer = ({ href, children }) => {
   const isExternal = href && (href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:'));
@@ -18,10 +19,12 @@ const LinkRenderer = ({ href, children }) => {
   );
 };
 
-const HeadingRenderer = (props, text) => {
-  var slug = text ? slugify(text) : '';
-  return <h2 id={slug}>{props.children}</h2>;
+const HeadingRenderer = (props, text, Level) => {
+  var slug = text ? slugify(text) : slugify(reactNodeToString(props.children));
+
+  return <Level id={slug}>{props.children}</Level>;
 };
+
 
 const Markdown = ({ level, children, text, components, withAnchors, ...props }) => {
   const HeadingComponent = level;
@@ -35,7 +38,8 @@ const Markdown = ({ level, children, text, components, withAnchors, ...props }) 
   return (
     <ReactMarkdown
       components={{
-        h2: (e) => HeadingRenderer(e, text),
+        h2: (e) => HeadingRenderer(e, text, 'h2'),
+        h3: (e) => HeadingRenderer(e, text, 'h3'),
         a: LinkRenderer,
         li: ({ children, ordered }) => (
           <li>

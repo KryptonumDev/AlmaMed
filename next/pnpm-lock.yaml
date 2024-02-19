@@ -47,6 +47,9 @@ dependencies:
   react-markdown:
     specifier: ^9.0.1
     version: 9.0.1(@types/react@18.2.45)(react@18.2.0)
+  react-node-to-string:
+    specifier: ^0.1.2
+    version: 0.1.2(react@18.2.0)
   rehype-raw:
     specifier: ^7.0.0
     version: 7.0.0
@@ -6376,6 +6379,14 @@ packages:
       vfile: 6.0.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /react-node-to-string@0.1.2(react@18.2.0):
+    resolution: {integrity: sha512-4zKDY7u7Zq3s6xhcJ+wFbOBmVj4S5IxmqkOmBpWInHuoOxVcIcNk5UdGuw0GDaPqyiKxMFeyCHSrZIaKouXeeA==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-refractor@2.1.7(react@18.2.0):
