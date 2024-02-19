@@ -95,7 +95,7 @@ export default async function Index({ params: { number } }: { params: { number: 
   );
 }
 
-export async function generateMetadata() {
+export async function generateMetadata({ params: { number } }: { params: { number: string } }) {
   const {
     page: { seo },
   } = await sanityFetch<any>({
@@ -113,6 +113,6 @@ export async function generateMetadata() {
   return Seo({
     title: seo?.title,
     description: seo?.description,
-    path: '/',
+    path: '/blog/strona/' + number,
   });
 }

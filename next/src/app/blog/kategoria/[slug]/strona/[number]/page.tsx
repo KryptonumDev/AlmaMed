@@ -93,7 +93,8 @@ export default async function Index({ params: { slug, number } }: { params: { sl
   );
 }
 
-export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) { // TODO
+export async function generateMetadata({ params: { slug, number } }: { params: { slug: string; number: string } }) {
+  // TODO
   const {
     page: { seo },
   } = await sanityFetch<any>({
@@ -112,6 +113,6 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
   return Seo({
     title: seo?.title,
     description: seo?.description,
-    path: '/',
+    path: '/blog/kategoria/' + slug + '/strona/' + number,
   });
 }

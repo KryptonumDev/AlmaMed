@@ -271,6 +271,6 @@ export async function generateMetadata() {
   return Seo({
     title: seo?.title,
     description: seo?.description,
-    path: '/',
+    path: '/uslugi',
   });
 }

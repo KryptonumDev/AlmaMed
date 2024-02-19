@@ -142,6 +142,6 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
   return Seo({
     title: seo?.title,
     description: seo?.description,
-    path: '/',
+    path: '/specjalisci/' + slug,
   });
 }
