@@ -11,6 +11,7 @@ export default function Video({ title, text, video, steps }: Props) {
         <Markdown.h2
           className={`${styles.title} h3`}
           children={title}
+          text={'jak-zrejestrowac-sie-w-aplikacji'}
         />
         <Markdown.p
           className={styles.text}

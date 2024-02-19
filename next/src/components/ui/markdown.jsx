@@ -18,12 +18,12 @@ const LinkRenderer = ({ href, children }) => {
   );
 };
 
-const HeadingRenderer = ({ children }) => {
-  var slug = slugify(children);
-  return <h2 id={slug}>{children}</h2>;
+const HeadingRenderer = (props, text) => {
+  var slug = text ? slugify(text) : '';
+  return <h2 id={slug}>{props.children}</h2>;
 };
 
-const Markdown = ({ level, children, components, withAnchors, ...props }) => {
+const Markdown = ({ level, children, text, components, withAnchors, ...props }) => {
   const HeadingComponent = level;
   const updatedComponents = level
     ? {
@@ -35,7 +35,7 @@ const Markdown = ({ level, children, components, withAnchors, ...props }) => {
   return (
     <ReactMarkdown
       components={{
-        h2: HeadingRenderer,
+        h2: (e) => HeadingRenderer(e, text),
         a: LinkRenderer,
         li: ({ children, ordered }) => (
           <li>
