@@ -6,7 +6,7 @@ function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    Fathom.load('KAYKAHYF', {
+    Fathom.load('GNTXBHTX', {
       includedDomains: ['centrum-almamed.pl'],
     });
 
