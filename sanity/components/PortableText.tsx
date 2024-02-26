@@ -9,21 +9,21 @@ export default {
       type: 'block',
       styles: [
         {
-          title: 'Normal',
+          title: 'Tekst zwykły',
           value: 'normal',
           component: ({children}: {children: React.ReactNode}) => (
             <span style={{fontWeight: 400}}>{children}</span>
           ),
         },
         {
-          title: 'H2',
+          title: 'Nagłówek',
           value: 'h2',
           component: ({children}: {children: React.ReactNode}) => (
             <h2 style={{fontSize: '1.8em', margin: 0}}>{children}</h2>
           ),
         },
         {
-          title: 'H3',
+          title: 'Nagłówek pomniejszony',
           value: 'h3',
           component: ({children}: {children: React.ReactNode}) => (
             <h3 style={{fontSize: '1.3em', margin: 0}}>{children}</h3>
@@ -50,13 +50,13 @@ export default {
       },
     },
     {
-      type: 'image',
+      type: 'Obrazek',
       fields: [
         {
           name: 'altText',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Tekst zastępczy dla ludzi niewidomych.',
           validation: (Rule: {warning: () => any}) => Rule.warning(),
         },
       ],

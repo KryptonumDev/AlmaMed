@@ -162,13 +162,8 @@ export default {
   ],
   fieldsets: [
     {
-      name: 'social',
-      title: 'Social links',
-      options: {collapsible: true, collapsed: true},
-    },
-    {
       name: 'registration',
-      title: 'Registration',
+      title: 'Rejestracja',
       options: {collapsible: true, collapsed: true},
     },
     {
@@ -183,7 +178,7 @@ export default {
     },
     {
       name: 'metrics',
-      title: 'Metrics',
+      title: 'Metryki',
       options: {collapsible: true, collapsed: true},
     },
     {
@@ -196,7 +191,7 @@ export default {
 
 export const global_Seo = {
   name: 'global_Seo',
-  title: 'Global SEO',
+  title: 'Globalne ustawienia SEO',
   type: 'object',
   fields: [
     {
@@ -204,7 +199,7 @@ export const global_Seo = {
       type: 'image',
       title: 'OG Image',
       description:
-        'An image that is visible when sharing the page on social media. The dimensions of the photo should be 1200x630px',
+        'Obraz wyświetlający się na w social media. Wymiary obrazku - 1200x630px',
     },
   ],
 }
