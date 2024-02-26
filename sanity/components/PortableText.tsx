@@ -3,7 +3,7 @@ import React from 'react'
 export default {
   name: 'PortableText',
   type: 'array',
-  title: 'Content',
+  title: 'Treść',
   of: [
     {
       type: 'block',
