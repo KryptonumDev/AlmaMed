@@ -2,6 +2,7 @@ export default {
   name: 'Contact',
   title: 'Kontakt',
   type: 'document',
+  icon: () => `📞`,
   fields: [
     // hero
     {

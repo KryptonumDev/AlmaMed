@@ -2,6 +2,7 @@ export default {
   name: 'PrivacyPolicy',
   title: 'Polityka prywatności',
   type: 'document',
+  icon: () => `🔒`,
   fields: [
     {
       name: 'heading',

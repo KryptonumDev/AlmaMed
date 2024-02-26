@@ -20,9 +20,7 @@ import categories from './collectionTypes/blogCategory'
 import doctors from './collectionTypes/doctors'
 import comments from './collectionTypes/comments'
 
-export const collectionTypes = [localizations, services, doctors, posts, categories]
-
-export const blockTypes = [comments]
+export const collectionTypes = [localizations, services, doctors, posts, categories, comments]
 
 // Components
 import cta from './components/cta'

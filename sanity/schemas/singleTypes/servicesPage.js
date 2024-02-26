@@ -2,6 +2,7 @@ export default {
   name: 'servicesPage',
   title: 'Usługi',
   type: 'document',
+  icon: () => `🛠`,
   fields: [
     // hero
     {

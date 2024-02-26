@@ -2,6 +2,7 @@ export default {
   name: 'blogCategory',
   title: 'Kategorie artykułów',
   type: 'document',
+  icon: () => `🏷️`,
   fields: [
     {
       name: 'name',

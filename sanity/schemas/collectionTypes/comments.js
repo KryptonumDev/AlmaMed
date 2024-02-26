@@ -2,6 +2,7 @@ export default {
   name: 'comments',
   title: 'Kommentarze',
   type: 'document',
+  icon: () => `💬`,
   fields: [
     {
       type: 'markdown',

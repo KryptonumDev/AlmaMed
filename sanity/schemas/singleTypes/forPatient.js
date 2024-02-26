@@ -2,6 +2,7 @@ export default {
   name: 'ForPatient',
   title: 'Dla pacjenta',
   type: 'document',
+  icon: () => `⚕️`,
   fields: [
     // hero
     {

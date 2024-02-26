@@ -2,6 +2,7 @@ export default {
   name: 'Sitemap',
   title: 'Mapa strony',
   type: 'document',
+  icon: () => `🗺`,
   fields: [
     // seo
     {

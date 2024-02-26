@@ -2,6 +2,7 @@ export default {
   name: 'IndexPage',
   title: 'Strona główna',
   type: 'document',
+  icon: () => `🏠`,
   fields: [
     // hero
     {

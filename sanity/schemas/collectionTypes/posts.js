@@ -2,6 +2,7 @@ export default {
   name: 'blogEntry',
   title: 'Artykuł blogowy',
   type: 'document',
+  icon: () => `📝`,
   fields: [
     {
       name: 'name',

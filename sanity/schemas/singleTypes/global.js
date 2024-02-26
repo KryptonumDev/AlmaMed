@@ -2,6 +2,7 @@ export default {
   name: 'global',
   title: 'Globalne',
   type: 'document',
+  icon: () => `🌍`,
   fields: [
     {
       name: 'seo',

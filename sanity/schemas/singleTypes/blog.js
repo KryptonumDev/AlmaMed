@@ -2,6 +2,7 @@ export default {
   name: 'Blog',
   title: 'Blog',
   type: 'document',
+  icon: () => `📝`,
   fields: [
     // seo
     {

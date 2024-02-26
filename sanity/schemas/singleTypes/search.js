@@ -2,6 +2,7 @@ export default {
   name: 'Search',
   title: 'Wyszukiwarka',
   type: 'document',
+  icon: () => `🔍`,
   fields: [
     // seo
     {

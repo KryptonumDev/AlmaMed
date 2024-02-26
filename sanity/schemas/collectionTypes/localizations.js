@@ -6,6 +6,7 @@ export default {
   name: 'localizations',
   title: 'Placówki',
   type: 'document',
+  icon: () => `🏥`,
   fields: [
     {
       type: 'markdown',

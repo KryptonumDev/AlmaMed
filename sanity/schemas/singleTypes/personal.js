@@ -2,6 +2,7 @@ export default {
   name: 'Personal',
   title: 'Specjaliści',
   type: 'document',
+  icon: () => `👨‍⚕️`,
   fields: [
     // hero
     {

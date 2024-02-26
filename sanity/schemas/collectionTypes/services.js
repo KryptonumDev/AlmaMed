@@ -6,6 +6,7 @@ export default {
   name: 'services',
   title: 'Usługi',
   type: 'document',
+  icon: () => `💉`,
   fields: [
     {
       type: 'string',
