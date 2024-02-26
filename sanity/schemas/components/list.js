@@ -2,18 +2,18 @@ import removeMarkdown from "../../utils/RemoveMarkdown"
 
 export const titleAndDescription = {
   name: "list_TitleAndDescription",
-  title: "Title and Description",
+  title: "Tytuł i opis",
   type: "object",
   fields: [
     {
       name: 'title',
       type: 'markdown',
-      title: 'Title',
+      title: 'Tytuł',
     },
     {
       name: 'description',
       type: 'markdown',
-      title: 'Description',
+      title: 'Opis',
     },
   ],
   preview: {
@@ -32,18 +32,18 @@ export const titleAndDescription = {
 
 export const titleAndImage = {
   name: "list_TitleAndImage",
-  title: "Title & Image",
+  title: "Tytuł i obrazek",
   type: "object",
   fields: [
     {
       name: 'title',
       type: 'markdown',
-      title: 'Title',
+      title: 'Tytuł',
     },
     {
       name: 'img',
       type: 'image',
-      title: 'Image',
+      title: 'Obrazek',
     },
   ],
   preview: {
@@ -62,19 +62,19 @@ export const titleAndImage = {
 
 export const imageAndLink = {
   name: "list_ImageAndLink",
-  title: "Title & Link",
+  title: "Tytuł, obrazek i przycisk",
   type: "object",
   fields: [
     {
       name: 'name',
       type: 'string',
-      title: 'Name',
+      title: 'Tytuł',
     },
     {
       name: 'href',
       type: 'string',
-      title: 'Link (optional)',
-      description: 'Relative or absolute link (https://)',
+      title: 'Przycisk (opcjonalny)',
+      description: 'Relatywny lub absolutny link (https://)',
       validation: Rule => Rule.custom(value => {
         if (value && !value.startsWith('/') && !value.startsWith('https://') && !value.startsWith('#')) {
           return 'Incorrect URL.';
@@ -85,7 +85,7 @@ export const imageAndLink = {
     {
       name: 'img',
       type: 'image',
-      title: 'Image',
+      title: 'Obrazek',
     },
   ],
   preview: {
@@ -104,23 +104,23 @@ export const imageAndLink = {
 
 export const titleDescriptionAndImage = {
   name: "list_TitleDescriptionAndImage",
-  title: "Title, Description & Image",
+  title: "Tytuł, opis i obrazek",
   type: "object",
   fields: [
     {
       name: 'title',
       type: 'markdown',
-      title: 'Title',
+      title: 'Tytuł',
     },
     {
       name: 'description',
       type: 'markdown',
-      title: 'Description',
+      title: 'Opis',
     },
     {
       name: 'img',
       type: 'image',
-      title: 'Image',
+      title: 'Obrazek',
     },
   ],
   preview: {

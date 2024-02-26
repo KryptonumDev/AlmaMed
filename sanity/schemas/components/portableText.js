@@ -23,7 +23,7 @@ export const ImageColumn = {
     },
     prepare({list}) {
       return {
-        title: `[ImageColumn] - ${list.length} images`,
+        title: `[Obrazki w 2 kolumnach] - ${list.length} obrazki`,
         media: list[0],
       }
     },
@@ -38,7 +38,7 @@ export const Cta = {
     {
       name: 'links',
       type: 'array',
-      title: 'Links',
+      title: 'Przyciski',
       of: [
         {
           type: 'cta',

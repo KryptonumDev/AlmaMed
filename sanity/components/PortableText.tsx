@@ -50,12 +50,12 @@ export default {
       },
     },
     {
-      type: 'Obrazek',
+      type: 'image',
       fields: [
         {
           name: 'altText',
           type: 'string',
-          title: 'Alternative text',
+          title: 'Tekst alternatywny',
           description: 'Tekst zastępczy dla ludzi niewidomych.',
           validation: (Rule: {warning: () => any}) => Rule.warning(),
         },
