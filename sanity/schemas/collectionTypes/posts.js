@@ -41,6 +41,7 @@ export default {
     },
     {
       name: 'content',
+      title: 'Treść artykułu',
       type: 'PortableText',
     },
     {

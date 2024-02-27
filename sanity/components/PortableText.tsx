@@ -29,7 +29,7 @@ export default {
             <h3 style={{fontSize: '1.3em', margin: 0}}>{children}</h3>
           ),
         },
-        {title: 'Quote', value: 'blockquote'},
+        {title: 'Cytat', value: 'blockquote'},
       ],
       marks: {
         annotations: [
@@ -51,6 +51,7 @@ export default {
     },
     {
       type: 'image',
+      title: 'Obrazek',
       fields: [
         {
           name: 'altText',
@@ -65,6 +66,7 @@ export default {
       type: 'ImageColumn',
     },
     {
+      title: 'Przyciski', 
       type: 'Cta'
     }
   ],
