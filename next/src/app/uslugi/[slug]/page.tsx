@@ -358,7 +358,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
 
 export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
   const {
-    page: { seo },
+    page,
   } = await sanityFetch<any>({
     query: `
     {
@@ -372,9 +372,12 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
     `,
     params: { slug: slug },
   });
+
+  if(!page) return notFound();
+
   return Seo({
-    title: seo?.title,
-    description: seo?.description,
+    title: page?.seo?.title,
+    description: page?.seo?.description,
     path: '/uslugi/' + slug,
   });
 }
