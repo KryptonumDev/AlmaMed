@@ -74,6 +74,13 @@ export default function PageMap({ categories, specialists, posts, services, loca
     },
     {
       link: {
+        name: 'Współpraca',
+        href: '/wspolpraca',
+      },
+      subLinks: [],
+    },
+    {
+      link: {
         name: '404',
         href: '/404',
       },

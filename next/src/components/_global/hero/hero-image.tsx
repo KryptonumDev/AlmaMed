@@ -1,6 +1,8 @@
 import { ImageProps } from './hero.constants';
 
 export default function Images({ imageOne, imageTwo }: ImageProps) {
+  if (!imageOne?.asset?.url) return null;
+
   // chose randomly one of the images
   const image = Math.random() > 0.5 ? imageOne : imageTwo ?? imageOne;
 

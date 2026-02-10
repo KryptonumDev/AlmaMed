@@ -1,10 +1,11 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 793fr 381fr;
+  grid-template-columns: minmax(0, 793fr) minmax(0, 381fr);
   gap: 32px;
+  width: 100%;
 
   &.fullWidth {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   @media (max-width: 1024px) {
@@ -12,6 +13,8 @@
   }
 
   .faq {
+    width: 100%;
+    min-width: 0;
     border-radius: 32px;
     border: 1px solid var(--light-blue-500, #0376be);
     background: var(--light-blue-100, #f8fcff);
@@ -63,6 +66,7 @@
 
 .list {
   margin: 0 auto;
+  width: 100%;
   details {
     margin-top: 42px;
     border-bottom: 1px solid var(--light-blue-600, #025e98);

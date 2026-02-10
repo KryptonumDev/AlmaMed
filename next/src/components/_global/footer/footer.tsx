@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 import { Logo } from '../../ui/logo';
 import Link from 'next/link';
 import { Background, Blob, Kryptonum } from './footer.icons';
+import { sanityFetch } from '../../../utils/sanity-client';
 
 const links = [
   {
@@ -33,6 +34,10 @@ const links = [
         name: 'Mapa strony',
         link: '/mapa-strony',
       },
+      {
+        name: 'Współpraca',
+        link: '/wspolpraca',
+      },
     ],
   },
   {
@@ -52,7 +57,48 @@ const links = [
   },
 ];
 
-export default function Footer() {
+type NetworkClinic = {
+  name: string;
+  shortName?: string;
+  city: string;
+  address?: string;
+  phone?: string;
+  email?: string;
+  url: string;
+  isActive?: boolean;
+  logo?: {
+    asset?: {
+      url?: string;
+    };
+  };
+};
+
+export default async function Footer() {
+  const { global } = await sanityFetch<any>({
+    query: /* groq */ `{
+      "global": *[_id == "global"][0]{
+        networkClinics[]{
+          name,
+          shortName,
+          city,
+          address,
+          phone,
+          email,
+          url,
+          isActive,
+          logo{
+            asset->{
+              url
+            }
+          }
+        }
+      }
+    }`,
+  });
+  const networkClinics: NetworkClinic[] = (global?.networkClinics || []).filter(
+    (clinic: NetworkClinic) => clinic?.isActive !== false && clinic?.url
+  );
+
   return (
     <footer className={styles.wrapper}>
       <Background />
@@ -80,28 +126,75 @@ export default function Footer() {
           </p>
         </div>
         <div className={styles.links}>
-          {links.map((link, index) => (
-            <ul key={index}>
-              <li className='p bold'>
-                <Link
-                  className={`p anim-link bold`}
-                  href={link.link}
-                >
-                  {link.name}
-                </Link>
-              </li>
-              {link.links.map((sub, index) => (
-                <li key={index}>
+          <div className={styles.linkColumns}>
+            {links.map((link, index) => (
+              <ul key={index}>
+                <li className='p bold'>
                   <Link
-                    className={`p anim-link ${sub.bold ? 'bold' : ''}`}
-                    href={sub.link}
+                    className={`p anim-link bold`}
+                    href={link.link}
                   >
-                    {sub.name}
+                    {link.name}
                   </Link>
                 </li>
-              ))}
-            </ul>
-          ))}
+                {link.links.map((sub, index) => (
+                  <li key={index}>
+                    <Link
+                      className={`p anim-link ${sub.bold ? 'bold' : ''}`}
+                      href={sub.link}
+                    >
+                      {sub.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+          {networkClinics.length > 0 && (
+            <div className={styles.network}>
+              <h3 className='p bold'>Nasze placówki</h3>
+              <div className={styles.cards}>
+                {networkClinics.map((clinic) => {
+                  const content = (
+                    <>
+                      <div className={styles.cardTop}>
+                        {clinic.logo?.asset?.url && (
+                          <img
+                            src={clinic.logo.asset.url}
+                            alt={`Logo ${clinic.name}`}
+                            className={styles.clinicLogo}
+                          />
+                        )}
+                        <div>
+                          <p className={`p bold ${styles.name}`}>{clinic.name}</p>
+                          <p className={`p ${styles.city}`}>{clinic.city}</p>
+                        </div>
+                      </div>
+                      {clinic.address && <p className={`p ${styles.meta}`}>{clinic.address}</p>}
+                      {clinic.phone && <p className={`p ${styles.meta}`}>{clinic.phone}</p>}
+                      {clinic.email && <p className={`p ${styles.meta}`}>{clinic.email}</p>}
+                    </>
+                  );
+
+                  return clinic.url.startsWith('/') ? (
+                    <Link key={`${clinic.name}-${clinic.url}`} href={clinic.url} className={styles.card}>
+                      {content}
+                    </Link>
+                  ) : (
+                    <a
+                      key={`${clinic.name}-${clinic.url}`}
+                      href={clinic.url}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={styles.card}
+                    >
+                      {content}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </footer>

@@ -43,6 +43,10 @@ export default async function sitemap() {
       lastModified: new Date(),
     },
     {
+      url: `${domain}/wspolpraca`,
+      lastModified: new Date(),
+    },
+    {
       url: `${domain}/uslugi`,
       lastModified: new Date(),
     },

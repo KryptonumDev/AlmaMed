@@ -13,6 +13,10 @@
     > svg {
       position: absolute;
     }
+
+    image {
+      y: 58%;
+    }
     @media (max-width: 1239px) {
       image {
         x: 50%;
@@ -50,16 +54,24 @@
     min-height: 1000px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
+    padding-top: 260px;
+    padding-bottom: 120px;
 
     @media (max-width: 1080px) {
       min-height: 0;
-      margin-top: 240px;
+      padding-top: 220px;
+      padding-bottom: 56px;
 
       .content {
         margin: 0 auto;
       }
+    }
+
+    @media (max-width: 480px) {
+      padding-top: 200px;
+      padding-bottom: 40px;
     }
 
     .content {

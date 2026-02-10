@@ -159,6 +159,15 @@ export default {
         },
       ],
     },
+    {
+      name: 'networkClinics',
+      type: 'array',
+      title: 'Nasze placówki (sieć)',
+      description: 'Lista placówek pokazywana w top barze i stopce.',
+      fieldset: 'network',
+      of: [{type: 'networkClinic'}],
+      validation: (Rule) => Rule.max(6),
+    },
   ],
   fieldsets: [
     {
@@ -184,6 +193,11 @@ export default {
     {
       name: 'advantages',
       title: 'Wyróżniki',
+      options: {collapsible: true},
+    },
+    {
+      name: 'network',
+      title: 'Sieć placówek',
       options: {collapsible: true},
     },
   ],

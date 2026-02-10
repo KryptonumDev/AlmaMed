@@ -9,8 +9,9 @@ import contact from './singleTypes/contact'
 import Blog from './singleTypes/blog'
 import Search from './singleTypes/search'
 import Sitemap from './singleTypes/sitemap'
+import Cooperation from './singleTypes/cooperation'
 
-export const singleTypes = [IndexPage, servicesPage, personal, forPatient, Blog, contact, PrivacyPolicy, Search, Sitemap]
+export const singleTypes = [IndexPage, servicesPage, personal, forPatient, Blog, contact, Cooperation, PrivacyPolicy, Search, Sitemap]
 
 // Collection Types
 import localizations from './collectionTypes/localizations'
@@ -48,6 +49,8 @@ import {ImageColumn, Cta} from './components/portableText'
 import PortableText from '../components/PortableText'
 import headerLink, {headerSubLink} from './components/headerLink'
 import advantageCard from './components/advantageCard'
+import networkClinic from './components/networkClinic'
+import cooperationGroup from './components/cooperationGroup'
 
 export const components = [
   global_Seo,
@@ -79,7 +82,9 @@ export const components = [
   Cta,
   headerSubLink,
   headerLink,
-  advantageCard
+  advantageCard,
+  networkClinic,
+  cooperationGroup
 ]
 
 export const schemaTypes = [

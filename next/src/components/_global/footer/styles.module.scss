@@ -10,6 +10,25 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    pointer-events: none;
+
+    @media (max-width: 864px) {
+      width: 2200px;
+      height: 1650px;
+      top: -120px;
+    }
+
+    @media (max-width: 560px) {
+      width: 2500px;
+      height: 2100px;
+      top: -180px;
+    }
+
+    @media (max-width: 480px) {
+      width: 2750px;
+      height: 2310px;
+      top: -210px;
+    }
   }
 
   .container {
@@ -56,9 +75,6 @@
         h3 {
           margin-bottom: 12px;
         }
-
-        p {
-        }
       }
     }
 
@@ -78,19 +94,31 @@
 
     .links {
       grid-area: links;
-      display: flex;
-      gap: 48px 32px;
+      display: grid;
+      gap: 40px;
       margin-left: auto;
-      width: fit-content;
+      width: min(100%, 640px);
 
       @media (max-width: 864px) {
         margin: 0;
-        flex-wrap: wrap;
+        width: 100%;
       }
 
-      @media (max-width: 480px) {
-        flex-direction: column;
-        gap: 32px;
+      .linkColumns {
+        display: flex;
+        gap: 48px 32px;
+        justify-content: flex-end;
+        width: 100%;
+
+        @media (max-width: 864px) {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+        }
+
+        @media (max-width: 480px) {
+          flex-direction: column;
+          gap: 32px;
+        }
       }
 
       ul {
@@ -127,6 +155,86 @@
             display: block;
             width: fit-content;
           }
+        }
+      }
+
+      .network {
+        width: 100%;
+        max-width: 760px;
+        justify-self: end;
+
+        @media (max-width: 864px) {
+          justify-self: start;
+        }
+
+        h3 {
+          margin-bottom: 16px;
+        }
+
+        .cards {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 10px;
+
+          @media (max-width: 1240px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          @media (max-width: 560px) {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .card {
+          display: block;
+          border-radius: 12px;
+          border: 1px solid rgba(32, 33, 35, 0.14);
+          background: rgba(249, 188, 65, 0.07);
+          padding: 12px;
+          text-decoration: none;
+          transition: border-color 0.2s ease, background-color 0.2s ease;
+
+          &:hover,
+          &:focus-visible {
+            border-color: rgba(32, 33, 35, 0.28);
+            background: rgba(249, 188, 65, 0.14);
+          }
+        }
+
+        .cardTop {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 6px;
+        }
+
+        .clinicLogo {
+          width: 32px;
+          height: 32px;
+          object-fit: contain;
+          border-radius: 8px;
+          flex-shrink: 0;
+        }
+
+        .name {
+          margin-top: 0;
+          font-size: 15px;
+          line-height: 130%;
+        }
+
+        .city {
+          margin-top: 1px;
+          font-size: 14px;
+          line-height: 130%;
+          opacity: 0.85;
+        }
+
+        .meta {
+          margin-top: 2px;
+          font-size: 12px;
+          line-height: 140%;
+          opacity: 0.8;
+          word-break: break-word;
         }
       }
     }

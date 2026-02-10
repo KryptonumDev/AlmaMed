@@ -1,0 +1,13 @@
+{
+  "name": "almamed-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n NEXT,SANITY -c blue,green \"npm run dev --prefix next\" \"npm run dev --prefix sanity\"",
+    "dev:next": "npm run dev --prefix next",
+    "dev:sanity": "npm run dev --prefix sanity",
+    "open:apps": "open http://localhost:3000 && open http://localhost:3333"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

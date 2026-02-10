@@ -6,10 +6,11 @@
     display: grid;
     grid-template-columns: 484fr 690fr;
     gap: 32px;
-    padding-top: 240px;
+    padding-top: 260px;
     position: relative;
 
     @media (max-width: 768px) {
+      padding-top: 220px;
       grid-template-columns: 1fr;
 
       .svg {
