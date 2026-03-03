@@ -73,10 +73,12 @@ export default async function CooperationPage() {
         networkClinics[]{
           name,
           shortName,
-          city,
-          address,
-          phone,
-          email,
+          locations[]{
+            city,
+            address,
+            phone,
+            email
+          },
           url,
           isActive,
           logo{

@@ -60,10 +60,12 @@ const links = [
 type NetworkClinic = {
   name: string;
   shortName?: string;
-  city: string;
-  address?: string;
-  phone?: string;
-  email?: string;
+  locations?: Array<{
+    city?: string;
+    address?: string;
+    phone?: string;
+    email?: string;
+  }>;
   url: string;
   isActive?: boolean;
   logo?: {
@@ -80,10 +82,12 @@ export default async function Footer() {
         networkClinics[]{
           name,
           shortName,
-          city,
-          address,
-          phone,
-          email,
+          locations[]{
+            city,
+            address,
+            phone,
+            email
+          },
           url,
           isActive,
           logo{
@@ -98,6 +102,8 @@ export default async function Footer() {
   const networkClinics: NetworkClinic[] = (global?.networkClinics || []).filter(
     (clinic: NetworkClinic) => clinic?.isActive !== false && clinic?.url
   );
+
+  const getClinicLocations = (clinic: NetworkClinic) => clinic.locations || [];
 
   return (
     <footer className={styles.wrapper}>
@@ -155,6 +161,10 @@ export default async function Footer() {
               <h3 className='p bold'>Nasze placówki</h3>
               <div className={styles.cards}>
                 {networkClinics.map((clinic) => {
+                  const locations = getClinicLocations(clinic);
+                  const cityLabel = Array.from(
+                    new Set(locations.map((location) => location.city).filter(Boolean) as string[])
+                  ).join(', ');
                   const content = (
                     <>
                       <div className={styles.cardTop}>
@@ -167,12 +177,16 @@ export default async function Footer() {
                         )}
                         <div>
                           <p className={`p bold ${styles.name}`}>{clinic.name}</p>
-                          <p className={`p ${styles.city}`}>{clinic.city}</p>
+                          {cityLabel && <p className={`p ${styles.city}`}>{cityLabel}</p>}
                         </div>
                       </div>
-                      {clinic.address && <p className={`p ${styles.meta}`}>{clinic.address}</p>}
-                      {clinic.phone && <p className={`p ${styles.meta}`}>{clinic.phone}</p>}
-                      {clinic.email && <p className={`p ${styles.meta}`}>{clinic.email}</p>}
+                      {locations.map((location, index) => (
+                        <div key={`${clinic.name}-${location.city || 'location'}-${index}`} className={styles.location}>
+                          {location.city && <p className={`p ${styles.locationName}`}>{location.city}</p>}
+                          {location.phone && <p className={`p ${styles.meta}`}>{location.phone}</p>}
+                          {location.email && <p className={`p ${styles.meta}`}>{location.email}</p>}
+                        </div>
+                      ))}
                     </>
                   );
 

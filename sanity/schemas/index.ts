@@ -50,6 +50,7 @@ import PortableText from '../components/PortableText'
 import headerLink, {headerSubLink} from './components/headerLink'
 import advantageCard from './components/advantageCard'
 import networkClinic from './components/networkClinic'
+import networkLocation from './components/networkLocation'
 import cooperationGroup from './components/cooperationGroup'
 
 export const components = [
@@ -84,6 +85,7 @@ export const components = [
   headerLink,
   advantageCard,
   networkClinic,
+  networkLocation,
   cooperationGroup
 ]
 

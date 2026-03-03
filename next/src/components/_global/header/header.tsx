@@ -15,10 +15,12 @@ export default async function Header() {
         networkClinics[]{
           name,
           shortName,
-          city,
-          address,
-          phone,
-          email,
+          locations[]{
+            city,
+            address,
+            phone,
+            email
+          },
           url,
           isActive
         }

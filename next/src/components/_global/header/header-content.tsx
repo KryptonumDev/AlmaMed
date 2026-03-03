@@ -38,10 +38,12 @@ export default function HeaderContent({
   networkClinics?: Array<{
     name: string;
     shortName: string;
-    city: string;
-    address?: string;
-    phone?: string;
-    email?: string;
+    locations?: Array<{
+      city?: string;
+      address?: string;
+      phone?: string;
+      email?: string;
+    }>;
     url: string;
     isActive?: boolean;
   }>;
@@ -72,6 +74,15 @@ export default function HeaderContent({
     }
   };
 
+  const getClinicLocations = (clinic: {
+    locations?: Array<{
+      city?: string;
+      address?: string;
+      phone?: string;
+      email?: string;
+    }>;
+  }) => clinic.locations || [];
+
   return (
     <header className={`${styles.wrapper}`}>
       <a
@@ -87,7 +98,11 @@ export default function HeaderContent({
             <ul className={styles.networkList}>
               {visibleNetworkClinics.map((clinic, index) => {
                 const current = isCurrentClinic(clinic.url);
-                const clinicLabel = `${clinic.name} (${clinic.city})`;
+                const locations = getClinicLocations(clinic);
+                const cityLabel = Array.from(
+                  new Set(locations.map((location) => location.city).filter(Boolean) as string[])
+                ).join(', ');
+                const clinicLabel = cityLabel ? `${clinic.name} (${cityLabel})` : clinic.name;
                 return (
                   <li key={`${clinic.name}-${clinic.url}`}>
                     {current ? (

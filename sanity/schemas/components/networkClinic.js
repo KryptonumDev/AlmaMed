@@ -17,25 +17,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'city',
-      type: 'string',
-      title: 'Miasto',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'address',
-      type: 'string',
-      title: 'Adres',
-    },
-    {
-      name: 'phone',
-      type: 'string',
-      title: 'Telefon',
-    },
-    {
-      name: 'email',
-      type: 'string',
-      title: 'Email',
+      name: 'locations',
+      type: 'array',
+      title: 'Lokalizacje',
+      description: 'Dla jednej marki/strony możesz podać wiele lokalizacji (np. Bielsk Podlaski i Boćki).',
+      of: [{type: 'networkLocation'}],
     },
     {
       name: 'logo',
@@ -66,8 +52,20 @@ export default {
   preview: {
     select: {
       title: 'name',
-      subtitle: 'city',
+      locations: 'locations',
       media: 'logo',
+    },
+    prepare({title, locations, media}) {
+      const cities = (locations || [])
+        .map((location) => location?.city)
+        .filter(Boolean)
+      const uniqueCities = Array.from(new Set(cities))
+
+      return {
+        title,
+        subtitle: uniqueCities.join(', '),
+        media,
+      }
     },
   },
 }

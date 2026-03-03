@@ -7,10 +7,12 @@ import styles from './network.module.scss';
 interface NetworkClinic {
   name: string;
   shortName?: string;
-  city: string;
-  address?: string;
-  phone?: string;
-  email?: string;
+  locations?: Array<{
+    city?: string;
+    address?: string;
+    phone?: string;
+    email?: string;
+  }>;
   url: string;
   isActive?: boolean;
   logo?: {
@@ -52,6 +54,8 @@ export default function Network({ title, text, clinics = [] }: Props) {
     }
   };
 
+  const getClinicLocations = (clinic: NetworkClinic) => clinic.locations || [];
+
   return (
     <section id='siec-placowek' className={styles.wrapper}>
       <div className='container'>
@@ -70,6 +74,10 @@ export default function Network({ title, text, clinics = [] }: Props) {
             {visibleClinics.map((clinic, index) => {
               const isCurrent = isCurrentSite(clinic.url);
               const variant = String((index % 3) + 1);
+              const locations = getClinicLocations(clinic);
+              const cityLabel = Array.from(
+                new Set(locations.map((location) => location.city).filter(Boolean) as string[])
+              ).join(', ');
               const content = (
                 <>
                   <div className={styles.heading}>
@@ -78,12 +86,17 @@ export default function Network({ title, text, clinics = [] }: Props) {
                     )}
                     <div>
                       <p className={`p bold ${styles.name}`}>{clinic.name}</p>
-                      <p className={`p ${styles.city}`}>{clinic.city}</p>
+                      {cityLabel && <p className={`p ${styles.city}`}>{cityLabel}</p>}
                     </div>
                   </div>
-                  {clinic.address && <p className={`p ${styles.meta}`}>{clinic.address}</p>}
-                  {clinic.phone && <p className={`p ${styles.meta}`}>{clinic.phone}</p>}
-                  {clinic.email && <p className={`p ${styles.meta}`}>{clinic.email}</p>}
+                  {locations.map((location, locationIndex) => (
+                    <div key={`${clinic.name}-${location.city || 'location'}-${locationIndex}`} className={styles.location}>
+                      {location.city && <p className={`p ${styles.locationName}`}>{location.city}</p>}
+                      {location.address && <p className={`p ${styles.meta}`}>{location.address}</p>}
+                      {location.phone && <p className={`p ${styles.meta}`}>{location.phone}</p>}
+                      {location.email && <p className={`p ${styles.meta}`}>{location.email}</p>}
+                    </div>
+                  ))}
                   {isCurrent && <p className={styles.current}>Aktualnie przeglądasz</p>}
                 </>
               );

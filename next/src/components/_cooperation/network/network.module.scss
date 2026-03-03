@@ -44,6 +44,8 @@
     padding: 18px 18px 16px;
     display: grid;
     gap: 8px;
+    align-content: start;
+    align-items: start;
     text-decoration: none;
     box-shadow: 0 16px 36px -30px rgba(16, 23, 48, 0.45);
     transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
@@ -111,6 +113,22 @@
     color: var(--light-blue-600, #025e98);
     opacity: 0.9;
     margin-top: 2px;
+  }
+
+  .location {
+    margin-top: 8px;
+
+    &:first-of-type {
+      margin-top: 4px;
+    }
+  }
+
+  .locationName {
+    font-size: 12px;
+    line-height: 140%;
+    font-weight: 700;
+    color: var(--navy-600, #1f2e60);
+    opacity: 0.9;
   }
 
   .meta {
