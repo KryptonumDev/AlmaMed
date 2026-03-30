@@ -23,6 +23,8 @@ export default async function CooperationPage() {
             url,
             altText,
             metadata{
+              hasAlpha,
+              isOpaque,
               lqip,
               dimensions{
                 aspectRatio,

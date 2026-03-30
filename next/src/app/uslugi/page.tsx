@@ -42,6 +42,8 @@ export default async function Index() {
             url,
             altText,
             metadata{
+              hasAlpha,
+              isOpaque,
               lqip,
               dimensions{
                 aspectRatio,

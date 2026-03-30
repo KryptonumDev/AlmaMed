@@ -48,6 +48,8 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           url,
           altText,
           metadata{
+            hasAlpha,
+            isOpaque,
             lqip,
             dimensions{
               aspectRatio,
