@@ -13,6 +13,11 @@
     > svg {
       position: absolute;
     }
+
+    image {
+      y: 58%;
+    }
+
     @media (max-width: 1239px) {
       image {
         x: 50%;
@@ -38,6 +43,7 @@
 
     @media (max-width: 480px) {
       height: 540px;
+
       image {
         width: 500px;
         x: 36.5%;
@@ -50,16 +56,24 @@
     min-height: 1000px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
+    padding-top: 260px;
+    padding-bottom: 120px;
 
     @media (max-width: 1080px) {
       min-height: 0;
-      margin-top: 240px;
+      padding-top: 220px;
+      padding-bottom: 56px;
 
       .content {
         margin: 0 auto;
       }
+    }
+
+    @media (max-width: 480px) {
+      padding-top: 200px;
+      padding-bottom: 40px;
     }
 
     .content {
@@ -78,6 +92,55 @@
       .text {
         max-width: 500px;
       }
+    }
+
+    .photoMedia {
+      position: relative;
+      width: min(100%, 560px);
+      max-width: 560px;
+      aspect-ratio: var(--photo-aspect-ratio, 1.4);
+      z-index: 1;
+      pointer-events: none;
+      justify-self: center;
+      align-self: center;
+      margin-left: auto;
+
+      @media (max-width: 1239px) {
+        width: min(100%, 520px);
+      }
+
+      @media (max-width: 1080px) {
+        margin: 60px auto 0;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    .photoCard {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 0;
+      box-shadow:
+        0 18px 36px rgba(31, 46, 96, 0.12),
+        0 4px 10px rgba(31, 46, 96, 0.06);
+      background: transparent;
+      isolation: isolate;
+      z-index: 1;
+
+      @media (max-width: 480px) {
+        border-radius: 28px;
+      }
+    }
+
+    .photoCardImage {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      background: transparent;
     }
 
     .buttons {
@@ -106,6 +169,46 @@
         display: flex;
         align-items: center;
         gap: 12px;
+      }
+    }
+  }
+
+  .wrapPhoto {
+    min-height: 860px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 560px);
+    align-items: center;
+    column-gap: clamp(32px, 5vw, 72px);
+    padding-top: 220px;
+    padding-bottom: 120px;
+
+    @media (max-width: 1239px) {
+      grid-template-columns: minmax(0, 1fr) minmax(380px, 520px);
+      column-gap: 32px;
+    }
+
+    @media (max-width: 1080px) {
+      min-height: 0;
+      grid-template-columns: 1fr;
+      row-gap: 8px;
+      padding-top: 220px;
+      padding-bottom: 56px;
+    }
+
+    @media (max-width: 480px) {
+      padding-top: 200px;
+      padding-bottom: 40px;
+    }
+
+    .content {
+      max-width: 768px;
+
+      .text {
+        max-width: 600px;
+      }
+
+      @media (max-width: 1080px) {
+        margin: 0 auto;
       }
     }
   }

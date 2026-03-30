@@ -28,6 +28,8 @@ export interface Props {
       url: string;
       altText: string;
       metadata: {
+        hasAlpha?: boolean;
+        isOpaque?: boolean;
         lqip: string;
         dimensions: {
           aspectRatio: number;
@@ -42,6 +44,8 @@ export interface Props {
       url: string;
       altText: string;
       metadata: {
+        hasAlpha?: boolean;
+        isOpaque?: boolean;
         lqip: string;
         dimensions: {
           aspectRatio: number;
@@ -59,6 +63,8 @@ export interface ImageProps {
       url: string;
       altText: string;
       metadata: {
+        hasAlpha?: boolean;
+        isOpaque?: boolean;
         lqip: string;
         dimensions: {
           aspectRatio: number;
@@ -73,6 +79,8 @@ export interface ImageProps {
       url: string;
       altText: string;
       metadata: {
+        hasAlpha?: boolean;
+        isOpaque?: boolean;
         lqip: string;
         dimensions: {
           aspectRatio: number;

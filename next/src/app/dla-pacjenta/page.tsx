@@ -2,14 +2,13 @@ import Hero from '@/components/_global/hero';
 import { sanityFetch } from '../../utils/sanity-client';
 import Localization from '@/components/_global/localization';
 import Instructions from '@/components/_for-patient/instructions';
-import Video from '@/components/_global/video';
 import Freebie from '@/components/_services/freebie';
 import Faq from '@/components/_global/faq';
 import TestLocalizations from '@/components/_for-patient/test-localizations';
 import Seo from '@/components/ui/seo';
 
 export default async function Index() {
-  const { page, global } = await sanityFetch<any>({
+  const { page } = await sanityFetch<any>({
     query: `{
     "page": *[_id == "ForPatient"][0]{
       // Hero
@@ -42,6 +41,8 @@ export default async function Index() {
           url,
           altText,
           metadata{
+            hasAlpha,
+            isOpaque,
             lqip,
             dimensions{
               aspectRatio,
@@ -144,16 +145,6 @@ export default async function Index() {
             }
           }
         }
-      },
-    },
-    "global": *[_id == "global"][0]{
-      registration_heading,
-      registration_steps[],
-      registration_paragraph,
-      registration_video{
-        asset->{
-          url
-        }
       }
     }
   }`,
@@ -178,12 +169,6 @@ export default async function Index() {
         title={page.instructions_heading}
         text={page.instructions_paragraph}
         list={page.instructions_list}
-      />
-      <Video
-        title={global.registration_heading}
-        text={global.registration_paragraph}
-        video={global.registration_video}
-        steps={global.registration_steps}
       />
       <TestLocalizations
         title={page.testsLocalizations_heading}

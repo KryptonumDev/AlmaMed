@@ -2,7 +2,7 @@ import { sanityFetch } from '../../../utils/sanity-client';
 import HeaderContent from './header-content';
 
 export default async function Header() {
-  const { addresses } = await sanityFetch<any>({
+  const { addresses, global } = await sanityFetch<any>({
     query: /* groq */ `{
       "addresses": *[_type == "localizations"]{
         book,
@@ -10,10 +10,24 @@ export default async function Header() {
         email,
         time,
         shortName
+      },
+      "global": *[_id == "global"][0]{
+        networkClinics[]{
+          name,
+          shortName,
+          locations[]{
+            city,
+            address,
+            phone,
+            email
+          },
+          url,
+          isActive
+        }
       }
     }`,
   });
   return (
-    <HeaderContent addresses={addresses}/>
+    <HeaderContent addresses={addresses} networkClinics={global?.networkClinics || []}/>
   );
 }

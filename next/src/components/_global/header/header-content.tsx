@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowUp, Calendar, Letter, Phone } from './header.icons';
 import { Logo } from '../../ui/logo';
 import Search from './header-search';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const links = [
   {
@@ -19,12 +19,14 @@ const links = [
   },
   { label: 'Specjaliści', href: '/specjalisci' },
   { label: 'Dla pacjenta', href: '/dla-pacjenta' },
+  { label: 'Współpraca', href: '/wspolpraca' },
   { label: 'Kontakt', href: '/kontakt' },
   { label: 'Blog', href: '/blog' },
 ];
 
 export default function HeaderContent({
   addresses,
+  networkClinics = [],
 }: {
   addresses: Array<{
     book: string;
@@ -33,9 +35,53 @@ export default function HeaderContent({
     time: string;
     shortName: string;
   }>;
+  networkClinics?: Array<{
+    name: string;
+    shortName: string;
+    locations?: Array<{
+      city?: string;
+      address?: string;
+      phone?: string;
+      email?: string;
+    }>;
+    url: string;
+    isActive?: boolean;
+  }>;
 }) {
   const [navOpen, setNavOpen] = useState(false);
   const [activeAddress, setActiveAddress] = useState(0);
+  const [currentHostname, setCurrentHostname] = useState('');
+
+  useEffect(() => {
+    setCurrentHostname(window.location.hostname.toLowerCase());
+  }, []);
+
+  const visibleNetworkClinics = useMemo(
+    () => networkClinics.filter((clinic) => clinic?.isActive !== false && clinic?.url),
+    [networkClinics]
+  );
+
+  const isCurrentClinic = (url: string) => {
+    if (!url || !currentHostname) return false;
+    if (url === '/') return true;
+
+    try {
+      const clinicHostname = new URL(url).hostname.toLowerCase().replace('www.', '');
+      const normalizedCurrent = currentHostname.replace('www.', '');
+      return clinicHostname.includes(normalizedCurrent) || normalizedCurrent.includes(clinicHostname);
+    } catch {
+      return false;
+    }
+  };
+
+  const getClinicLocations = (clinic: {
+    locations?: Array<{
+      city?: string;
+      address?: string;
+      phone?: string;
+      email?: string;
+    }>;
+  }) => clinic.locations || [];
 
   return (
     <header className={`${styles.wrapper}`}>
@@ -46,21 +92,53 @@ export default function HeaderContent({
         Przejdź do treści
       </a>
       <div className={styles.annotation}>
+        {visibleNetworkClinics.length > 0 && (
+          <div className={styles.networkBar}>
+            <p className={styles.networkLabel}>Nasze placówki:</p>
+            <ul className={styles.networkList}>
+              {visibleNetworkClinics.map((clinic, index) => {
+                const current = isCurrentClinic(clinic.url);
+                const locations = getClinicLocations(clinic);
+                const cityLabel = Array.from(
+                  new Set(locations.map((location) => location.city).filter(Boolean) as string[])
+                ).join(', ');
+                const clinicLabel = cityLabel ? `${clinic.name} (${cityLabel})` : clinic.name;
+                return (
+                  <li key={`${clinic.name}-${clinic.url}`}>
+                    {current ? (
+                      <span className={styles.networkLink} data-current='true'>
+                        {clinicLabel}
+                      </span>
+                    ) : clinic.url.startsWith('/') ? (
+                      <Link className={styles.networkLink} href={clinic.url}>
+                        {clinicLabel}
+                      </Link>
+                    ) : (
+                      <a className={styles.networkLink} href={clinic.url} target='_blank' rel='noreferrer'>
+                        {clinicLabel}
+                      </a>
+                    )}
+                    {index < visibleNetworkClinics.length - 1 && <span className={styles.separator}>|</span>}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
         <div className={styles.part}>
           <p className={styles.addresses}>
             {addresses.map((el, i) => (
-              <>
+              <span key={el.shortName} className={styles.locationChoice}>
                 {i > 0 && <span>|</span>}
                 <button
                   className={i === activeAddress ? styles.active : 'underline'}
-                  key={el.shortName}
                   onClick={() => {
                     setActiveAddress(i);
                   }}
                 >
                   {el.shortName}
                 </button>
-              </>
+              </span>
             ))}
           </p>
           <p>{addresses[activeAddress].time}</p>
@@ -148,18 +226,17 @@ export default function HeaderContent({
             ))}
             <li className={`${styles.addresses} ${styles.mobile}`}>
               {addresses.map((el, i) => (
-                <>
+                <span key={el.shortName} className={styles.locationChoice}>
                   {i > 0 && <span>|</span>}
                   <button
                     className={i === activeAddress ? styles.active : 'underline'}
-                    key={el.shortName}
                     onClick={() => {
                       setActiveAddress(i);
                     }}
                   >
                     {el.shortName}
                   </button>
-                </>
+                </span>
               ))}
             </li>
             <li className={styles.mobile}>

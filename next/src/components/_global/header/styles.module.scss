@@ -4,9 +4,12 @@
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - clamp(18px, calc(98vw / 7.68), 160px));
-  max-width: 1208px;
+  max-width: 1408px;
   margin: 0 auto;
   padding: 16px clamp(8px, calc(48vw / 7.68), 78px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-sizing: content-box;
   z-index: 100;
 
@@ -41,7 +44,80 @@
     align-items: center;
     transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     flex-wrap: wrap;
+    width: 100%;
     max-width: 1280px;
+
+    .networkBar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 2px;
+      border-bottom: 1px solid rgba(32, 33, 35, 0.2);
+
+      @media (max-width: 960px) {
+        display: none;
+      }
+
+      @media (max-width: 940px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+    }
+
+    .networkLabel {
+      margin-top: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.48px;
+      font-size: 13px;
+      line-height: 130%;
+    }
+
+    .networkList {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 6px;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+    }
+
+    .networkLink {
+      color: var(--neutral-900, #202123);
+      font-size: 14px;
+      line-height: 145%;
+      letter-spacing: 0.28px;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition:
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        border-color: currentColor;
+      }
+
+      &[data-current='true'] {
+        font-weight: 700;
+        border-color: currentColor;
+      }
+    }
+
+    .separator {
+      opacity: 0.6;
+      font-size: 13px;
+    }
 
     .part {
       display: flex;
@@ -81,6 +157,12 @@
     align-items: center;
     gap: 4px;
 
+    .locationChoice {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
     button {
       border: none;
       background-color: transparent;
@@ -98,13 +180,13 @@
     transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     background: #f9f9f9;
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
     padding: 12px 40px;
     border-radius: 16px;
     gap: 32px;
 
-    max-width: 1280px;
+    max-width: 1380px;
     width: 100%;
 
     @media (max-width: 580px) {
@@ -117,6 +199,7 @@
       height: fit-content;
       display: flex;
       align-items: center;
+      margin-right: auto;
 
       svg {
         width: 100%;
@@ -134,7 +217,7 @@
 
       ul {
         display: flex;
-        gap: 48px;
+        gap: 24px;
 
         .mobile {
           display: none;
@@ -201,7 +284,9 @@
         max-width: 320px;
         border-radius: 0px 0px 32px 0px;
         background: var(--light-blue-100, #f8fcff);
-        box-shadow: 0px 2px 8px 0px rgba(92, 145, 178, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        box-shadow:
+          0px 2px 8px 0px rgba(92, 145, 178, 0.25),
+          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         padding: 24px 15px 48px 15px;
 
         transform: translateX(-100%);

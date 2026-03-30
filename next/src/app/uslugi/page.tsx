@@ -4,13 +4,12 @@ import Hero from '@/components/_global/hero';
 import Tiles from '@/components/_services/tiles';
 import { sanityFetch } from '../../utils/sanity-client';
 import PaymentMethods from '@/components/_services/payment-methods';
-import Video from '@/components/_global/video';
 import Freebie from '@/components/_services/freebie';
 import Faq from '@/components/_global/faq';
 import Seo from '@/components/ui/seo';
 
 export default async function Index() {
-  const { page, global } = await sanityFetch<any>({
+  const { page } = await sanityFetch<any>({
     query: `{
       "page": *[_id == "servicesPage"]{
         // Hero
@@ -43,6 +42,8 @@ export default async function Index() {
             url,
             altText,
             metadata{
+              hasAlpha,
+              isOpaque,
               lqip,
               dimensions{
                 aspectRatio,
@@ -179,16 +180,6 @@ export default async function Index() {
           question
         }
       }[0],
-      "global": *[_id == 'global']{
-        registration_heading,
-        registration_steps[],
-        registration_paragraph,
-        registration_video{
-          asset->{
-            url
-          }
-        }
-      }[0],
     }`,
   });
 
@@ -230,12 +221,6 @@ export default async function Index() {
         title={page.payment_methods_heading}
         text={page.payment_methods_paragraph}
         image={page.payment_methods_image}
-      />
-      <Video
-        title={global.registration_heading}
-        text={global.registration_paragraph}
-        video={global.registration_video}
-        steps={global.registration_steps}
       />
       <Freebie
         title={page.freebie_heading}

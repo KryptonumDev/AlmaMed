@@ -2,7 +2,6 @@ import Treatments from '@/components/_services/treatments';
 import { sanityFetch } from '../../../utils/sanity-client';
 import { notFound } from 'next/navigation';
 import Flex from '@/components/_services/flex';
-import Video from '@/components/_global/video';
 import BlogSlider from '@/components/_global/blog-slider';
 import Hero from '@/components/_global/hero';
 import Freebie from '@/components/_services/freebie';
@@ -49,6 +48,8 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           url,
           altText,
           metadata{
+            hasAlpha,
+            isOpaque,
             lqip,
             dimensions{
               aspectRatio,
@@ -214,15 +215,7 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
     },
     "global": *[_id == 'global'][0]{
       blog_heading,
-      blog_paragraph,
-      registration_heading,
-      registration_steps[],
-      registration_paragraph,
-      registration_video{
-        asset->{
-          url
-        }
-      }
+      blog_paragraph
     },
     "posts": *[_type == 'blogEntry'][0...2]{
       _updatedAt,
@@ -325,12 +318,6 @@ export default async function Index({ params: { slug } }: { params: { slug: stri
           price={page.price}
         />
       )}
-      <Video
-        title={global.registration_heading}
-        text={global.registration_paragraph}
-        video={global.registration_video}
-        steps={global.registration_steps}
-      />
       {page.faq_heading && page.faq_list && (
         <Faq
           title={page.faq_heading}
