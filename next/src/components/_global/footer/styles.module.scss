@@ -76,6 +76,37 @@
           margin-bottom: 12px;
         }
       }
+
+      .social {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .socialLink {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(32, 33, 35, 0.14);
+        background: rgba(249, 188, 65, 0.07);
+        color: inherit;
+        transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+          transform: translateY(-1px);
+          border-color: rgba(32, 33, 35, 0.28);
+          background: rgba(249, 188, 65, 0.14);
+        }
+
+        svg {
+          display: block;
+        }
+      }
     }
 
     .copyright {

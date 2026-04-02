@@ -1,8 +1,9 @@
 import styles from './styles.module.scss';
 import { Logo } from '../../ui/logo';
 import Link from 'next/link';
-import { Background, Blob, Kryptonum } from './footer.icons';
+import { Background, Kryptonum } from './footer.icons';
 import { sanityFetch } from '../../../utils/sanity-client';
+import { SocialLinks } from './social-links';
 
 const links = [
   {
@@ -75,10 +76,18 @@ type NetworkClinic = {
   };
 };
 
+type FooterGlobal = {
+  facebook?: string | null;
+  youtube?: string | null;
+  networkClinics?: NetworkClinic[];
+};
+
 export default async function Footer() {
-  const { global } = await sanityFetch<any>({
+  const { global } = await sanityFetch<{ global?: FooterGlobal }>({
     query: /* groq */ `{
       "global": *[_id == "global"][0]{
+        facebook,
+        youtube,
         networkClinics[]{
           name,
           shortName,
@@ -117,6 +126,7 @@ export default async function Footer() {
             <h3 className='h5'>Centrum Medyczne Alma Med</h3>
             <p className='p'>W trosce o dobre zdrowie Naszych Pacjentów</p>
           </div>
+          <SocialLinks facebook={global?.facebook} youtube={global?.youtube} />
         </div>
         <div className={styles.copyright}>
           <p className='p'>

@@ -17,6 +17,18 @@ export default {
         'If enabled SEO robots (such as Google) will be able to index the site in search engines.',
     },
     {
+      name: 'facebook',
+      type: 'string',
+      title: 'Facebook Link',
+      fieldset: 'social',
+    },
+    {
+      name: 'youtube',
+      type: 'string',
+      title: 'YouTube Link',
+      fieldset: 'social',
+    },
+    {
       name: 'registration_heading',
       type: 'markdown',
       title: 'Nagłówek',
@@ -199,6 +211,11 @@ export default {
       name: 'network',
       title: 'Sieć placówek',
       options: {collapsible: true},
+    },
+    {
+      name: 'social',
+      title: 'Social media',
+      options: {collapsible: true, collapsed: true},
     },
   ],
 }
