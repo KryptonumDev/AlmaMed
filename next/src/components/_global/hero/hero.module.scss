@@ -63,7 +63,7 @@
 
     @media (max-width: 1080px) {
       min-height: 0;
-      padding-top: 220px;
+      padding-top: 260px;
       padding-bottom: 56px;
 
       .content {
@@ -71,9 +71,27 @@
       }
     }
 
+    @media (max-width: 519px) {
+      padding-top: 280px;
+    }
+
     @media (max-width: 480px) {
       padding-top: 200px;
       padding-bottom: 40px;
+    }
+
+    &[data-is-cooperation-page='true'] {
+      @media (max-width: 1080px) {
+        padding-top: 280px;
+      }
+
+      @media (max-width: 529px) {
+        padding-top: 300px;
+      }
+
+      @media (max-width: 453px) {
+        padding-top: 340px;
+      }
     }
 
     .content {

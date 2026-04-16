@@ -96,6 +96,7 @@ export default async function CooperationPage() {
   return (
     <>
       <Hero
+        isCooperationPage
         title={page?.hero_Heading}
         text={page?.hero_Paragraph}
         list={[]}

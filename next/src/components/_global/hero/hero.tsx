@@ -10,13 +10,13 @@ import Images, { getHeroImageMode, pickHeroImage } from './hero-image';
 const defaultPlaceholder =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/v7NfwAJigPTkfv+7gAAAABJRU5ErkJggg==';
 
-export default function Hero({ title, text, list, cta, image, imageAlternative }: Props) {
+export default function Hero({ title, text, list, cta, image, imageAlternative, isCooperationPage = false }: Props) {
   const selectedImage = pickHeroImage(image, imageAlternative);
   const isPhoto = getHeroImageMode(selectedImage) === 'photo';
 
   return (
-    <section className={styles.wrapper}>
-      <div className={`${styles.wrap} ${isPhoto ? styles.wrapPhoto : ''} container`}>
+    <section className={styles.wrapper} >
+      <div className={`${styles.wrap} ${isPhoto ? styles.wrapPhoto : ''} container`} data-is-cooperation-page={isCooperationPage}>
         <div className={styles.content}>
           <Markdown.h1
             className={styles.title}

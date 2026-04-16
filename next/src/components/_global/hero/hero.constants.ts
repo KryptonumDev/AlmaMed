@@ -1,4 +1,5 @@
 export interface Props {
+  isCooperationPage?: boolean;
   title: string;
   text: string;
   list: Array<{
