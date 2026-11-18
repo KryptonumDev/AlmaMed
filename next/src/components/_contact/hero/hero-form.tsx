@@ -118,7 +118,7 @@ export default function Form({
       />
       <Button
         arrow={true}
-        title='Zapisuję się'
+        title='Wyślij wiadomość'
         type='primary'
         disabled={status.sending}
       />
